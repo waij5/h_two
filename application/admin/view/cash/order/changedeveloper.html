@@ -1,0 +1,135 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <input type="hidden" name="sort" value="item_id" />
+                                <div class="form-group dislocationAll">
+                                    <label for="order_items.item_id" class="control-label labelLocation">{:__('Order_id')}</label>
+                                    <input type="number" name="order_items.item_id" class="form-control" />
+                                </div>
+                                {if is_null($orderStatus) }
+                                <div class="form-group">
+                                    <label for="order_items.item_status" class="control-label labelLocation">{:__('Order_status')}</label>
+                                </div>
+                                 <div class="form-group dislocationAll">
+                                    <select class="form-control" name="order_items.item_status">
+                                        {foreach name="orderStatusList" key="key" item="value"}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                {else}
+                                <input type="hidden" name="order_items.item_status" value="{$orderStatus}" />
+                                {/if}
+                                {if is_null($orderType) }
+                                <div class="form-group">
+                                    <label for="order_items.item_type" class="control-label labelLocation">{:__('Order_type')}</label>
+                                </div>
+                                 <div class="form-group dislocationAll">
+                                    <select class="form-control" name="order_items.item_type">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $orderTypeList as $orderType => $orderTypeTitle}
+                                        <option value="{$orderType}">{:__('order_type_' . $orderType)}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                {else}
+                                <input type="hidden" name="order_items.item_type" value="{$orderType}" />
+                                {/if}
+                                <!-- <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label labelLocation">{:__('Customer_id')}</label>
+                                    <input type="hidden" name="customer_id" class="form-control" id="field_ctm_id" />
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>    
+                                </div> -->
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_id" class="control-label searchPadding">{:__('Ctm_id')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_id" value="" placeholder="{:__('Ctm_id')}" id="customer.ctm_id">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_name" class="control-label searchPadding">{:__('Ctm_name')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_name" value="" placeholder="{:__('Ctm_name')}" id="customer.ctm_name">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_mobile" class="control-label searchPadding">{:__('Ctm_mobile')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_mobile" value="" placeholder="{:__('Ctm_mobile')}" id="customer.ctm_mobile">
+                                </div>
+                                <!-- 操作人          -->
+                                <div class="form-group"  style="margin:5px">
+                                     <label for="Develop_admin" class="control-label searchPadding">{:__('admin_id')}</label>
+                                    <div class="input-group">
+                                        <input id="c_nickname" class="form-control hidden" type="text" value="" name="order_items.admin_id">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12" onmouseleave="$(this).find('.word').addClass('hidden');">
+                                                <input type="text" id="project_search" onmouseenter="$(this).siblings().find('.word').removeClass('hidden')" autocomplete="off" value="" style="position: relative;" class="nickname form-control" />
+                                                <div style="position: relative;" >
+                                                    <ul id="word" data-index="" style="list-style:none;position: absolute;display: none;cursor: pointer;z-index: 999;height: auto;text-align: left;margin-top: 31px;" class="form-control word"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 营销人员 -->
+                                <div class="form-group"  style="margin:5px">
+                                     <label for="Develop_admin" class="control-label searchPadding">{:__('consult_admin_id')}</label>
+                                    <div class="input-group">
+                                        <input id="c_cnickname" class="form-control hidden" type="text" value="" name="order_items.consult_admin_id">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12" onmouseleave="$(this).find('.cword').addClass('hidden');">
+                                                <input type="text" id="project_search" onmouseenter="$(this).siblings().find('.cword').removeClass('hidden')" autocomplete="off" value="" style="position: relative;" class="cnickname form-control" />
+                                                <div style="position: relative;" >
+                                                    <ul id="cword" data-index="" style="list-style:none;position: absolute;display: none;cursor: pointer;z-index: 999;height: auto;text-align: left;margin-top: 31px;" class="form-control cword"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group dislocationAll" style="position: relative;">
+                                    <label for="createtime" class="control-label labelLocation">{:__('Createtime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="order_items.item_createtime_start" type="text" value="" id="order_items.item_createtime_start"> ~ <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="order_items.item_createtime_end" type="text" value="" id="order_items.item_createtime_end">
+                                </div>
+                                <br />
+                                <!-- 暂时隐藏 -->
+                                <div class="form-group hidden dislocationAll" style="position: relative;">
+                                    <label for="updatetime" class="control-label labelLocation">{:__('Updatetime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="updatetime_start" type="text" value="" id="updatetime_start"> ~ <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="updatetime_end" type="text" value="" id="updatetime_end">
+                                </div>
+                                <br />
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        <!-- {// :build_toolbar()} -->
+                        <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                        <a href="javascript:;" class="btn btn-success btn-change-developer" title="只能同时选择同一个客户">修改开单网络客服</a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-payorder="{:$auth->check('cash/balance/payorder')}" 
+                           data-operate-cancelorder="{:$auth->check('cash/order/cancelorder')}" 
+                           data-operate-deduct="{:$auth->check('cash/order/deduct')}" 
+                           data-operate-switchitem="{:$auth->check('cash/order/switchitem')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

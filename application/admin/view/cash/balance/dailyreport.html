@@ -1,0 +1,442 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <a class="btn btn-default" id="btn-print-dailyreport"><i class="fa fa-print" title="点击查看今日报表"></i></a>
+                    <div class="div-print">
+                        <h3 class="text-center">
+                            {$site.hospital|htmlspecialchars}
+                        </h3>
+                        <hr/>
+                        <form method="post" role="form">
+                        <h3>
+                            领导您好！
+                            <small>
+                                日期：
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="selectedDate" type="text" value="{$selectedDate}" style="width: 100px; display: inline-block;" />
+                            </small>
+                        </h3>
+                        </form>
+                        <h4>
+                            到诊汇总【人次】
+                        </h4>
+                        <table class="table table-bordered scrolltable" id="table" width="100%">
+                            <tr>
+                            {assign name="oscCProNo" value="0" /}
+                            {foreach $oscCProSummary as $cProId => $oscCnt}
+                            {php}
+                                
+                            if ($oscCProNo > 0 && $oscCProNo % 5 == 0) {
+                                echo <<<eee
+                                </tr>
+                                <tr>
+eee;
+                            }
+                            $oscCProNo ++;
+                            {/php}
+                                <td width="10%">
+                                    <b>{if isset($cProList[$cProId])}{$cProList[$cProId]}{/if}</b>
+                                </td>
+                                <td width="10%">{$oscCnt}</td>
+                            {/foreach}
+                            {for start="0" end="$cProPadCols"}
+                                <td width="10%">
+                                    <b></b>
+                                </td>
+                                <td width="10%"></td>
+                            {/for}
+                            </tr>
+                        </table>
+                        <hr/>
+                        <h4>
+                            现场汇总
+                        </h4>
+                        <table class="table table-striped table-bordered table-hover scrolltable" id="table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        {:__('Osconsult_admin')}
+                                    </th>
+                                    <th>
+                                        {:__('First visit count')}
+                                    </th>
+                                    <th>
+                                        {:__('Success count')}
+                                    </th>
+                                   <!--  <th>
+                                        {:__('Success rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('First visit total')}
+                                    </th>
+                                    <th>
+                                        {:__('Return visit count')}
+                                    </th>
+                                    <th>
+                                        {:__('Success count')}
+                                    </th>
+                                    <!-- <th>
+                                        {:__('Success rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('Return visit total')}
+                                    </th>
+                                    <th>
+                                        {:__('Reconsume count')}
+                                    </th>
+                                    <th>
+                                        {:__('Success count')}
+                                    </th>
+                                   <!--  <th>
+                                        {:__('Success rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('Reconsume visit total')}
+                                    </th>
+                                    <!-- 复查 -->
+                                    <th>
+                                        {:__('Review count')}
+                                    </th>
+                                    <th>
+                                        {:__('Success count')}
+                                    </th>
+                                    <!-- <th>
+                                        {:__('Success rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('Review total')}
+                                    </th>
+                                    <!-- 其他 -->
+                                    <th>
+                                        {:__('other count')}
+                                    </th>
+                                    <th>
+                                        {:__('Success count')}
+                                    </th>
+                                    <!-- <th>
+                                        {:__('Success rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('other total')}
+                                    </th>
+                                    <th>
+                                        {:__('Reception total')}
+                                    </th>
+                                    <th>
+                                        {:__('Success total')}
+                                    </th>
+                                    <!-- <th>
+                                        {:__('Success total rate')}
+                                    </th> -->
+                                    <th>
+                                        {:__('Reception total rate')}
+                                    </th>
+                                    <th>
+                                        {:__('Consumption total')}
+                                    </th>
+                                    <th>
+                                        {:__('Percent')}
+                                    </th>
+                                    <th>
+                                        {:__('Consumption per person')}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {foreach $dailyOscStatistic['subs'] as $dailyOscSub}
+                                <tr>
+                                    <td>
+                                        {$dailyOscSub['staffName']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['first_v_count']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['first_v_success_count']}
+                                    </td>
+                                    <!-- <td>
+                                        {$dailyOscSub['first_v_success_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['first_v_total']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['return_v_count']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['return_v_success_count']}
+                                    </td>
+                                    <!-- <td>
+                                        {$dailyOscSub['return_v_success_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['return_v_total']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['reconsume_count']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['reconsume_success_count']}
+                                    </td>
+                                    <!-- <td>
+                                        {$dailyOscSub['reconsume_success_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['reconsume_total']}
+                                    </td>
+                                    <!-- // 复查 -->
+                                    <td>
+                                        {$dailyOscSub['review_v_count']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['review_v_success_count']}
+                                    </td>
+                                    <!-- <td>
+                                        {$dailyOscSub['review_v_success_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['review_v_total']}
+                                    </td>
+                                    <!-- // 其他 -->
+                                    <td>
+                                        {$dailyOscSub['other_v_count']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['other_v_success_count']}
+                                    </td>
+                                    <!-- <td>
+                                        {$dailyOscSub['other_v_success_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['other_v_total']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['reception_total']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['success_total']}
+                                    </td>
+                                   <!--  <td>
+                                        {$dailyOscSub['success_total_rate']}
+                                    </td> -->
+                                    <td>
+                                        {$dailyOscSub['reception_percent']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['consumption_total']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['percent']}
+                                    </td>
+                                    <td>
+                                        {$dailyOscSub['consumption_per_person']}
+                                    </td>
+                                </tr>
+                                {/foreach}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>
+                                        {$dailyOscStatistic['total']['staffName']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['first_v_count']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['first_v_success_count']}
+                                    </th>
+                                    <!-- <th>
+                                        {$dailyOscStatistic['total']['first_v_success_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['first_v_total']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['return_v_count']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['return_v_success_count']}
+                                    </th>
+                                    <!-- <th>
+                                        {$dailyOscStatistic['total']['return_v_success_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['return_v_total']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['reconsume_count']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['reconsume_success_count']}
+                                    </th>
+                                    <!-- <th>
+                                        {$dailyOscStatistic['total']['reconsume_success_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['reconsume_total']}
+                                    </th>
+                                    <!-- // 复查 -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['review_v_count']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['review_v_success_count']}
+                                    </th>
+                                    <!-- <th>
+                                        {$dailyOscStatistic['total']['review_v_success_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['review_v_total']}
+                                    </th>
+                                    <!-- // 其他 -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['other_v_count']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['other_v_success_count']}
+                                    </th>
+                                    <!-- <th>
+                                        {$dailyOscStatistic['total']['other_v_success_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['other_v_total']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['reception_total']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['success_total']}
+                                    </th>
+                                   <!--  <th>
+                                        {$dailyOscStatistic['total']['success_total_rate']}
+                                    </th> -->
+                                    <th>
+                                        {$dailyOscStatistic['total']['reception_percent']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['consumption_total']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['percent']}
+                                    </th>
+                                    <th>
+                                        {$dailyOscStatistic['total']['consumption_per_person']}
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <h4>
+                            科室汇总
+                        </h4>
+                        <table class="table table-bordered scrolltable" id="table" width="100%">
+                            
+                            <tr>
+                                <td><b>科室</b></td>
+                                {foreach $deductDepts as $deptId => $deptName}
+                                <td>{$deptName|htmlspecialchars}</td>
+                                {/foreach}
+                            </tr>
+                            <tr>
+                                <td><b>当日到诊</b></td>
+                                {foreach $deductDepts as $deptId => $deptName}
+                                <td>
+                                {if isset($deptOscSummary[$deptId])}
+                                    {$deptOscSummary[$deptId]}
+                                {else}
+                                    0
+                                {/if}
+                                </td>
+                                {/foreach}
+                            </tr>
+                            <tr>
+                                <td><b>当日业绩</b></td>
+                                {foreach $deductDepts as $deptId => $deptName}
+                                <td>
+                                    {if isset($deptSummary[$deptId])}
+                                        {$deptSummary[$deptId]}
+                                    {else}
+                                        0
+                                    {/if}
+                                </td>
+                                {/foreach}
+                            </tr>
+                        </table>
+                        <hr/>
+                        <h4>
+                            收款
+                        </h4>
+                        <table class="table table-striped table-bordered table-hover scrolltable" id="table" width="100%">
+                            <tr>
+                                <td>
+                                    <b>
+                                        日收入：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$dailyBalanceSummary['in_pay_total']}
+                                </td>
+                                <td>
+                                    <b>
+                                        当日退费：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$dailyBalanceSummary['out_pay_total']}
+                                </td>
+                                <td>
+                                    <b>
+                                        实际日收：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$dailyBalanceSummary['pay_total']}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>
+                                        月收入：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$monthlyBalanceSummary['in_pay_total']}
+                                </td>
+                                <td>
+                                    <b>
+                                        当月退费：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$monthlyBalanceSummary['out_pay_total']}
+                                </td>
+                                <td>
+                                    <b>
+                                        实际月收：
+                                    </b>
+                                </td>
+                                <td>
+                                    {$monthlyBalanceSummary['pay_total']}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    /*.bootstrap-table{width: 58%;}*/
+    /*html{height: 100%;}body{overflow-y: hidden;}.contentLeft{overflow-y: auto;}*/
+    
+    .panel{box-shadow: none;}
+    .panel-body{padding-bottom: 0;}
+    .contentLeft{background-color: #fff;}
+    .fixed-table-pagination .pagination-detail, .fixed-table-pagination div.pagination{margin-bottom: 0;}
+    .contentTable {
+        height: 250px;
+        min-height: 250px;
+    }
+</style>

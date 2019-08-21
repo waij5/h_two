@@ -1,0 +1,84 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <!-- <div class="form-group dislocationAll">
+                                    <label for="pro_id" class="control-label searchPadding">{:__('Pro_id')}</label>
+                                    <select class="form-control" required="" name="pro_id" id="pro_id">
+                                        {foreach $proList as $key => $pro_name}
+                                            <option value="{$key}">{$pro_name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="order_num" class="control-label searchPadding">{:__('Order_num')}</label>
+                                    <input type="text" class="form-control" name="order_num" value="" placeholder="{:__('Order_num')}" id="order_num"> 
+                                </div>
+
+                                 <div class="form-group dislocationAll">
+                                    <label for="admin_id" class="control-label searchPadding">{:__('Admin_id')}</label>
+                                    <!-- <input type="text" class="form-control" name="admin_id" value="" placeholder="{:__('Admin_id')}" id="admin_id"> --> 
+                                    <select class="selectpicker show-tick form-control" required="" name="admin_id" id="admin_id" data-live-search="true">
+                                        {foreach $adminList as $adminkey => $nickname}
+                                            <option value="{$adminkey}">{$nickname}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="dept_id" class="control-label searchPadding">{:__('Dept_id')}</label>
+                                    <select class="selectpicker show-tick form-control" required="" name="dept_id" id="dept_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $deptList as $key => $dept}
+                                        <option value="{$key}">{$dept.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- <div class="clearfix"></div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="createtime" class="control-label searchPadding">{:__('Createtime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_start" type="text" value="" id="createtime_start"> ~ <input  class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_end" type="text" value="" id="createtime_end">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label searchPadding">{:__('Customer_id')}</label>
+                                    <!-- <input type="text" class="form-control" name="customer_id" value="" placeholder="{:__('Customer_id')}" id="customer_id"> -->
+                                    <input type="hidden" name="customer_id" class="form-control" id="field_ctm_id" value="" />
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success" style="margin-right: 5px;">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        <!-- {:build_toolbar()} -->
+                        <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                        <a href="javascript:;" class="btn btn-primary btn-add">添加</a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('customer/deptprorecords/edit')}" 
+                           data-operate-del="{:$auth->check('customer/deptprorecords/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

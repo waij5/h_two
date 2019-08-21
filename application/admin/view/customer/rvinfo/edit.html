@@ -1,0 +1,420 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <ul id="myTab" class="nav nav-tabs">
+        <li>
+            <a href="#basic" data-toggle="tab">{:__('Basic info')}</a>
+        </li>
+        <li>
+            <a href="#extra" data-toggle="tab">{:__('Extra info')}</a>
+        </li>
+        <li class="active">
+            <a href="#rvinfo" data-toggle="tab">{:__('rvinfo info')}</a>
+        </li>
+        <li>
+            <a href="#conHistory" data-toggle="tab">{:__('Consult history')}</a>
+        </li>
+        <li>
+            <a href="#osconHistory" data-toggle="tab">{:__('Osconsult history')}</a>
+        </li>
+        <li>
+            <a href="#orderHistory" data-toggle="tab">{:__('Order history')}</a>
+        </li>
+        <li>
+            <a href="#rvinfoHistory" data-toggle="tab">{:__('Rvinfo history')}</a>
+        </li>
+         <li>
+            <a data-toggle="tab" href="#hmOrderHistory">
+                {:__('Hm order history')}
+            </a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="rvinfo">
+        <div class="form-group col-sm-6 col-xs-6 hidden">
+        <label for="c-rvi_tel" class="control-label col-xs-4 col-sm-4">{:__('Rvi_tel')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-rvi_tel" readonly class="form-control" name="row[rvi_tel]" type="text" value="{$row.rvi_tel}">
+        </div>
+    </div>
+      <!-- 手机号/电话 -->
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-ctm_mobile" class="control-label col-xs-4 col-sm-4 ">{:__('ctm_mobile')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-ctm_mobile" class="form-control" readonly  type="text" value="{$customer.ctm_mobile}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-ctm_tel" class="control-label col-xs-4 col-sm-4 ">{:__('ctm_tel')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-ctm_tel" class="form-control" readonly type="text" value="{$customer.ctm_tel}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-customer_id" class="control-label col-xs-4 col-sm-4">{:__('Customer_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-customer_id" data-rule="required" readonly class="form-control" name="row[customer_id]" type="text" value="{$ctm_name}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-rvt_type" class="control-label col-xs-4 col-sm-4">{:__('Rvt_type')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-rvt_type" data-rule="required" readonly class="form-control" name="row[rvt_type]" type="text" value="{$row.rvt_type}">
+            <!-- {:build_select('row[rvt_type]', $typeList, $row.rvt_type, ['class'=>'form-control selectpicker', 'required'=>''])} -->
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6 hidden">
+        <label for="c-rv_status" class="control-label col-xs-4 col-sm-4">{:__('Rv_status')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <select class="form-control" id="sel-rv-status" name="row[rv_status]">
+            {foreach $rvStatusList as $key => $rvStatus}
+                <option value="{$key}">{$rvStatus}</option>
+            {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-xs-12">
+        <label for="c-rvi_content" class="control-label col-xs-2 col-sm-2">{:__('Rvi_content')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <textarea id="c-rvi_content" data-rule="required" class="form-control summernote" rows="5" name="row[rvi_content]" cols="50">{$row.rvi_content|htmlspecialchars}</textarea>
+        </div>
+    </div>
+    <!-- <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-12 col-sm-4">{:__('Admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_id" data-rule="required" data-source="admin/index" data-field="nickname" class="form-control selectpage" name="row[admin_id]" type="text" value="{$row.admin_id}">
+            <input id="c-admin_id" data-rule="required" readonly class="form-control" name="row[admin_id]" type="text" value="{$admin.nickname}">
+        </div>
+    </div> -->
+
+    <div class="form-group col-xs-12 col-sm-12" id="div-rv-fat">
+        <label for="c-fat_id" class="control-label col-xs-2 col-sm-2">{:__('Rv_fat_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+        {:build_select('row[fat_id]', $fatList, $row.fat_id, ['class'=>'form-control selectpicker'])}
+        </div>
+    </div>
+        </div>
+        <div class="tab-pane fade" id="basic">
+            <div class="panel-body">
+                <input type="hidden" name="customer[ctm_id]" value="{$customer.ctm_id}" />
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_name" class="control-label col-xs-12 col-sm-4">{:__('Ctm_name')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+
+                        <input id="c-ctm_name" data-rule="required" class="form-control" name="customer[ctm_name]" type="text" value="{$customer.ctm_name}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_sex" class="control-label col-xs-12 col-sm-4">{:__('Ctm_sex')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('customer[ctm_sex]', $genderList, $customer.ctm_sex, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_birthdate" class="control-label col-xs-12 col-sm-4">{:__('Ctm_birthdate')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_birthdate" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="customer[ctm_birthdate]" type="text" value="{$customer.ctm_birthdate}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                <label class="control-label col-xs-12 col-sm-4" for="c-ctm_birthdate">
+                    {:__('Ctm age')}:
+                </label>
+                <div class="col-xs-12 col-sm-8">
+                    <input type="text" readonly value="{if $customer.ctm_birthdate}{:calcAge($customer.ctm_birthdate)}{/if}" class="form-control">
+                </div>
+            </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_tel" class="control-label col-xs-12 col-sm-4">{:__('Ctm_tel')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_tel" class="form-control" data-rule="required;tel2" name="customer[ctm_tel]" type="text" value="{$customer.ctm_tel}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_mobile" class="control-label col-xs-12 col-sm-4">{:__('Ctm_mobile')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_mobile" class="form-control" data-rule="required;mobile2" name="customer[ctm_mobile]" type="text" value="{$customer.ctm_mobile}">
+                    </div>
+                </div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm_source" class="control-label col-xs-12 col-sm-4">{:__('Ctm_source')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('customer[ctm_source]', $ctmSrcList, $customer.ctm_source, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])}
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                        <label for="c-ctm_first_search" class="control-label col-xs-12 col-sm-4">{:__('ctm_first_search')}:</label>
+                        <div class="col-xs-12 col-sm-8">
+                            {if ($customer['ctm_id'])}
+                            <input id="c-ctm_first_search" class="form-control"  name="customer[ctm_first_search]" type="text" value="{$customer.ctm_first_search}">
+                            {else}
+                            <input id="c-ctm_first_search" class="form-control" name="customer[ctm_first_search]" type="text" value="">
+                            {/if}
+                        </div>
+                    </div>
+
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_source" class="control-label col-xs-12 col-sm-4">{:__('Ctm_explore')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('customer[ctm_explore]', $channelList, $customer.ctm_explore, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                     <!-- 客户分类 -->
+                 <div class="form-group col-sm-6">
+                    <label for="c-ctm_type" class="control-label col-xs-3 col-sm-4 col-style">{:__('ctm_type')}:</label>
+                    <div class="col-xs-6 col-sm-8 col-style">
+                        {:build_select('customer[ctm_type]', $ctmtypeList, $customer.ctm_type, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+
+                     <div class="form-group col-sm-6">
+                        <label for="c-rec_customer_id" class="control-label col-xs-12 col-sm-4" >{:__('rec_customer_id')}</label>
+                        <div class="col-xs-12 col-sm-8">
+                            {if ($customer['ctm_id'])}
+                               
+                                <label class="control-label" name="customer[rec_customer_id]">{recCustomerName}</label>
+                            {else}
+                                <input type="hidden" name="customer[rec_customer_id]" class="form-control" id="field_ctm_id" />
+                                <a href="javascript:;" id="a-search-customer">
+                                    <input type="text"  id="field_ctm_name" class="form-control" value="{recCustomerName}" />
+                                </a>
+                                <!-- <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                    <i class="fa fa-trash"></i>清除
+                                </a>   -->
+                            {/if}
+                        </div>
+                    </div>
+               
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label for="c-ctm_addr" class="control-label col-xs-12 col-sm-2">{:__('Ctm_addr')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <!-- <input id="c-ctm_addr" class="form-control" name="customer[ctm_addr]" type="text" value="{$customer.ctm_addr}"> -->
+                        {php}
+                            $addrArr = explode('-', $customer['ctm_addr']);
+                        {/php}
+                        <div class="form-inline" data-toggle="cxselect" data-url="assets/libs/jquery-cxselect/js/cityData.min.json?v=1.01" data-selects="province,city,area" data-json-space="" data-json-name="n" data-json-value="" data-required="true">
+                            <select class="province form-control" name="customer[province]" data-value="{$addrArr[0] | default=''}"></select>
+                            <select class="city form-control" name="customer[city]" data-value="{$addrArr[1] | default=''}"></select>
+                            <select class="area form-control" name="customer[area]" data-value="{$addrArr[2] | default=''}"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="c-ctm_remark" class="control-label col-xs-12 col-sm-2">{:__('ctm_remark')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                    <textarea id="c-ctm_remark" class="form-control summernote" rows="3" name="customer[ctm_remark]">{$customer.ctm_remark|htmlspecialchars}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="extra">
+            <div class="panel-body">
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="c-ctm_company" class="control-label col-xs-4 col-sm-4">{:__('Ctm_company')}:</label>
+                    <div class="col-xs-8 col-sm-8">
+                        <input id="c-ctm_company" class="form-control" name="customer[ctm_company]" type="text" value="{$customer.ctm_company}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="c-ctm_job" class="control-label col-xs-4 col-sm-4">{:__('Ctm_job')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <!-- <input id="c-ctm_job" class="form-control" name="customer[ctm_job]" type="text" value="{$customer.ctm_job}"> -->
+                        <!-- jobList -->
+                        {:build_select('customer[ctm_job]', $jobList, $customer.ctm_job, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="c-ctm_zip" class="control-label col-xs-12 col-sm-4">{:__('Ctm_zip')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_zip" class="form-control" name="customer[ctm_zip]" type="text" value="{$customer.ctm_zip}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label for="c-ctm_email" class="control-label col-xs-12 col-sm-4">{:__('Ctm_email')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_email" class="form-control" name="customer[ctm_email]" type="text" value="{$customer.ctm_email}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label for="c-ctm_qq" class="control-label col-xs-12 col-sm-4">{:__('Ctm_qq')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_qq" class="form-control" name="customer[ctm_qq]" type="text" value="{$customer.ctm_qq}">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_wxid" class="control-label col-xs-12 col-sm-4">{:__('Ctm_wxid')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_wxid" class="form-control" name="customer[ctm_wxid]" type="text" value="{$customer.ctm_wxid}">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            <div class="form-group col-sm-6">
+                <label for="c-ctm_depositamt" class="control-label col-xs-12 col-sm-4">{:__('Ctm_depositamt')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <label class="control-label">{$customer.ctm_depositamt}</label>
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_coupamt" class="control-label col-xs-3 col-sm-4">{:__('ctm_coupamt')}:</label>
+                <label class="control-label">{$customer.ctm_coupamt}</label>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="c-ctm_salamt" class="control-label col-xs-12 col-sm-4">{:__('Ctm_salamt')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <label class="control-label">{$customer.ctm_salamt}</label>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                    <label for="c-ctm_rank_points" class="control-label col-xs-12 col-sm-4">{:__('ctm_rank_points')}:</label>
+                    <div class="col-xs-12 col-sm-8"><label class="control-label">{$customer.ctm_rank_points}</label></div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_pay_points" class="control-label col-xs-12 col-sm-4">{:__('ctm_pay_points')}:</label>
+                    <div class="col-xs-12 col-sm-8"><label class="control-label">{$customer.ctm_pay_points}</label></div>
+                </div>
+            <div class="clearfix"></div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm_ifrevmail" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifrevmail')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_ifrevmail"  class="form-control" name="customer[ctm_ifrevmail]" readonly type="hidden" value="{$customer.ctm_ifrevmail}">
+                        <label class="control-label">
+                            {if ($customer.ctm_ifrevmail)}
+                                {:__('Status_yes')}
+                            {else}
+                                {:__('Status_no')}
+                            {/if}
+                        </label>
+                    </div>
+                </div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm-ifbirth" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifbirth')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_ifbirth"  class="form-control" name="customer[ctm_ifbirth]" readonly type="hidden" value="{$customer.ctm_ifbirth}">
+                        <label class="control-label">
+                        {if ($customer.ctm_ifbirth)}
+                            {:__('Status_yes')}
+                        {else}
+                            {:__('Status_no')}
+                        {/if}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- consult history -->
+        <div class="tab-pane fade" id="conHistory">
+            <input type="hidden" id="conHistory-ids" value="{$row.customer_id}" />
+            <div class="widget-body no-padding">
+                <table id="conHistory-table" class="table table-striped table-bordered table-hover" width="100%">
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="osconHistory">
+            <input type="hidden" id="osconHistory-ids" value="{$row.customer_id}" />
+            <div class="widget-body no-padding">
+                <table id="osconHistory-table" class="table table-striped table-bordered table-hover" width="100%">
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="rvinfoHistory">
+            <input type="hidden" id="rvinfoHistory-ids" value="{$row.customer_id}" />
+            <div class="widget-body no-padding">
+                <a href="javascript:;" class="btn btn-primary btn-refresh btnRefresh" id="btn-refresh-rvinfo"><i class="fa fa-refresh"></i></a>
+                <a href="javascript:;" class="btn btn-success btn-add" style="float: left;margin: 10px 0;" id="addRvinfoHistory" value="{$row.customer_id}"><i class="fa fa-plus"></i> 添加</a>
+                <select id="h_rvinfo_by_plan" class="form-control" style="">
+                {foreach $definedRvPlans as $key => $definedRvPlan}
+                    <option value="{$key}">{$definedRvPlan}</option>
+                {/foreach}
+                </select>
+                <a class="btn btn-success btn-add" href="javascript:;" id="add_rvinfo_by_plan" style="" data-customer_id="{$customer.ctm_id}">
+                    <i class="fa fa-plus">
+                    </i>
+                    快速回访计划
+                </a>
+                <a class="btn btn-default btn-add" href="javascript:;" id="add_rvtype2" style="margin: 10px;" value="{$customer.ctm_id}">
+                    <i class="fa fa-plus">
+                    </i>
+                    添加回访计划
+                </a>
+                <table id="rvinfoHistory-table" class="table table-striped table-bordered table-hover" width="100%">
+                </table>
+            </div>
+        </div>
+        <!-- 订单显示 -->
+        <div class="tab-pane fade" id="orderHistory">
+            <input type="hidden" id="orderHistory-ids" value="{$customer.ctm_id}" />
+            <div class="widget-body no-padding">
+              <a href="javascript:;" class="btn btn-primary btn-refresh btnRefresh" id="btn-refresh-order"><i class="fa fa-refresh"></i></a>
+              <div style="line-height: 24px;font-size: 14px;float: left;padding-left: 5px; width: calc(100% - 140px);">
+                    <h4>
+                        <label class="control-label">
+                            {:__('item_pay_total')}&nbsp;
+                        </label>
+                        <span class="his-item_pay_total text-success">
+                            0
+                        </span>
+                        +
+                        <label class="control-label">
+                            {:__('item_coupon_total')}&nbsp;
+                        </label>
+                        <span class="text-warning his-item_coupon_total">
+                            0
+                        </span>
+                        =
+                        <label class="control-label">
+                            {:__('Item_total')}&nbsp;
+                        </label>
+                        <span class="text-warning his-item_total">
+                            0
+                        </span>
+                    </h4>
+                </div>
+                <table id="orderHistory-table" class="table table-bordered ordertable" 
+                       width="100%">
+                </table>
+                 <table id="orderHistory-table" class="table table-bordered ordertable" 
+                       width="100%">
+                </table>
+                 <h4 title="双击订购项目显示相应划扣记录">划扣记录:  <i class="fa fa-question-circle-o text-success"></i></h4>
+                <div class="bootstrap-table">
+                    <div class="fixed-table-container">
+                        <div class="fixed-table-body">
+                <table class="table table-bordered" id="h-deducted-table" width="100%">
+                                    </table>
+                                   </div>
+                                  </div>
+                                 </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="hmOrderHistory">
+            <div class="clearfix">
+                <h3>
+                    {:__('hm_cpy_pay_total')}:&nbsp;
+                    <span class="hm_cpy_pay_total text-success">
+                        0
+                    </span>
+                    &nbsp;&nbsp;
+                    <small>
+                        {:__('hm_cpy_account_total')}:&nbsp;
+                        <span class="hm_cpy_account_total">
+                            0
+                        </span>
+                    </small>
+                </h3>
+            </div>
+            <div class="widget-body no-padding">
+                <table class="table table-striped table-bordered table-hover" id="hmOrderHistory-table" width="100%">
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-4 col-sm-4"></label>
+        <div class="col-xs-8 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed" form="edit-form">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,332 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form action="" class="form-inline form-commonsearch nice-validator n-default" id="f-commonsearch" method="post" novalidate="novalidate" role="form">
+                            <fieldset>
+                                <!-- <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="customer_id">
+                                        {:__('Customer')}
+                                    </label>
+                                    <input class="form-control" id="field_ctm_id" name="customer_id" type="hidden" value=""/>
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input class="form-control" id="field_ctm_name" readonly="" type="text"/>
+                                    </a>
+                                    <a class="btn btn-danger btn-del" href="javascript:;" id="btn-customer-clear">
+                                        <i class="fa fa-trash">
+                                        </i>
+                                        清除
+                                    </a>
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_id" class="control-label searchPadding">{:__('Ctm_id')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_id" value="" placeholder="{:__('Ctm_id')}" id="customer.ctm_id">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_name" class="control-label searchPadding">{:__('Ctm_name')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_name" value="" placeholder="{:__('Ctm_name')}" id="customer.ctm_name">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_mobile" class="control-label searchPadding">{:__('Ctm_mobile')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_mobile" value="" placeholder="{:__('Ctm_mobile')}" id="customer.ctm_mobile">
+                                </div>
+                                <!-- 客户类型 -->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label searchPadding" for="customer.ctm_type">
+                                        {:__('ctm_type')}
+                                    </label>
+                                    <select class="form-control" id="customer.ctm_type" name="customer.ctm_type" required="">
+                                        {foreach $ctmtypeList as $id => $name}
+                                        <option value="{$id}">
+                                            {$name}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!--录入顾客时 网电客服-->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_first_dept_id" class="control-label searchPadding">{:__('ctm_first_dept_id')}</label>
+                                    <select class="selectpicker show-tick form-control" name="customer.ctm_first_dept_id"  data-live-search="true">
+                                        <option value>{:__('All')}</option>
+                                        {foreach $deptList as $key => $val}
+                                        <option value="{$val.dept_id}">{$val.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label searchPadding">{:__('ctm_first_cpdt_id')}</label>
+                                    <select class="selectpicker show-tick form-control" required="" name="customer.ctm_first_cpdt_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $cProjectList as $cProject}
+                                        <option value="{$cProject->id}">{$cProject->cpdt_name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!--录入顾客时 现场客服，-->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_first_osc_dept_id" class="control-label searchPadding">{:__('ctm_first_osc_dept_name')}</label>
+                                    <select class="selectpicker show-tick form-control" name="customer.ctm_first_osc_dept_id"  data-live-search="true">
+                                        <option value>{:__('All')}</option>
+                                        {foreach $deptList as $k => $v}
+                                        <option value="{$v.dept_id}">{$v.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label searchPadding">{:__('ctm_first_osc_cpdt_name')}</label>
+                                    <select class="selectpicker show-tick form-control" required="" name="customer.ctm_first_osc_cpdt_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $cProjectList as $cProject}
+                                        <option value="{$cProject->id}">{$cProject->cpdt_name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+
+
+
+
+                                <!--受理工具-->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label searchPadding">{:__('ctm_first_tool')}</label>
+                                    <select class="selectpicker show-tick form-control" name="customer.ctm_first_tool_id" data-live-search="true">
+                                        {foreach $toolList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit type')}
+                                    </label>
+                                    <select class="form-control" name="rvt_type">
+                                        <option value="">
+                                            {:__('All')}
+                                        </option>
+                                        {foreach $rvTypeList as $key => $value}
+                                        <option value="{$value}">
+                                            {$value}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="Revisit staff">
+                                        {:__('Department')}
+                                    </label>
+                                    <select name="admin.dept_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $deptList as $key => $val}
+                                        <option value="{$val.dept_id}">{$val.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group" style="margin:5px">
+                                    <label class="control-label labelLocation" for="Revisit staff">
+                                        {:__('Revisit staff')}
+                                    </label>
+                                    <input id="field_admin_id" name="admin_id" type="hidden">
+                                        <div onmouseleave="$(this).find('.word').addClass('hidden');" style="display: inline-block;">
+                                            <input autocomplete="off" class="nickname form-control" onmouseenter="$(this).siblings().find('.word').removeClass('hidden')" style="position: relative;max-width: 130px;" type="text" value=""/>
+                                            <div style="position: relative;">
+                                                <ul class="form-control word" data-index="" id="word" style="display: none;list-style: none;position: absolute;cursor: pointer;z-index: 999;height: auto;text-align: left; width: 100%; max-height: 130px;padding-bottom: 0;padding-top: 0;overflow-y: auto;">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <a class="btn btn-danger btn-del" href="javascript:;" id="btn-admin-clear" style="margin-left: 5px;">
+                                            <i class="fa fa-trash">
+                                            </i>
+                                            清除
+                                        </a>
+                                    </input>
+                                </div> -->
+                                <!-- 回访人 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="admin_id" class="control-label searchPadding">{:__('admin_id')}</label>
+                                    <select class="selectpicker show-tick form-control" name="admin_id" data-live-search="true">
+                                        <option value="">{:__('None')}</option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Customer arrival status')}
+                                    </label>
+                                    <select name="customer.arrive_status" class="form-control">
+                                    {foreach $arriveStatusList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                    {/foreach}
+                                    </select> 
+                                </div>
+                                <!--<div class="clearfix"></div>-->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit date')}
+                                    </label>
+                                    <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_date_start" name="rv_date_start" type="text" value="{$startDate}">
+                                        ~
+                                        <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_date_end" name="rv_date_end" type="text" value="{$endDate}">
+                                        </input>
+                                    </input>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit time')}
+                                    </label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_time_start" name="rv_time_start" type="text" value="">
+                                        ~
+                                        <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_time_end" name="rv_time_end" type="text" value="">
+                                        </input>
+                                    </input>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Customer create time')}
+                                    </label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="customer.createtime_start" type="text" >
+                                        ~
+                                        <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="customer.createtime_end" type="text" >
+                                        </input>
+                                    </input>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                     <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit content')}
+                                    </label>
+                                    <input class="form-control" name="rvi_content" />
+                                </div>
+                                <div class="form-group dislocationAll">
+                                     <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" id="onlyNoneRevisit" value="true"> {:__('Not revisit')}
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button class="btn btn-success dislocationRight" id="btn-submit-1" type="button">
+                                            提交
+                                        </button>
+                                        <button class="btn btn-default" type="reset">
+                                            重置
+                                        </button>
+                                        <button type="button" class="btn btn-default" id="btn-export">{:__('Export')}</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="table table-striped table-bordered table-hover table-condensed" id="toolbar" width="100%">
+                    </div>
+                    <div class="form-group">
+                        <h2 class="text-center">
+                            {:__('Customer revisit records')}
+                        </h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div>
+                        <label class="control-label">{:__('Rvinfo count')}</label>
+                        <span class="text-success" id="h-count">0</span>&nbsp;&nbsp;
+                        <label class="control-label">{:__('Visited count')}</label>
+                        <span class="text-success" id="h-visited_count">0</span>&nbsp;&nbsp;
+                        <label class="control-label">{:__('Avaiable visited count')}</label>
+                        <span class="text-success" id="h-avaiable_visited_count">0</span>&nbsp;&nbsp;
+                        <label class="control-label">{:__('Rvinfo customer count')}</label>
+                        <span class="text-success" id="h-customer_count">0</span>&nbsp;&nbsp;
+                        <label class="control-label">{:__('Avaiable visited customer count')}</label>
+                        <span class="text-success" id="h-avaiable_visited_customer_count">0</span>&nbsp;&nbsp;
+                    </div>
+                    <div id="consumTable" style="position: relative;overflow-y: auto;">
+                    <table class="table table-bordered table-condensed table-hover scrolltable" id="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    {:__('No.')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Customer')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Ctm_id')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Arrive status')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Gender')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Age')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Cm_mobile')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('ctm_first_cpdt_name')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('ctm_first_dept_name')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('ctm_first_osc_cpdt_name')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('ctm_first_osc_dept_name')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('ctm_next_rvinfo')}
+                                </th>
+                                <th>
+                                    {:__('Revisit type')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Revisit plan')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Revisit staff')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('admin dept')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Revisit date')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Revisit time')}
+                                </th>
+                                <!-- <th class="text-center">
+                                    {:__('Revisit status')}
+                                </th> -->
+                                <th class="text-center">
+                                    {:__('Revisit content')}
+                                </th>
+                                 <th class="text-center">
+                                    {:__('Revisit rvCreatetime')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Revisit fail reason')}
+                                </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                    </div>
+                    <div class="text-center" id="div-load-more">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

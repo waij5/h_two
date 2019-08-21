@@ -1,0 +1,58 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form action="" class="form-inline form-commonsearch nice-validator n-default" id="f-commonsearch" method="post" novalidate="novalidate" role="form">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <input type="hidden" name="fprosets.id" value="{$Request.param.id|default=0}">
+                                    <label class="control-label searchPadding" for="dept_id">
+                                        {:__('dept_id')}
+                                    </label>
+                                    <select class="selectpicker show-tick form-control selectSearch-mid" data-live-search="true" id="dept_id" name="fprosets.dept_id" required="">
+                                        <option value="">
+                                            {:__('All')}
+                                        </option>
+                                        {foreach $deductDeptList as $deptId => $deptName}
+                                        <option value="{$deptId}">
+                                            {$deptName}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label searchPadding" for="name">
+                                        {:__('name')}
+                                    </label>
+                                    <input class="form-control" id="name" name="fprosets.name" placeholder="{:__('name')}" type="text" value="">
+                                    </input>
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <div class="col-sm-12 text-center">
+                                        <button class="btn btn-success" style="margin-right: 5px;" type="submit">
+                                            提交
+                                        </button>
+                                        <button class="btn btn-default" type="reset">
+                                            重置
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="toolbar" id="toolbar">
+                        <!-- {:build_toolbar()} -->
+                    </div>
+                    <table class="table table-striped table-bordered table-hover" data-operate-del="0" data-operate-edit="0" id="table" width="100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var yjyComSelectParams = {$yjyComSelectParams};
+</script>

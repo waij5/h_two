@@ -1,0 +1,42 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-rvtype_id" class="control-label col-xs-12 col-sm-2">{:__('Rv_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[rvtype_id]', $rvtypeList, $row.rvtype_id, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-rvp_name" class="control-label col-xs-12 col-sm-2">{:__('Rvp_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rvp_name" data-rule="required" class="form-control" name="row[rvp_name]" type="text" value="{$row.rvp_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-rvp_status" class="control-label col-xs-12 col-sm-2">{:__('Rvp_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rvp_status" data-rule="required" class="form-control" name="row[rvp_status]" type="hidden" value="{$row.rvp_status}">
+            <input id="rvp_status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-is_deletable" class="control-label col-xs-12 col-sm-2">{:__('Is_deletable')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_deletable" data-rule="required" class="form-control" name="row[is_deletable]" type="hidden" value="{$row.is_deletable}">
+            <input id="is_deletable-switch" type="checkbox" checked />
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="c-rvp_remark" class="control-label col-xs-12 col-sm-2">{:__('Rvp_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-rvp_remark" class="form-control summernote" rows="3" cols="50" name="row[rvp_remark]">{$row.rvp_remark|htmlspecialchars}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

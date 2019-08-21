@@ -1,0 +1,147 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form action="" class="form-inline form-commonsearch nice-validator n-default" id="f-commonsearch" method="post" novalidate="novalidate" role="form">
+                            <fieldset>
+                                <input type="hidden" name="notOnlyToday" value="true">
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit type')}
+                                    </label>
+                                    <select class="form-control" name="rvt_type">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                        {foreach $rvTypeList as $key => $value}
+                                        <option value="{$value}">
+                                            {$value}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="Revisit staff">
+                                        {:__('Department')}
+                                    </label>
+                                    <select name="admin.dept_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                    {foreach $deptList as $key => $dept}
+                                        <option value="{$dept.dept_id}">{$dept.name}</option>
+                                    {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="admin_id" class="control-label searchPadding">{:__('admin_id')}</label>
+                                    <select class="selectpicker show-tick form-control" name="admin_id" data-live-search="true">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Customer arrival status')}
+                                    </label>
+                                    <select name="customer.arrive_status" class="form-control">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                    {foreach $arriveStatusList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                    {/foreach}
+                                    </select> 
+                                </div>
+                                <!--<div class="clearfix"></div>-->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit date')}
+                                    </label>
+                                    <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_date_start" name="rv_date_start" type="text" value="{$startDate}">
+                                        ~
+                                        <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_date_end" name="rv_date_end" type="text" value="{$endDate}">
+                                        </input>
+                                    </input>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('Revisit time')}
+                                    </label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_time_start" name="rv_time_start" type="text" value="">
+                                        ~
+                                        <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="rv_time_end" name="rv_time_end" type="text" value="">
+                                        </input>
+                                    </input>
+                                </div>
+                                <!-- 客服科室 -->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation">
+                                        {:__('Customer first consult deparment')}
+                                    </label>
+                                    <select name="customer.ctm_first_dept_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                    {foreach $deptList as $key => $dept}
+                                        <option value="{$dept.dept_id}">{$dept.name}</option>
+                                    {/foreach}
+                                    </select> 
+                                </div>
+                                <!-- 客服项目 -->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation">
+                                        {:__('Customer first consult project')}
+                                    </label>
+                                    <select name="customer.ctm_first_cpdt_id" class="selectpicker show-tick form-control"data-live-search="true">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                    {foreach $cProjectList as $key => $value}
+                                        <option value="{$key}">{$value.cpdt_name}</option>
+                                    {/foreach}
+                                    </select> 
+                                </div>
+                                <!-- 受理工具 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_first_tool_id" class="control-label searchPadding">{:__('ctm_first_tool_id')}</label>
+                                    <select class="selectpicker show-tick form-control" required="" name="customer.ctm_first_tool_id"data-live-search="true">
+                                        {foreach $toolList as $key => $type}
+                                            <option value="{$key}">{$type}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button class="btn btn-success dislocationRight" type="submit">{:__('Submit')}</button>
+                                        <button class="btn btn-default" type="reset">{:__('Reset')}
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-default" id="btn-export">{:__('Export')}</button> -->
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- <div class="table table-striped table-bordered table-hover" id="toolbar" width="100%">
+                    </div> -->
+                    <div class="form-group">
+                        <h2 class="text-center">
+                            {:__('Department staff revisit summary')}
+                        </h2>
+                    </div>
+                     <div id="consumTable" style="position: relative;overflow-y: auto;">
+                    <table class="table table-striped table-bordered table-hover scrolltable" id="table" width="100%">
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

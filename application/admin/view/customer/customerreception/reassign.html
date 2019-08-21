@@ -1,0 +1,17 @@
+<form id="edit-form" class="form-horizontal n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="">
+<input type="hidden" name="row[osc_id]" value="{$row.osc_id}" />
+<div class="form-group">
+<label for="c-ctm_source" class="control-label col-xs-12 col-sm-2">{:__('Admin_id')}:</label>
+<div class="col-xs-12 col-sm-8">
+    {:build_select('row[admin_id]', $adminList, $row['admin_id'], ['class'=>'form-control selectpicker', 'required'=>'','data-live-search'=>'true'])}
+</div>
+</div>
+    
+<div class="form-group layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+        <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+    </div>
+</div>
+</form>

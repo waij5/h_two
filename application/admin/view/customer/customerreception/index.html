@@ -1,0 +1,169 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <!-- <div class="form-group" style="margin:5px">
+                                    <label for="customer_id" class="control-label searchPadding">Id</label>
+                                    <input type="text" class="form-control" name="customer_id" value="" placeholder="Id" id="customer_id">
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_id" class="control-label searchPadding">{:__('ctm_id')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_id" value="" placeholder="客户卡号" >
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_name" class="control-label searchPadding">{:__('Ctm_name')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_name" value="" placeholder="姓名" >
+                                </div>
+                                <!-- <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_mobile" class="control-label searchPadding">{:__('Ctm_mobile')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_mobile" value="手机号" placeholder="{:__('Ctm_mobile')}" id="ctm_mobile">
+                                </div> -->
+                                <div class="form-group" style="margin:5px">
+                                    <label for="osc_status" class="control-label searchPadding">{:__('Osc_status')}</label>
+                                    <select class="form-control" required="" name="coc.osc_status" id="osc_status">
+                                        <option value="">--</option>
+                                    {foreach $oscStatusArr as $key => $oscStatus}
+                                        <option value="{$key}">{$oscStatus}</option>
+                                    {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="osc_type" class="control-label searchPadding">{:__('Osc_type')}</label>
+                                    <select class="form-control" required="" name="coc.osc_type" id="osc_type">
+                                            <option value="">--</option>
+                                        {foreach $ocsTypeArr as $key => $oscType}
+                                            <option value="{$key}">{$oscType}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <!-- 首次受理工具 -->
+                                    <div class="form-group dislocationAll">
+                                        <label for="cst_chntype" class="control-label searchPadding">{:__('customer_ctm_first_tool_id')}</label>
+                                        <select class="selectpicker show-tick form-control selectSearch-min" required="" name="customer.ctm_first_tool_id" data-live-search="true">
+                                            {foreach $toolList as $key => $value}
+                                            <option value="{$key}">{$value}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+
+                                    <!-- 客户来源 -->
+                                    <div class="form-group dislocationAll">
+                                        <label for="customer.ctm_source" class="control-label searchPadding">{:__('ctm_source')}</label>
+                                        <select class="selectpicker show-tick form-control" data-live-search="true" name="customer.ctm_source">
+                                            {foreach $ctmSrcList as $key => $value}
+                                            <option value="{$key}">{$value}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                <!-- 客服项目科室 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="Coc.dept_id" class="control-label searchPadding">客服项目科室</label>
+                                    <select class="selectpicker show-tick form-control selectSearch-min" required="" name="coc.dept_id" id="coc.dept_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $CtmdeptList as $key => $val}
+                                        <option value="{$val.dept_id}">{$val.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- 现场客服科室 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="Coc.admin_dept_id" class="control-label searchPadding">现场科室</label>
+                                    <select class="selectpicker show-tick form-control selectSearch-min" required="" name="coc.admin_dept_id" id="coc.admin_dept_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $CtmdeptList as $key => $val}
+                                        <option value="{$val.dept_id}">{$val.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <!-- 现场客服 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="Develop_admin" class="control-label searchPadding">{:__('admin_id')}</label>
+                                    <select class="selectpicker show-tick form-control" name="coc.admin_id"data-live-search="true">
+                                        <option value="">{:__('None')}</option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <!-- 客服 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="service_admin_id" class="control-label searchPadding">{:__('service_admin_name')}</label>
+                                    <select class="selectpicker show-tick form-control" name="coc.service_admin_id"data-live-search="true">
+                                        <option value="">{:__('None')}</option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <!-- 营销部门 -->
+                                    <div class="form-group dislocationAll">
+                                        <label for="admin.dept_id" class="control-label searchPadding">{:__('admin_dept_id')}</label>
+                                        <select class="selectpicker show-tick form-control selectSearch-min" required="" name="admin.dept_id" id="admin.dept_id" data-live-search="true">
+                                        <option value="">{:__('All')}</option>
+                                            {foreach $CtmdeptList as $key => $val}
+                                            <option value="{$val.dept_id}">{$val.name}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                    <!-- 营销人员 -->
+                                    <div class="form-group dislocationAll">
+                                        <label for="Develop_admin" class="control-label searchPadding">{:__('Develop_admin')}</label>
+                                        <select class="selectpicker show-tick form-control" name="customer.admin_id" data-live-search="true">
+                                            <option value="">{:__('None')}</option>
+                                            <option value="0">自然到诊</option>
+                                            {foreach $briefAdminList as $key => $value}
+                                            <option value="{$key}">{$value}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+
+                                <!-- createtime -->
+                                <div class="form-group dislocationAll">
+                                    <label for="createtime" class="control-label labelLocation">{:__('createtime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="coc.createtime_start" type="text" value="{$startDate}" id="createtime_start"> ~ <input  class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="coc.createtime_end" type="text" value="{$endDate}" id="createtime_end">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success" id="refreshindex" style="margin-right: 5px;">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar()}
+                        
+                        <a href="javascript:;" class="btn btn-default btn-search-customer"><i class="fa fa-search"></i> 搜索顾客</a>
+                        <div class="dropdown btn-group {:$auth->check('customer/customerconsult/multi')?'':'hide'}">
+                        </div>
+                        <div class="clearfix"></div>
+                        <a class="table form-group" id="numInfo" style="border: none;color: #000000;">
+                            {foreach $ocsTypeArr as $key => $oscType}
+                            <label class="control-label">{:__('osc_type_' . $key)}: </label>
+                            <span id="total-osc-type-{$key}" class="text-success">0</span> {/foreach}
+                            <label class="control-label">{:__('total person-time')}: </label>
+                            <span id="total-osc-type-all" class="text-success">0</span>
+                        </a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('customer/customerconsult/edit')}" 
+                           data-operate-del="{:$auth->check('customer/customerconsult/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

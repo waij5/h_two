@@ -1,0 +1,139 @@
+<style type="text/css">
+    .resultList tr th{background-color:#ddddddd6;text-align: center;};
+</style>
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action=""  autocomplete="off" onkeydown="if(event.keyCode==13){return false;}">
+<div>
+    <div class="form-group col-sm-6">
+        <label for="c-man_num" class="control-label col-xs-12 col-sm-4">{:__('man_num')}:</label>
+        <div class="col-xs-12 col-sm-5">
+            <input id="c-man_num" data-rule="required" readonly="readonly" value="{$man_num}" class="form-control" name="row[man_num]" type="text">
+        </div>
+        <div class="col-xs-12 col-sm-2" style="">
+            <a href="javascript:;" class="btn btn-success getNum"><i class="fa fa-refresh"></i> </a>
+        </div>
+    </div>
+
+    
+
+    
+
+    <div class="form-group col-sm-6">
+        <label for="c-mdepot_id" class="control-label col-xs-12 col-sm-4" style="color: red">{:__('mdepot_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-mdepot_id" data-rule="required" class="form-control " name="row[mdepot_id]">
+                {foreach name="depotList" item="vo"}
+                <option data-type="{$vo.name}" value="{$vo.id}" {in name="$vo.id" value=""}selected{/in}>{$vo.name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-msupplier_id" class="control-label col-xs-12 col-sm-4">{:__('msupplier_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-msupplier_id" data-rule="" class="form-control selectpicker" name="row[msupplier_id]" data-live-search="true">
+                <option value=""></option>
+                {foreach name="supplierList" item="vo"}
+                <option  value="{$vo.sup_id}">{$vo.sup_name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group col-sm-6">
+        <label for="c-mdepart_id" class="control-label col-xs-12 col-sm-4" style="color: red">{:__('mdepart_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-mdepart_id" data-rule="required" class="selectpicker form-control" name="row[mdepart_id]" data-live-search="true">
+                <option value="">---请选择---</option>
+                {foreach name="deptList" item="vo"}
+                <option value="{$vo.dept_id}">{$vo.dept_name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-mout_id" class="control-label col-xs-12 col-sm-4" style="color: red">{:__('mout_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-mout_id" data-rule="required" class="selectpicker form-control" name="row[mout_id]" data-live-search="true">
+                <option value="">---请选择---</option>
+                {foreach name="userList" item="vo"}
+                {if $vo.status eq 'normal'}
+                <option  value="{$vo.id}" >{$vo.username}---{$vo.nickname}</option>
+                {/if}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-6">
+        <label for="c-member_id" class="control-label col-xs-12 col-sm-4">{:__('member_id')}:</label>
+        <div class="col-xs-12 col-sm-5">
+            <input type="hidden" name="row[member_id]" class="form-control" id="field_ctm_id" value="">
+            <a href="javascript:;" id="a-search-customer">
+                <input type="text" readonly="" id="field_ctm_name" class="form-control">
+            </a>
+        </div>
+        <div class="col-sm-1">
+            <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                <i class="fa fa-trash"></i>清除
+            </a>  
+        </div> 
+    </div>
+
+
+<input id="c-muid"  readonly="readonly" class="form-control" name="row[muid]" type="hidden" value="{$admin.nickname}">
+    <!-- 主次类型4：领药 -->
+    <input type="hidden" name="row[mprimary_type]" value="4">
+    <input type="hidden" name="row[msecond_type]" value="4">
+
+    
+    <!-- mbelong_type所属类型 1：药品 -->
+    <input type="hidden" name="row[mbelong_type]" value="1">
+    <input type="hidden" name="row[mstatus]" value="1">
+
+    <div class="form-group col-sm-12">
+        <label for="c-mremark" class="control-label col-xs-12 col-sm-2">{:__('mremark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mremark" class="form-control" name="row[mremark]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"><b style="color: red">药品列表:</b></label>
+
+
+
+        <div class="" style="">
+                <div class="col-xs-6 col-sm-7" style="">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12" id="pro_menu" onmouseleave="$('#word').addClass('hidden');">
+                            <input type="text" id="pro_search" onmouseenter="$('#word').removeClass('hidden')" value="" placeholder="请输入药品拼音简码" style="position: relative;" class="form-control keyword" />
+                            <div style="position: relative;width: 135%" >
+                                <table id="word" data-index="" style="list-style:none;position: absolute;cursor: pointer;z-index: 999;height: auto;max-height: 200px;overflow-y: auto;padding-bottom: 0;padding-top: 0;table-layout:fixed" class="form-control resultList table table-striped table-bordered table-hover alldata">
+
+                                </table>
+                            </div>
+                        </div>
+                        <a href="javascript:;" id="pro_add" class="btn btn-success btn-add hidden"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+            <div class="col-sm-3 col-xs-3" style="">           
+                <a href="javascript:;" class="btn btn-danger" id="clear">{:__('Clear')}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div style="width: 100%;overflow-x: scroll;">
+        <table id="selectedDrugs" class="table table-striped table-bordered table-hover alldata" style="width: 1260px;text-align: center;overflow-x: scroll;">
+            <tr><td style="color: red;width: 120px;">药品名称</td><td style="color: red;width: 60px;">批号</td><td style="width: 50px;">库存</td><td style="color: red;width: 50px;">领药数量</td><td style="width: 60px;">规格</td><td style="width: 40px;">单位</td><td style="width: 50px;color: red;">进货价</td><td style="width: 70px;">总进价</td><td style="width: 60px;">零售价</td><!-- <td style="width: 70px;">总售价</td> --><td style="color: red;width: 60px;">到期日期</td><td style="width: 70px;">生产日期</td><td style="width: 60px;">生产厂家</td><td style="width: 70px;">产地</td><td style="width: 60px;">批准文号</td><td style="width: 60px;">注册文号</td><td style="width: 30px;">操作</td></tr>
+        </table>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled" id="sure">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

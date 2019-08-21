@@ -1,0 +1,37 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar(['refresh', 'add', 'edit'])}
+                        <a href="javascript:;" class="btn btn-primary btn-show-project"><i class="fa fa-eye"></i> 查看项目</a>
+                        <a href="javascript:;" class="btn btn-primary btn-show-deptment"><i class="fa fa fa-newspaper-o"></i> 科室设置</a>
+                    </div>
+                    {// :$auth->check('fservice/fprosets/del')}
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('fservice/fprosets/edit')}" 
+                           data-operate-del="0" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var yjyFServiceParams = {};
+    yjyFServiceParams.deductDeptList = {};
+    yjyFServiceParams.templateList = {};
+    
+    {foreach $deductDeptList as $deptId => $deptName}
+    yjyFServiceParams['deductDeptList']['{$deptId}'] = '{$deptName|addslashes}';
+    {/foreach}
+    {foreach $templateList as $templateId => $template}
+    yjyFServiceParams['templateList']['{$templateId}'] = '{$template.name|addslashes}';
+    {/foreach}
+</script>

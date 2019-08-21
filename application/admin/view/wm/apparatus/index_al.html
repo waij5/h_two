@@ -1,0 +1,93 @@
+
+<form id="view-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#basic" data-toggle="tab">器械明细</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="basic">
+            <div class="panel-body">
+            	
+
+
+            <input type="hidden" name="" value="{$apId}" id="apId">
+				<div class="form-group ">
+			        <div class="col-xs-12 col-sm-8">
+                        <a href="javascript:;" class="btn bg-blue btn-add " id="addAl"> 进库</a>
+                        <a href="javascript:;" class="btn btn-danger btn-del" id="scrapAl"> 报废</a>
+			            <a href="javascript:;" class="btn btn-primary" id="join_num">在库：{$joinNum?$joinNum:'0'}</a>
+			            <a href="javascript:;" class="btn btn-primary" id="out_num">报废：{$outNum?$outNum:'0'}</a>
+			        </div>
+			        <div class="col-sm-12">
+			          </div>
+			         </div>
+			            <div class="form-group">
+			        <div class="col-xs-12 col-sm-12" style="width: 100%;overflow-x: scroll;"><!--startprint-->
+			            <table id="apparatusTable" class="table table-striped table-bordered table-hover" style="width: 1000px;text-align: center;">
+
+			                <!-- //4.10  打印 -->
+			                <tr class="printA" style="display: none;text-align: center;">
+			                    <td colspan="10">{$site.hospital?$site.hospital:''}</td>
+			                </tr>
+			                <!-- //4.10  打印onclick="allChecked('allRow','pRow')" -->
+			                <thead>
+				                <tr>
+									<th style="width: 15px;">状态</th>
+									<th style="width: 30px;">id</th>
+				                    <th style="width: 20px;">名称</th>
+				                    <th style="width: 20px;">批号</th>
+				                    <th style="width: 35px;">变动数量</th>
+				                    <th style="width: 20px;">价格</th>	
+				                    <th style="width: 10px;">有效期</th>		                    
+				                    <th style="width: 10px;">供应商</th>
+				                    <th style="width: 30px;">使用人</th>
+				                    <th style="width: 20px;">使用科室</th>
+				                    <th style="width: 20px;">购买日期</th>
+				                    <th style="width: 20px;">操作日期</th>
+								</tr>
+							</thead>
+							{if condition="!empty($list)"}
+							<tbody id="printTbody" >
+								{foreach name="list" item="vo"}
+								<tr>
+									
+									{$vo.alstatus==2?'<td style="color: #e74c3c;font-weight: bold;">报废</td>':'<td  style="color: #0073b7;font-weight: bold;" style="">进库</td>'}
+									<td>{$vo.al_id}</td>
+				                    <td>{$vo.a_name}</td>
+				                    <td>{$vo.alotnum}</td>
+				                    <td>{$vo.alnum}</td>
+				                    <td>{$vo.alcost}</td>
+				                    <td>{$vo.aletime|date='Y-m-d',###}</td>
+				                    <td>{$vo.sup_name}</td>
+				                    <td>{$vo.nickname}</td>
+				                    <td>{$vo.dept_name}</td>
+				                    <td>{$vo.alshop_time|date='Y-m-d',###}</td>
+				                    <td>{$vo.aloperate_time|date='Y-m-d',###}</td>
+								</tr>
+								{/foreach}
+							</tbody>
+							{/if}
+
+
+			                <!-- //4.10  打印 -->
+			                
+			                <!-- //4.10  打印 -->
+
+			            </table><!--endprint-->
+			        </div>
+			    </div>
+            </div>
+        </div>
+        
+
+    </div>
+    <div class="form-group iframeFoot">
+
+    </div>
+</form>
+<style>
+	body{background-color: #fff;}
+	#ribbon{display: none;}
+	th{text-align: center;}
+</style>

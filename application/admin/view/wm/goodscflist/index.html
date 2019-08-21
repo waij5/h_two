@@ -1,0 +1,88 @@
+<style type="text/css">
+    .red{color: red}
+    /*style="width: 40%;float: left;"*/
+</style>
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding" >
+
+                    <div class="commonsearch-table ">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                            
+
+                               <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label labelLocation">顾客</label>
+                                    
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" style="display: none" name="customer_id" class="form-control" id="field_ctm_id" />
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="ctm_id" class="control-label labelLocation">客户卡号</label>
+                                    <input type="text" name="c.ctm_id" class="form-control" size="8">
+                                </div>
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="depot_id" class="control-label labelLocation">仓库</label>
+                                    <select id="depot_id" class="form-control " name="pro.depot_id">
+                                        <option  value='' >--- 请选择 ---</option>
+                                        {foreach name="depotList" item="vo"}
+                                        <option value="{$vo.id}">{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <div class="form-group dislocationAll">
+                                    <label for="dept_id" class="control-label labelLocation">开单科室</label>
+                                    <select id="dept_id" class="selectpicker show-tick form-control " name="a.dept_id"data-live-search="true">
+                                        <option value="">---请选择---</option>
+                                        {foreach name="deptmentList" item="vo"}
+                                        <option  value="{$vo.dept_id}" >{$vo.dept_name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                
+                                <div class="form-group marginZero" style="margin: 0;">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight" id="surePost">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar('refresh')}
+                        <a href="javascript:;" class="btn btn-primary" id="isCusPrint">打印ALL</a>
+                        
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="" 
+                           data-operate-del="" 
+                           >
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,213 @@
+{if isset($orderItems)}
+<div class="panel panel-info form-group-m0">
+	<a href="javascript:;" class="btn btn-primary btn-refresh hidden"><i class="fa fa-refresh"></i></a>
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Order basic info')}:</h3>
+        <a href="javascript:;" class="btn btn-primary btn-refresh hidden" id="btn-edit-refresh"><i class="fa fa-refresh"></i></a>
+    </div>
+    <div class="table panel-body edit-panelbody">
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Order_id')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_id}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Order_status')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8" id="s-orderStatus">{:__('order_status_' . ($orderItems.item_status >= 0 ? $orderItems.item_status : 'm_' . abs($orderItems.item_status)))}</span>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Customer')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$customer.ctm_name|htmlspecialchars}</span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Local_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_local_total}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Ori_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_ori_total}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Min_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_min_total}</span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Discount_amount')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_discount_total}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Discount_percent')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_discount_percent}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8"><b>{$orderItems.item_total}</b></span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('order_pay_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8 text-success"><b>{$orderItems.item_pay_total}</b></span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('undeducted_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8"><b>{$orderItems.item_undeducted_total}</b></span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Admin_id')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.admin_id}</span>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label col-xs-4 col-sm-4 col-md-4">{:__('Updatetime')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderItems.item_paytime|date="Y-m-d H:i:s",###}</span>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Project list')}:</h3>
+    </div>
+    <div class="panel-body edit-panelbody">
+        <!-- <div class="col-sm-12"> -->
+            <table id="t-project-select" class="table table-striped table-bordered table-condensed table-hover">
+                <thead>
+                    <th nowrap class="text-center">{:__('TProType')}</th>
+                    <!-- <th>{:__('Pro_code')}</th> -->
+                    <th nowrap class="text-center">{:__('TProName')}</th>
+                    <th nowrap class="text-center">{:__('pro_unit')}</th>
+                    <th nowrap class="text-center">{:__('pro_spec')}</th>
+                    <th nowrap class="text-center">{:__('lotnum')}</th>
+                    <th nowrap class="text-center">{:__('TProAmoutPerTime')}</th>
+                    <th nowrap class="text-center">{:__('Item_total_times')}</th>
+                    <th nowrap class="text-center">{:__('Row_Total')}</th>
+                    <th nowrap class="text-center">{:__('Item_total')}</th>
+                    <th nowrap class="text-center">{:__('Item_pay_total')}</th>
+                    <th nowrap class="text-center">{:__('Discount_percent')}</th>
+                    <th nowrap class="text-center">{:__('Deduct info')}</th>
+                    <th nowrap class="text-center">{:__('Cancel/Switch Item')}</th>
+                </thead>
+                <tbody>
+                    {foreach $orderItem as $orderItem}
+                        <tr>
+                            <td class="text-center">{:__('Pro_type_' . $orderItem.item_type)}</td>
+                            <td class="text-center"><span title="{$orderItem.pro_name}" data-toggle="tooltip">{$orderItem.pro_name|mb_substr=0,20,'utf-8'|htmlspecialchars}</span></td>
+                            <td class="text-center">{$orderItem.pro_unit}</td>
+                            <td class="text-center">{$orderItem.pro_spec}</td>
+                            <td class="text-center">{$orderItem.lotnum|default=""}</td>
+                            <td class="text-center">{$orderItem.item_amount_per_time}</td>
+                            <td class="text-center">{// $orderItem.item_qty}{$orderItem.item_total_times}</td>
+                            <td class="text-center">{$orderItem.item_ori_total}</td>
+                            <td class="text-center">{$orderItem.item_total}</td>
+                            <td class="text-center text-success">{$orderItem.item_pay_total}</td>
+                            <td class="text-center">{$orderItem.item_discount_percent}</td>
+                            <td class="text-center" nowrap>
+                                <span id="s-itemDeductTimes-{$orderItem.item_id}">{$orderItem.item_used_times} / {$orderItem.item_total_times}</span>
+                                {if $showDeductRecordBtn}
+                                <a href="javascript:;" class="btn btn-xs btn-primary btn-deduct-history" title="{:__('Deduct history')}" data-pk="{$orderItem.item_id}"><i class="fa fa-info-circle"></i></a>
+                                {/if}
+                                {// if ($showDeductBtn && ($admin.dept_id == $orderItem.dept_id) && ($orderItem.item_total_times > $orderItem.item_used_times))}
+                                {if ($showDeductBtn && ($orderItem.item_total_times > $orderItem.item_used_times))}
+                                <a href="javascript:;" class="btn btn-xs btn-success btn-deduct" title="{:__('Deduct')}" data-pk="{$orderItem.item_id}" id="btn-itemDeduct-{$orderItem.item_id}"><i class="fa fa-check"></i></a>
+                                {/if}
+                            </td>
+                            <td class="text-center" nowrap>
+                                {if $showDeductRecordBtn}
+                                <a href="javascript:;" class="btn btn-xs btn-warning btn-cancel-switch" title="{:__('Cancel/Switch Item')}" data-pk="{$orderItem.item_id}"><i class="fa fa-refresh"></i></a>
+                                {/if}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="7" class="text-left">{:__('Summary')}</th>
+                        <th class="text-center" id="sum-ori-total">{$orderItems.item_ori_total}</th>
+                        <th class="text-center" id="sum-total">{$orderItems.item_total}</th>
+                        <th class="text-center text-success" id="sum-total">{$orderItems.item_pay_total}</th>
+                        <th class="text-center" id="sum-discount-percent">{$orderItems.item_discount_percent}</th>
+                        <th colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th colspan="7" class="text-left"style="vertical-align: middle;">{:__('Undeliveried info')}</th>
+                        <th colspan="4"class="text-right"style="vertical-align: middle;">{:__('There is %s undeliveried items.', $undeliverdListCount)}</th>
+                        <th colspan="2" class="text-left">
+                            {if $showUndeliveriedlistBtn}
+                            <a href="javascript:;" class="btn btn-xs btn-info" title="{:__('Undeliveried list')}" data-pk="{$orderItems.item_id}" id="btn-delivery">
+                                <i class="fa fa-list"></i>
+                                {:__('Undeliveried list')}
+                            </a>
+                            {/if}
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        <!-- </div> -->
+    </div>
+</div>
+{// 职员时才有调价申请}
+{// 隐藏FORM区域}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Apply record')}:</h3>
+    </div>
+    <div class="panel-body edit-panelbody">
+        <form class="form-horizontal" id="edit-order-form" role="form" data-toggle="validator" method="POST" action="">
+            <input type="hidden" name="act" value="" />
+            <input type="hidden" name="item_id" value="{$orderItems.item_id}">
+            {if $orderApplyRecord}
+            <input type="hidden" name="applyRecId" value="{$orderApplyRecord.rec_id}">
+            <div class="form-group">
+                <label class="col-xs-3 col-md-2">{:__('Apply_admin_id')}: </label>
+                <label class="col-xs-9 col-md-10">{$orderApplyRecord.apply_admin_name|htmlspecialchars}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-md-2">{:__('Apply_info')}</label>
+                <div class="col-xs-9 col-md-10">
+                    <!-- <textarea readonly class="form-control" rows="3" cols="50">{$orderApplyRecord.apply_info}</textarea> -->
+                    {$orderApplyRecord.apply_info}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-md-2">{:__('Reply_admin_id')}: </label>
+                <label class="col-xs-9 col-md-10">{$orderApplyRecord.reply_admin_name|htmlspecialchars}</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 col-md-2">{:__('Reply_info')}</label>
+                <div class="col-xs-9 col-md-10">
+                    <!-- <textarea readonly class="form-control" rows="3" cols="50">{$orderApplyRecord.apply_info|htmlspecialchars}</textarea> -->
+                    <textarea name="reply_info"{if ($canReplyInfoEdit == false)} readonly{/if} class="form-control" rows="3" cols="50" placeholder="取消/拒绝时请填写理由">{$orderApplyRecord.reply_info|htmlspecialchars}</textarea>
+                </div>
+            </div>
+            {/if}
+        </form>
+    </div>
+</div>
+
+<div class="form-group layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+        {foreach $extraButtons as $button}
+            <button type="button" class="{$button.class}" id="{$button.id}"><i class="{$button.icon}"></i> {$button.title}</button>
+        {/foreach}
+        <button type="button" class="btn btn-default btn-embossed">{:__('Close')}</button>
+       
+    </div>
+</div>
+{else}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Error occurs')}:</h3>
+    </div>
+    <div class="panel-body edit-panelbody">
+        {:__('No results were found')}
+    </div>
+</div>
+{/if}

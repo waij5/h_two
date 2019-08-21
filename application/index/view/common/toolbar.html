@@ -1,0 +1,42 @@
+<!-- 头部工具条 -->
+<div id="y-top-toolbar">
+    <div class="y-breadcrumb">
+        <a class="y-breadcrumb-base y-breadcrumb-home" href="/web/index">
+            <img src="/assets/img/bread_home.png" style="height: 45px;"/>
+        </a>
+        {foreach $breadcrumb as $crumbItem}
+        <a class="y-breadcrumb-base y-breadcrumb-item" href="{$crumbItem.url}">
+            <span>
+                {$crumbItem.name|htmlspecialchars}
+            </span>
+        </a>
+        {/foreach}
+    </div>
+    <form action="/web/set/index" method="post">
+        <div class="pull-right" id="y-top-toolbar-right" style="position: relative;">
+            <div class="btn-group">
+                <input class="y-form-control y-form-control-b-l" name="keyword" placeholder="输入品项名" style="width: 180px; float: left;" type="text" value="{$Request.param.keyword|default=''}" />
+                <i class="fa fa-x fa-search y-form-control-icon" maxlength="20" style="top: 13px; left: 4px;">
+                </i>
+                <!-- <a class="btn btn-default" id="btn-show-cart" style="float: left;">
+                    <i class="fa fa-check y-color-main">
+                    </i>
+                    已选项目
+                </a> -->
+                <a class="btn btn-default" href="javascript:;" id="btn-choose-osc">
+                    <i class="fa fa-vcard y-color-main" title="顾客" style="position: absolute; top: 13px; height: 31px; left: 12px;">
+                    </i>
+                    <i class="y-one-line" id="chosen-osc-customer">
+                    </i>
+                </a>
+                <a class="btn btn-default" href="javascript:;" id="btn-show-cart">
+                    <i class="fa fa-shopping-cart y-color-main y-one-line">
+                    </i>
+                </a>
+            </div>
+        </div>
+    </form>
+    <form action="/web/order/cart" id="y-common-form-to-cart" method="post" class="hidden">
+        <input type="hidden" name="useCookie" value="1">
+    </form>
+</div>

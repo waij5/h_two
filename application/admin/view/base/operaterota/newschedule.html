@@ -1,0 +1,101 @@
+<div class="panel panel-default panel-intro">
+    <div class="panel-body">
+        <div class="alert alert-info alert-dismissable ">
+        已预约手术的排班默认不处理，如确需重新排班，请取消或者调整预约
+        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+            ×
+        </button>
+    </div>
+        <form action="" class="form" data-toggle="validator" method="POST" role="form" id="form-new">
+            <div class="form-group">
+                <label class="control-label" style="float: left; padding: 6px 4px;" autocomplete="off">
+                    {:__('Ort_date')}:
+                </label>
+                
+                <div class="input-group" style="width: 200px;">
+                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-rule="required" data-use-current="true" name="row[ort_date]" type="text" value="{$ortDate}" id="ort_date">
+                </div>
+            </div>
+            {if $operators}
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            职员
+                        </th>
+                        <th class="text-center">
+                            头衔
+                        </th>
+                        <th class="text-center">
+                            排班
+                        </th>
+                        <th class="text-center">
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $operators as $staff}
+                    <tr>
+                        <td style="width: 120px; vertical-align: middle;text-align: center;">
+                            <span title="{$staff.remark|htmlspecialchars}">{$staff.name|htmlspecialchars}<i class="fa fa-help"></i></span>
+                        </td>
+                        <td  style="width: 150px; vertical-align: middle;text-align: center;">
+                            <span title="{$staff.remark|htmlspecialchars}">
+                            {$staff.title|htmlspecialchars}
+                        </td>
+                        <td>
+                            <ul id="ul_{$staff.id}" class="staff_ul" data-operator-id="{$staff.id}">
+                                {foreach $timePeriods as $timePeriod}
+                                {php}
+                                $currentPeriodBookId = 0;
+                                $currentPeriodStatus = 1;
+                                $currentOrtId = 0;
+                                if (isset($operatorRotas[$staff['id']][$timePeriod])) {
+                                    $currentPeriodBookId = $operatorRotas[$staff['id']][$timePeriod]['book_id'];
+                                    $currentPeriodStatus = $operatorRotas[$staff['id']][$timePeriod]['ort_status'];
+                                    $currentOrtId = $operatorRotas[$staff['id']][$timePeriod]['ort_id'];
+                                }
+                                {/php}
+                                <li class="rota_period{if $currentPeriodStatus eq 0} disabled{elseif $currentPeriodStatus eq 2} active{/if}" data-periord="{$timePeriod}" data-status="{$currentPeriodStatus}" data-book-id="{$currentPeriodBookId}" data-ort-id="{$currentOrtId}">
+                                    {$timePeriod}
+                                </li>
+                                {/foreach}
+                            </ul>
+                        </td>
+                        <td style="width:10%; vertical-align: middle;text-align: center;">
+                            <button type="button" class="btn btn-default btn-assign-all" data-target="#ul_{$staff.id}" style="margin: 6px 0">一键排班</button>
+                            <br />
+                            <button type="button" class="btn btn-warning btn-cancel-all" data-target="#ul_{$staff.id}" style="margin: 6px 0">一键休假</button>
+                        </td>
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-success" id="btn-rota">开始排班</button>
+            </div>
+            {else}
+            <div class="form-group" style="min-height: 300px;">
+                <h3 class="text-center" style="margin: 80px 0">所有职员已排班，请至 <span class="text-success" id="btn-view-rota" style="cursor: pointer;">值班情况</span> 处查看</h3>
+            </div>
+            {/if}
+        </form>
+    </div>
+</div>
+<style type="text/css">
+.rota_period {
+    display: inline-block;
+    padding: 8px;
+    margin: 8px 4px;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 6px;
+    cursor: pointer;
+}
+.rota_period.active {
+    background-color: #f39c127d;
+}
+.rota_period.disabled {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+</style>

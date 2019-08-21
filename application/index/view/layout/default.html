@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {include file="common/meta" /}
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top" id="mainNav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-target="#navbar-collapse-menu" data-toggle="collapse" type="button">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span>
+                        <i class="fa fa-bars">
+                        </i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="/web/index" style="padding: 0;">
+                        <img alt="" src="/assets/img/logo.svg" style="width:200px;"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/web/index">
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/index">
+                                优惠
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/index">
+                                新品
+                            </a>
+                        </li>
+                        <li>
+                            <a class="top-avatar-a" href="javascript:;" id="btn-staff-login">
+                                {if (!empty($staffInfo))}
+                                <img class="top-avatar img-circle" src="{$staffInfo['avatar']|htmlspecialchars}"/>
+                                <span style="line-height: 40px; font-size: 14px; display: inline-block; float: left; overflow: hidden; word-break: keep-all;" title="{$staffInfo['nickname']|htmlspecialchars}">
+                                    {$staffInfo['nickname']|htmlspecialchars|mb_substr=###,0,3,'utf-8'}
+                                </span>
+                                {else}
+                                <img class="top-avatar img-circle" src="/assets/img/webLogo.png"/>
+                                {/if}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <a class="hidden" href="y-top">
+        </a>
+        <div id="main-content">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <section class="content-header hide">
+                    <h1>
+                        {:__('Dashboard')}
+                        <small>
+                            {:__('Control panel')}
+                        </small>
+                    </h1>
+                </section>
+                <div class="content">
+                    {__CONTENT__}
+                </div>
+            </div>
+        </div>
+        <div class="y-pop-mini" id="osc-staff-center">
+            <div class="y-pop-mini-inner">
+                <!-- 未登录 -->
+                <div class="center-block{if !empty($staffInfo)} hidden{/if}" id="osc-staff-login" style="width: 230px; margin-top: 56px;">
+                    <div class="y-pop-img-div text-center" style="margin-bottom: 32px;">
+                        <!-- <img src="" class="img img-responsive center-block" /> -->
+                        <i class="fa fa-4x fa-user y-color-main">
+                        </i>
+                        <h4 class="y-color-main">
+                            顾问登录
+                        </h4>
+                    </div>
+                    <div class="text-center form-group" style="position: relative;">
+                        <i class="fa fa-2x fa-user y-form-control-icon y-color-main">
+                        </i>
+                        <input class="y-form-control y-form-control-b-l y-color-main" name="username" placeholder="用户名"/>
+                    </div>
+                    <div class="text-center form-group" style="position: relative;">
+                        <i class="fa fa-2x fa-lock y-form-control-icon y-color-main">
+                        </i>
+                        <input class="y-form-control y-form-control-b-l y-color-main" name="password" type="password" placeholder="密码"/>
+                    </div>
+                    <div class="text-center form-group" style="margin-top: 32px;">
+                        <button class="btn btn-block y-back-main" id="y-btn-osc-login" type="button">
+                            登入
+                        </button>
+                    </div>
+                </div>
+                <!-- 已登录 -->
+                <div class="center-block{if empty($staffInfo)} hidden{/if}" id="osc-staff-logout" style="width: 230px; margin-top: 90px;">
+                    <div class="y-pop-img-div text-center" style="margin-bottom: 32px;">
+                        <i class="osc-staff-avtar" {if (!empty($staffInfo) &&!empty($staffInfo['avatar']))}style="background-image: url({$staffInfo['avatar']|htmlspecialchars});"{/if}>
+                        </i>
+                        <h4 class="y-color-main">
+                            {if !empty($staffInfo)}{$staffInfo.nickname}{/if}
+                        </h4>
+                    </div>
+                    <div class="text-center form-group" style="margin-top: 32px;">
+                        <button class="btn btn-lg btn-danger" id="y-btn-osc-logout" type="button">
+                            <i class="fa fa-sign-out">
+                                退出
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="y-pop-mini" id="osc-choose-center">
+            <div class="y-pop-mini-inner">
+                <div class="y-color-main y-pop-mini-refresh"><i class="fa fa-refresh"></i> 刷新</div>
+                <div id="osc-choose-list">
+                </div>
+            </div>
+        </div>
+
+        <!-- H5 播放隐藏弹窗 class="hidden" -->
+        <div id="y-pre-video-area" style="display: none; position: fixed; top: calc(50% - 260px); left: calc(50% - 360px); background: transparent; border-radius: 8px; box-shadow: 2px 2px 5px  ; width: 720px; height: 520px; z-index: 999; overflow: hidden;">
+            <video controls="" height="100%" id="y-pre-video" loop="false" src="" style="background-color: rgba(0,0,0,.8);" width="100%">
+                您的浏览器不支持 video 标签。
+            </video>
+            <div class="y-pre-video-close" onclick="yClose()">
+                <i class="fa fa-times">
+                    关闭
+                </i>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function getCookie(c_name) {
+                if (document.cookie.length > 0) {
+                    c_start = document.cookie.indexOf(c_name + "=");
+                    if (c_start != -1) {
+                        c_start = c_start + c_name.length + 1;
+                        c_end = document.cookie.indexOf(";", c_start);
+                        if (c_end == -1) c_end = document.cookie.length;
+                        return unescape(document.cookie.substring(c_start, c_end));
+                    }
+                }
+                return ""
+            }
+
+            function setCookie(c_name, value, expiredays) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + expiredays);
+                document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "": ";expires=" + exdate.toGMTString());
+            }
+
+            function yPlay(src) {
+                document.querySelector('#y-pre-video-area').style.display = 'block';
+                document.querySelector('#y-pre-video').src = src;
+                document.querySelector('#y-pre-video').load();
+                document.querySelector('#y-pre-video').play();
+            }
+            function yClose()
+            {
+                document.querySelector('#y-pre-video').pause();
+                document.querySelector('#y-pre-video-area').style.display = 'none';
+            }
+        </script>
+        {include file="common/script" /}
+    </body>
+</html>

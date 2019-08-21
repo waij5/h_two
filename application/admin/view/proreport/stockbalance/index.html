@@ -1,0 +1,173 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+<style type="text/css">
+#table tr td{border:1px black solid;word-wrap:break-word;text-align: center;vertical-align:middle;width: 80px}
+#table tr th{border:1px black solid;text-align: center;vertical-align:middle}
+</style>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table">
+                        <form class="form-inline  nice-validator nice-validator n-default" action="{:url('proreport/stockbalance/index')}" id="f-commonsearch" role="form" method="post">
+                            <fieldset style="text-align: left;">
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="p_num" class="control-label labelLocation">产品编号</label>
+                                    <input type="text" name="p_num" class="form-control clear" size="8" value="{$Request.param.p_num}">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="p_name" class="control-label labelLocation">产品名称</label>
+                                    <input type="text" name="p_name" class="form-control clear" size="8" value="{$Request.param.p_name}">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="depot_id" class="control-label labelLocation" >仓库</label>
+                                    <select id="depot_id" data-rule="" class="form-control " name="depot_id" style="width: 100px">
+                                        <!-- <option data-type="" value='' >--- 请选择 ---</option> -->
+                                        {foreach name="depotList" item="vo"}
+                                        <option data-type="{$vo.name}" value="{$vo.id}" {in name="vo.id" value="$Request.param.depot_id"}selected{/in}>{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!--<br>-->
+                                <div class="form-group dislocationAll">
+                                    <label for="id" class="control-label labelLocation">发生日期</label>
+                                    <input type="text" name="stime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.stime)} value="<?php echo date('Y-m-01');?>"{else} value="{$Request.param.stime}"{/if} size="8">  ~  <input type="text" name="etime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.etime)} value="<?php echo date('Y-m-d',strtotime(date('Y-m-01').' +1 month -1 day'));?>"{else} value="{$Request.param.etime}"{/if} size="8">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="pdutype_id" class="control-label labelLocation">类型</label>
+                                    <select id="pdutype_id" data-rule="" class="form-control clear" name="pdutype_id" style="width: 100px">
+                                    <option data-type="" value='' >--- 请选择 ---</option>
+                                        {foreach name="protype" item="vo"}
+                                        <option data-type="{$vo.name}" value="{$vo.id}" {in name="vo.id" value="$Request.param.pdutype_id"}selected{/in}>{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="pdutype2_id" class="control-label labelLocation">类别</label>
+                                    <select id="pdutype2_id" data-rule="" class="form-control clear" name="pdutype2_id" style="width: 100px">
+                                        <option data-type="" value='' >--- 请选择 ---</option>
+                                        {foreach name="protypeson" item="vo"}
+                                        <option data-type="{$vo.name}" value="{$vo.id}" {in name="vo.id" value="$Request.param.pdutype2_id"}selected{/in}>{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                    <input type="hidden" class="newsort" name="newsort" value="{$Request.param.newsort}">
+                                </div>
+
+
+                                <!--<br>-->
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <a type="reset" class="btn btn-default" id="btn-customer-clear">重置</a>
+                                        <button type="button" class="btn btn-default" id="btn-export">导出</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" onclick="window.location.reload()"><i class="fa fa-refresh"></i> </a> &nbsp;
+                        <!-- <a href="javascript:;" class="btn btn-primary" id="isPrint">打印</a> -->    
+                    </div>
+                    
+<!--startprint-->
+
+                    <div class="form-group " style="font-family: KaiTi;width: 100%;">
+                       <div style="text-align: center;font-weight:bold;font-size: 20px;"> 产品库存结余表</div>
+					</div>
+					<div class="proreportDate" style="font-family: KaiTi;width: 100%;height: 20px;">
+                        <div style="font-weight:normal;font-size: 13px;float: left;" class="intime">{if condition="!empty($censusDate)"}{$censusDate}{/if}</div>
+                        <div style="font-weight:normal;font-size: 13px;float: right;">打印日期：<?php echo date('Y-m-d');?></div>
+                    </div>
+  					<div id="consumTable" style="position: relative;overflow-y: auto;">
+                        <table id="table" class="table table-striped table-bordered table-hover scrolltable" cellspacing="0" cellpadding="0" style="width: 100%;table-layout: fixed;overflow-x: auto" >
+                           <thead style="">
+                           <tr>
+                               
+                                <th rowspan="2" ><a href="javascript:;" class="categorySort">类别</a></th>
+                                <th rowspan="2">产品编号</th>
+                                <th rowspan="2" style="color: red"><a href="javascript:;" class="nameSort">产品名称</a></th>
+                                <th rowspan="2" style="color: red">批号</th>
+                                <th rowspan="2">规格</th>
+                                <th rowspan="2">单位</th>
+                                <th rowspan="2">成本</th>
+                                <th rowspan="2">零售价</th>
+
+                                <th rowspan="2" style="color: red">现有库存</th>
+                                <th rowspan="1" colspan="6">库存变动汇总</th>
+                            </tr>
+                            <tr >
+                                
+                                <th rowspan="1" colspan="1" >期初库存</th>
+                                <th rowspan="1" colspan="1" >参考成本</th>
+                                <th rowspan="1" colspan="1" >应销金额</th>
+
+                                <th rowspan="1" colspan="1" >期末库存</th>
+                                <th rowspan="1" colspan="1" >参考成本</th>
+                                <th rowspan="1" colspan="1" >应销金额</th>
+                            </tr>
+                            </thead>
+                           
+                            {if condition="!empty($data)"}
+                             <tbody style="max-height: 200px; overflow-y: overlay;">
+                            {foreach name= 'data' item='v' key="k"}
+                            
+                            <tr>
+
+                                <td>{$v.pdutype_id} * {$v.pdutype2_id}</td>
+                                <td>{$v.num}</td>
+                                <td style="color: red">{$v.name}</td>
+                                <td style="color: red">{$v.lotnum}</td>
+                                <td>{$v.sizes}</td>
+                                <td>{$v.unit}</td>
+                                <td>{$v.cost}</td>
+                                <td>{$v.price}</td>
+                                <td>{$v.stock}</td>
+                                <td>
+                                    {$v.beginStock}
+                                </td>
+
+                                <td>
+                                    {$v.beginStock*$v.cost}
+                                </td>
+                                <td>
+                                    {$v.beginStock*$v.price}
+                                </td>
+                                <td>{$v.stock}</td>
+                                <td>{$v.stock*$v.cost}</td>
+                                <td>{$v.stock*$v.price}</td>
+                                
+                            </tr>
+                           
+                            {/foreach}
+                            </tbody>
+
+                            <tfoot class="proreport-tfoot">
+                                <tr  style="border-bottom: 4px solid;" class="two_table">
+                                    <th colspan="" style="text-align: right;color: red;">总合计：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                    <th style="color: red;text-align: left;">{$totalData.totalNum?$totalData.totalNum:''}   &nbsp;&nbsp;个产品</th>
+                                    <th style="color: red;">{$totalData.beginCost}</th>
+                                    <th style="color: red;">{$totalData.beginPrice}</th>
+                                    <th ></th>
+                                    <th style="color: red;">{$totalData.lastCost}</th>
+                                    <th style="color: red;">{$totalData.lastPrice}</th>
+
+                                </tr>
+                           </tfoot>
+                            {/if}
+                            
+                        </table>
+                       </div>
+                  
+<!--endprint-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<span id="h_yjy_where" class="hidden">{if (isset($where))}{$where}{else}[]{/if}</span>

@@ -1,0 +1,24 @@
+{include file="common/toolbar" /}
+<ul class="thumbnails o-hidden" id="y-right-category" style="margin: 0; padding: 0;">
+    <li class="{if (empty($selectedDeptId))} active{/if}">
+        <a href="/web/set/index">
+            所有
+        </a>
+    </li>
+    {foreach $deductDepts as $deductDept}
+    <li class="{if $selectedDeptId eq $deductDept.dept_id} active{/if}">
+        <a href="/web/set/index?deptId={$deductDept.dept_id}">
+            {$deductDept.dept_name}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+<div id="y-l-main" style="padding-top: 50px;">
+    {if $proSets->total() > 0}
+    <ul class="thumbnails row o-hidden" id="ul-sets-list">
+        
+    </ul>
+    {else}
+    <img class="img img-responsive center-block" src="/assets/img/search_no_result.png" style="width: 360px;" />
+    {/if}
+</div>

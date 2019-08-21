@@ -1,0 +1,94 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[customer_id]" value="{$customer.ctm_id}" />
+    <input type="hidden" name="row[admin_id]" value="{$admin.id}" />
+    <input type="hidden" name="row[balance_type]" value="{$balanceType}" />
+    <h2 class="text-center">
+        {$site.name}
+        <br />
+        <small>--{:__('Coupon receipt')}--</small>
+    </h2>
+    <div class="clearfix"></div>
+    <div class="form-group col-sm-6">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-4">{:__('Ctm_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="control-label">
+                {$customer.ctm_name|htmlspecialchars}  (ID: {$customer.ctm_id})
+            </label>
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-amount" class="control-label">{:__('Prestored amount')}:</label>
+        <label class="control-label text-success">
+            {$customer.ctm_depositamt}
+        </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="c-ctm_coupamt" class="control-label">{:__('ctm_coupamt')}:</label>
+        <label class="control-label text-success">
+            {$customer.ctm_coupamt}
+        </label>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group col-sm-6" style="margin-top: 5px;">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">券面额:</label>
+        <div class="col-xs-12 col-sm-8">
+           <input type="number" name="row[coupon_amt]" class="form-control" value="0" data-rule="range(0~)" style="color: #f6a216; font-size: 1.2em;" />
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <hr />
+    <div class="clearfix"></div>
+    <div class="form-group col-sm-6">
+        <label for="c-deposite-total" class="control-label col-xs-12 col-sm-4">{:__('Deposit_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input type="number" name="row[deposit_total]" class="form-control" data-rule="required;range(0~{$customer.ctm_depositamt})" value="0" />
+                <span class="input-group-addon yjy-addon-1">总 {$customer.ctm_depositamt}</span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- 消费积分 -->
+    <div class="form-group col-sm-6">
+        <label for="c-deposite-total" class="control-label col-xs-12 col-sm-4">{:__('Use Pay points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input type="number" name="row[pay_points]" class="form-control" data-rule="required;integer;range(0~{$customer.ctm_pay_points})" value="0" />
+                <span class="input-group-addon yjy-addon-1">总 {$customer.ctm_pay_points}</span>
+            </div>
+        </div>
+    </div>
+    <!-- 佣金 -->
+    <div class="form-group col-sm-6">
+        <label for="c-deposite-total" class="control-label col-xs-12 col-sm-4">{:__('Use affiliate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input type="number" name="row[affiliate_amt]" class="form-control" data-rule="required;integer;range(0~{$customer.ctm_affiliate})" value="0" />
+                <span class="input-group-addon yjy-addon-1">总 {$customer.ctm_affiliate}</span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {include file="common/pay_methods" /}
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Balance_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea name="row[balance_remark]" row='2' class="form-control summernote" style="resize:none"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+
+
+<style type="text/css">
+    .yjy-addon-1 {
+        min-width: 100px;
+        text-align: justify;
+    }
+</style>

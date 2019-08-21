@@ -1,0 +1,174 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <input type="hidden" id="h-type" value="{$type}" />
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                               <!--  <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label labelLocation">{:__('Customer')}</label>
+                                    <input type="hidden" name="customer_id" class="form-control" value="" id="field_ctm_id" />
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>
+                                </div> -->
+                                 <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_id" class="control-label searchPadding">{:__('Ctm_id')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_id" value="" placeholder="{:__('Ctm_id')}" id="customer.ctm_id">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_name" class="control-label searchPadding">{:__('Ctm_name')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_name" value="" placeholder="{:__('Ctm_name')}" id="customer.ctm_name">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_mobile" class="control-label searchPadding">{:__('Ctm_mobile')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_mobile" value="" placeholder="{:__('Ctm_mobile')}" id="customer.ctm_mobile">
+                                </div>
+                                <!-- 开发人员 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.admin_id" class="control-label searchPadding">{:__('develop_admin_id')}</label>
+                                    <select class="form-control" name="customer.admin_id">
+                                        <option value="">{:__('None')}</option>
+                                        {foreach $briefAdminList2 as $key => $value}
+                                        <option value="{$key}">{$value}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- 首次录入的受理工具 -->
+                                <div class="form-group dislocationAll">
+                                    <label for="customer.ctm_first_tool_id" class="control-label searchPadding">{:__('ctm_first_tool_id')}</label>
+                                    <select class="form-control" required="" name="customer.ctm_first_tool_id" id="customer.ctm_first_tool_id">
+                                        {foreach $toolList as $key => $val}
+                                            <option value="{$key}">{$val}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!--
+                                <div class="form-group dislocationAll">
+                                    <label for="admin_id" class="control-label" style="float: left; padding: 7px 10px;">
+                                        {:__('Osconsult_admin')}
+                                    </label>
+                                    <input type="hidden" name="admin_id" id="field_admin_id">
+                                    <div style="float: left" onmouseleave="$(this).find('.word').addClass('hidden');">
+                                        <input type="text" " onmouseenter="$(this).siblings().find('.word').removeClass('hidden')" autocomplete="off" value="" style="position: relative;" class="nickname form-control" />
+                                        <div style="position: relative;" >
+                                            <ul id="word" data-index="" style="display: none;list-style: none;position: absolute;cursor: pointer;z-index: 999;height: auto;text-align: left; width: 100%; max-height: 130px;padding-bottom: 0;padding-top: 0;overflow-y: auto;" class="form-control word"></ul>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-admin-clear" style="margin-left: 5px;">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>
+                                </div>
+ -->
+<!-- 
+                                <div class="form-group dislocationAll">
+                                    <label for="Department_id" class="control-label labelLocation">{:__('Department')}</label>
+                                    <select name="dept_id" class="form-control">
+                                        <option value="">{:__('None')}</option>
+                                    {foreach $deptList as $key => $dept}
+                                        <option value="{$dept.dept_id}">{$dept.dept_name}</option>
+                                    {/foreach}
+                                    </select>
+                                </div>
+ -->
+                                <div class="form-group dislocationAll">
+                                    <label for="createtime" class="control-label labelLocation">{:__('Business date')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_start" type="text" value="{$startDate}" id="createtime_start"> ~ <input  class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_end" type="text" value="{$endDate}" id="createtime_end">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="button" class="btn btn-success dislocationRight" id="btn-submit-1">{:__('Submit')}</button>
+                                        <button type="reset" class="btn btn-default">{:__('Reset')}</button>
+                                        <button type="button" class="btn btn-default" id="btn-export">{:__('Export')}</button>
+                                    </div>
+                                </div> 
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="toolbar" class="table table-striped table-bordered table-hover" width="100%">
+                    </div>
+                    <div class="form-group">
+                        <h2 class="text-center">
+                            {:__('Customer consumption detail')}
+                        </h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div style="line-height: 24px;font-size: 14px;float: left;padding-left: 5px;">
+                        <h3>
+                            {:__('balance_f_total')}&nbsp;
+                            <span class="text-success his-balance_f_total">0</span>
+                        </h3>
+                        <label class="control-label">
+                            {:__('balance_pay_total')}&nbsp;
+                        </label>
+                        <span class="text-warning his-balance_pay_total">0</span>
+                        <label class="control-label">
+                            {:__('balance_deposit_total')}&nbsp;
+                        </label>
+                        <span class="text-warning his-balance_deposit_total">0</span>
+                        <label class="control-label">
+                            {:__('deposit_change_total')}&nbsp;
+                        </label>
+                        <span class="text-warning his-deposit_change_total">0</span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div id="consumTable" style="position: relative;overflow-y: auto;">
+                    <table id="table" class="table table-bordered table-condensed table-hover scrolltable" width="100%" style="table-layout: fixed">
+                        <thead class="">
+                            <tr>
+                                {if ($type eq 'customer_id')}
+                                <th rowspan="2" class="text-center text-warning" style="vertical-align: middle;">{:__('Customer')}</th>
+                                {else}
+                                <th rowspan="2" class="text-center text-warning" style="vertical-align: middle;">{:__($type)}</th>
+                                <th rowspan="2" class="text-center" style="vertical-align: middle;">{:__('Customer')}</th>
+                                {/if}
+                                
+                                <th rowspan="2" class="text-center" style="vertical-align: middle;">{:__('Business date')}</th>
+                                <th colspan="4" class="text-center" style="vertical-align: middle;">{:__('Order info')}</th>
+
+                                <th colspan="3" class="text-center">{:__('Order detail')}</th>
+
+                                <th colspan="4" class="text-center">{:__('Related staff')}</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">{:__('Order total')}</th>
+                                <th class="text-center">{:__('Balance pay total')}</th>
+                                <th class="text-center">{:__('Used coupon total')}</th>
+                                <th class="text-center">{:__('Deposit amount')}</th>
+
+                                <th class="text-center">{:__('Pro name')}</th>
+                                <th class="text-center">{:__('Price per times')}</th>
+                                <th class="text-center">{:__('pro times')}</th>
+
+                                <th class="text-center">{:__('Develop admin')}</th>
+                                <th class="text-center">{:__('Osconsult admin')}</th>
+                                <th class="text-center">{:__('Recept admin')}</th>
+                                <th class="text-center">{:__('casher')}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody style="max-height: 200px;overflow-y: overlay;">
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                    
+                    
+                    </div>
+                    <div class="text-center" id="div-load-more">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    yjyBriefAdminList = {$briefAdminList};
+</script>

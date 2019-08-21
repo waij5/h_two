@@ -1,0 +1,159 @@
+{if (empty($list))}
+<tr>
+    <td>
+        没有此项目/产品的划扣记录
+    </td>
+</tr>
+{else}
+<thead style="display: table-header-group;">
+    <tr>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                项目/产品
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                规格
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                划扣科室
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                划扣时间
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                次数/数量
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                划扣金额(终)
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                本次收益(终)
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                状态
+            </div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; ">
+            <div class="th-inner ">
+                医护
+            </div>
+        </th>
+    </tr>
+</thead>
+<tbody>
+    {foreach $list as $row}
+    <tr>
+        <td style="word-wrap: normal;width: 100px; text-align: left; vertical-align: middle; ">
+            {$row.item_name}
+        </td>
+        <td style="word-wrap: normal;width: 100px; text-align: left; vertical-align: middle; ">
+            {$row.item_spec}
+        </td>
+        <td style="white-space: nowrap; text-align: center; vertical-align: middle; ">
+            {$row.dept_name}
+        </td>
+        <td style="white-space: nowrap; text-align: center; vertical-align: middle; ">
+            {$row.createtime|date="Y-m-d", ###}
+        </td>
+        <td style="text-align: center; vertical-align: middle; ">
+            {$row.deduct_times}
+        </td>
+        <td style="text-align: center; vertical-align: middle; ">
+            {$row.deduct_amount}
+        </td>
+        <td style="text-align: center; vertical-align: middle; ">
+            {$row.deduct_benefit_amount}
+        </td>
+        <td style="white-space: nowrap; text-align: center; vertical-align: middle; ">
+            {if (isset($deductStatusList[$row.status]))}
+            {$deductStatusList[$row.status]}
+            {/if}
+        </td>
+        <td style="white-space: nowrap; text-align: center; vertical-align: middle; ">
+            <a class="btn btn-xs btn-success btn-viewone" data-block-id="#h-staffs-{$row.id}" href="javascript:;" title="查看明细">
+                <i class="fa fa-search">
+                </i>
+            </a>
+            {if false}
+            <a class="btn btn-xs btn-danger btn-delone" href="javascript:;" title="删除">
+                <i class="fa fa-trash">
+                </i>
+            </a>
+            {/if}
+            <div class="h-staffs-block hidden" id="h-staffs-{$row.id}">
+                <div>
+                    划扣金额(终): {$row.deduct_amount}
+                    <br>
+                        本次收益(终): {$row.deduct_benefit_amount}
+                        <br/>
+                    </br>
+                </div>
+                {if (!empty($row['staff_records']))}
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>
+                                职员名
+                            </th>
+                            <th>
+                                提成比率(%)
+                            </th>
+                            <th>
+                                最终比率(%)
+                            </th>
+                            <th>
+                                提成金额(毛)
+                            </th>
+                            <th>
+                                提成金额(净)
+                            </th>
+                        </tr>
+                        {foreach $row.staff_records as $roleId => $roleInfo}
+                        <tr>
+                            <td colspan="5">
+                                {$roleInfo.role_name} : {$roleInfo.role_percent}%
+                            </td>
+                        </tr>
+                            {foreach $roleInfo.role_staffs as $key => $staffInfo}
+                        <tr>
+                            <td>
+                                {$staffInfo.admin_name}
+                            </td>
+                            <td>
+                                {$staffInfo.percent}
+                            </td>
+                            <td>
+                                {$staffInfo.final_percent}
+                            </td>
+                            <td>
+                                {$staffInfo.final_amount}
+                            </td>
+                            <td>
+                                {$staffInfo.final_benefit_amount}
+                            </td>
+                        </tr>
+                        {/foreach}
+                        {/foreach}
+                    </tbody>
+                </table>
+                {/if}
+            </div>
+        </td>
+    </tr>
+    {/foreach}
+</tbody>
+{/if}

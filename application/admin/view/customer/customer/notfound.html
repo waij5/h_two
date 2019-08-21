@@ -1,0 +1,27 @@
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade in active" id="basic">
+        <div class="panel-body">
+            <h2 class="text-warning text-center">
+                未找到顾客信息<i class="fa fa-search"></i>
+            </h2>
+            <hr/>
+            <p style="font-size: 16px">
+                卡号：
+                <span class="text-warning">
+                    {$id|htmlspecialchars}
+                </span>
+                {if $mobile}
+                手机：
+                <span class="text-warning">
+                    {$mobile|htmlspecialchars}
+                </span>
+                {/if}
+                的顾客不存在，请查正后重新输入，如是新顾客 <span class="text-success">请删除卡号</span> 输入
+                <span class="text-success">
+                    手机号
+                </span>
+                查找。
+            </p>
+        </div>
+    </div>
+</div>

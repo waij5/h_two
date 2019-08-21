@@ -1,0 +1,258 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <input type="hidden" value="{$targetDate}" id="h-targetDate">
+                    <div class="toolbar form-group" id="toolbar">
+                        <div class="text-center">
+                            <div class="btn-group">
+                                <a class="btn btn-success" id="btn-book">
+                                    <i class="fa fa-plus">
+                                    </i>
+                                    预约
+                                </a>
+                                <a class="btn btn-default" id="btn-help">
+                                    <i class="fa fa-question-circle-o">
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <a class="btn btn-primary btn-refresh" id="btn-refresh">
+                                    <i class="fa fa-refresh">
+                                    </i>
+                                    刷新
+                                </a>
+                                {if $auth->check('base/operaterota/newschedule')}
+                                <a class="btn btn-success" id="btn-new-rota">
+                                    <i class="fa fa-plus">
+                                    </i>
+                                    排班
+                                </a>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form action="" id="check-orta-form" method="post">
+                            <label class="control-label" style="float: left; padding: 6px 4px;" autocomplete="off">
+                                {:__('Ort_date')}:
+                            </label>
+                            <div class="input-group" style="float: left; width: 200px;">
+                                <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-rule="required" data-use-current="true" id="ort_date" name="ort_date" type="text" value="{$targetDate}" autocomplete="off">
+                                </input>
+                            </div>
+                        </form>
+                        <div class="pull-right">
+                            <li class="rota_period active">
+                                08:00
+                            </li>
+                            <label class="control-label labelLocation">
+                                已有预约
+                            </label>
+                            <li class="rota_period">
+                                08:00
+                            </li>
+                            <label class="control-label labelLocation">
+                                可预约
+                            </label>
+                            <li class="rota_period disabled">
+                                08:00
+                            </li>
+                            <label class="control-label labelLocation">
+                                休假
+                            </label>
+                            <i class="" style="
+                                border: 1px solid #d2d6de;
+                                #eee: 1px
+                                height: 18px;
+                                display: inline-block;
+                                height: 18px;
+                                padding: 5px 0;
+                                top: 4px;
+                                position: relative;
+                                border-right: none;
+                            "></i>
+                            <li class="rota_period selected">
+                                08:00
+                            </li>
+                            <label class="control-label labelLocation">
+                                临时选中
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                <div style="float: left; height: calc(100VH - 120px); width: calc(100% - 220px); overflow-y: overlay;">
+                    <table class="table table-bordered table-hover" id="rota-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    职员
+                                </th>
+                                <th class="text-center">
+                                    头衔
+                                </th>
+                                <th class="text-center">
+                                    擅长
+                                </th>
+                                <th class="text-center">
+                                    时刻表
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach $staffs as $staff}
+                            <tr>
+                                <td style="width: 65px; vertical-align: middle;text-align: center;">
+                                    <span title="{$staff.remark|htmlspecialchars}">
+                                        {$staff.name|htmlspecialchars}
+                                        <i class="fa fa-help">
+                                        </i>
+                                    </span>
+                                </td>
+                                <td style="width: 65px; vertical-align: middle;text-align: center;">
+                                    <span title="{$staff.remark|htmlspecialchars}">
+                                        {$staff.title|htmlspecialchars}
+                                    </span>
+                                </td>
+                                <td style="width: 110px; vertical-align: middle;text-align: left;">
+                                    <span title="{$staff.remark|htmlspecialchars}">
+                                        {$staff.good_at|htmlspecialchars}
+                                    </span>
+                                </td>
+                                <td>
+                                    {if (isset($list[$staff.id]))}
+                                    <ul class="staff_ul" data-operator-id="{$staff.id}" id="ul_{$staff.id}">
+                                        {foreach $list[$staff.id] as $subRota}
+                                        <li class="rota_period{if $subRota['ort_status'] == '2'} active{elseif ($subRota['ort_status'] == '0')} disabled{/if}" data-period="{$subRota['ort_period']}" data-status="{$subRota['ort_status']}" data-operator-id="{$staff.id}" data-book-id="{$subRota['book_id']}">
+                                            {$subRota['ort_period']}
+                                        </li>
+                                        {/foreach}
+                                    </ul>
+                                    {/if}
+                                </td>
+                            </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+                <div style="float: left; height: calc(100VH - 120px); width: 220px; overflow-y: overlay; border-left: 1px solid #f80;">
+                    <ul class="list-group">
+                        {foreach $myOperateBooks as $myOperateBook}
+                        <li class="list-group-item book-item" data-book-id="{$myOperateBook.obk_id}">
+                            时间: {$myOperateBook.obk_start_time} ~ {$myOperateBook.obk_end_time}
+                            <br/>
+                            顾客： {$myOperateBook.ctm_name}({$myOperateBook.customer_id})
+                            <br/>
+                            {assign name="curProNo" value="0"}
+                            {foreach $myOperateBook.operate_pros as $operatePro}
+                            <span class="text-success">{++$curProNo}: </span>{$operatePro.pro_name} 【{$operatePro.pro_spec}】<br />
+                            {/foreach}
+                            <br/>
+                            申请人： {$myOperateBook.nickname}({$myOperateBook.username})
+                            <hr style="margin: 8px 0;"/>
+                            {if (isset($bookPeriods[$myOperateBook.obk_id]))}
+                                {foreach $bookPeriods[$myOperateBook.obk_id] as $bookStaff}
+                                    <div>
+                                        {$bookStaff.operatorName}: 
+                                        {foreach $bookStaff.periods as $staffPeriod}
+                                            <span class="period-span">{$staffPeriod}</span>
+                                        {/foreach}
+                                    </div>
+                                {/foreach}
+                            {/if}
+                            <hr style="margin: 8px 0;"/>
+                            <div class="text-center">
+                                {if $myOperateBook.obk_status neq $bookCancelStatus}
+                                <button class="btn btn-warning btn-cancel-book" data-id="{$myOperateBook.obk_id}">
+                                    <i class="fa fa-close">
+                                    </i>
+                                    取消
+                                </button>
+                                {else}
+                                <span class="text-warning">
+                                    已取消
+                                </span>
+                                {/if}
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hidden">
+</div>
+<div class="hidden" id="block-help">
+    <div class="panel">
+        <div class="panel-heading" style="color: #f39c12; background-color: #fcf8e3; border-color: #faebcc;">
+            <h3 class="panel-title text-center" style="padding: 10px 0">
+                <i class="fa fa-question-circle-o">
+                </i>
+                帮助
+            </h3>
+        </div>
+        <div class="panel-body" style="padding: 15px;">
+            1. 在排班前请先在 基础设置-值班人员 菜单添加值班人员
+            <hr/>
+            2. 客服帮顾客预约手术前，需要排班人先对人员进行排班
+            <hr/>
+            3. 客服可以同时 选择多个医生 的时间片段 进行预约，需要选择顾客及项目信息
+            <hr/>
+            4. 手术时间前可取消预约
+            <hr/>
+            5. 白色-可预约，橙黄色-已预约，灰色-休假, 浅绿色-临时选中
+            <hr/>
+            6. 预约聚集模式-全览模式切换：<br />
+            &nbsp;&nbsp;点击已预约的时刻，进入聚集模式，时刻表中只显示预约对应医生的时刻表信息，预约时刻放大并以绿底呈现，右侧预约只显示选中预约，再次点击相应时刻即可恢复全览模式
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.staff_ul {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.rota_period {
+    display: inline-block;
+    padding: 4px;
+    margin: 3px 3px;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.rota_period.active {
+    background-color: #f39c127d;
+}
+.rota_period.selected {
+    background-color: #40e0c1;
+}
+.rota_period.disabled {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+.rota_period.focus-show {
+    background: #18bc9c;
+    border-color: #18bc9c;
+    transform: scale(1.12);
+    color: #fff;
+    font-weight: bolder;
+}
+.book-item .period-span {
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid #40e0c1;
+    border-radius: 3px;
+
+}
+</style>
+
+<!-- 
+{php}
+var_dump($bookPeriods);
+{/php} -->

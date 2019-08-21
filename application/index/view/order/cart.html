@@ -1,0 +1,145 @@
+<div class="col-xs-12 col-md-12">
+    <div class="" style="display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #a6816f;">
+        <div style="flex-grow: 0">
+            <a href="javascript:history.back();" style="display: inline-block;
+    padding: 0 30px;
+    color: #a6816f;
+    border: 1px solid #caac9e;
+    border-radius: 4px;">
+                <i class="fa fa-arrow-left">
+                </i>
+            </a>
+        </div>
+        <div class="text-right" style="flex-grow: 1" id="t-cart-osc-info">
+            <!-- 王某某： 女；24岁；186****6666；A12347 -->
+        </div>
+    </div>
+</div>
+<form action="/web/order/pre" method="post" id="form-checkout">
+    <!-- 默认申请折扣 -->
+    <input type="hidden" value="{$Request.param.useCookie|default='0'}" id="y-v-use-cookie">
+    <input type="hidden" name="permissionRequest" value="1" />
+    <input type="hidden" name="applyInfo" value="点单系统价格申请" />
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-responsive y-table1 y-table-v-m" id="table-cart">
+            <thead>
+                <tr>
+                    <th style="word-break: keep-all;">
+                        序号
+                    </th>
+                    <th>
+                        项目
+                    </th>
+                    <th>
+                        规格
+                    </th>
+                    <th>
+                        数量
+                    </th>
+                    <th>
+                        总价
+                    </th>
+                    <th style="word-break: keep-all;">
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {assign name="curIndex" value="0" /}
+                {foreach $settings as $setNo => $sets}
+                <tr data-set-id={$sets.id}>
+                    <td>
+                        {++$curIndex}
+                    </td>
+                    <td style="width: 25%; word-wrap: break-word;">
+                        <a class="y-preview-set" href="javascript:;" data-href="/web/set/previewset/ids/{$sets.id}"><i class="fa fa-search"></i>{$sets.name|htmlspecialchars}</a>
+                    </td>
+                    <td style="width: 25%; word-wrap: break-word;">
+                    </td>
+                    <td style="position: relative;">
+                        <input type="hidden" value="{$sets.id}" name="setParams[{$sets.id}][id]" />
+                        <input type="number" value="1" data-rule="required;integer(+);" class="form-control y-cart-c-base y-cart-row-qty" name="setParams[{$sets.id}][qty]" />
+                        <input type="hidden" value="{$sets.set_price}" class="form-control y-cart-row-price" readonly name="setParams[{$sets.id}][set_total]" />
+                    </td>
+                    <td style="position: relative;">
+                        <input type="number" value="{:number_format ($sets.set_price, 2, '.', '')}" data-rule="required;range(0~);" class="form-control y-cart-c-base y-cart-row-total"readonly />
+                    </td>
+                    <td>
+                        <a class="btn btn-defautl y-btn-remove-cart-item" href="javascript:;">删除</a>
+                    </td>
+                </tr>
+                {/foreach}
+
+
+                {foreach $itemParams as $itemAName => $itemParam}
+                {// if $itemParam.qty gt 0}
+                {if (isset($itemParam['qty']) && $itemParam.qty > 0)}
+                <tr data-pro-id={$itemParam.pk}>
+                    <td>
+                        {++$curIndex}
+                    </td>
+                    <td style="width: 25%; word-wrap: break-word;">
+                        {$itemParam.pro_name|htmlspecialchars}
+                    </td>
+                    <td style="width: 25%; word-wrap: break-word;">
+                        {$itemParam.pro_spec|htmlspecialchars}
+                    </td>
+                    <td style="position: relative;">
+                        <input type="hidden" value="{$itemParam.pk}" name="itemParams[{$itemAName}][pk]" />
+                        <input type="number" value="{$itemParam.qty}" data-rule="required;integer(+);" class="form-control y-cart-c-base y-cart-row-qty"{if $isSuit} readonly{/if} name="itemParams[{$itemAName}][qty]" />
+                        <input type="hidden" value="{$itemParam.pro_amount}" class="form-control y-cart-row-pro-amount" readonly />
+                        <input type="hidden" value="{$itemParam.price}" class="form-control y-cart-row-price" readonly />
+                    </td>
+                    <td style="position: relative;">
+                        <input type="number" value="{:number_format ($itemParam.qty * $itemParam.price, 2, '.', '')}" data-rule="required;range(0~);" name="itemParams[{$itemAName}][item_total]"  class="form-control y-cart-c-base y-cart-row-total"{if $isSuit} readonly{/if} />
+                    </td>
+                    <td>
+                        {if !$isSuit}
+                        <a class="btn btn-defautl y-btn-remove-cart-item" href="javascript:;">删除</a>
+                        {/if}
+                    </td>
+                </tr>
+                {/if}
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+    <div id="y-bottom-fix-nav">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0; padding-right: 0;">
+            <div class="pull-left">
+                <a class="y-base-btn" href="javascript:;" id="y-btn-clear-cart" style="background: transparent; color: #FE0036">
+                    清空购物车
+                </a>
+            </div>
+            <div class="pull-right">
+                <a class="y-base-btn{if !$needSelectDept} hidden{/if}" href="javascript:;" style="background-color: transparent;">
+                    <span style="font-size: 14px; color: #000;"">科室：<i class="fa fa-info-circle" data-toggle='tooltip' title="可能需要选择科室"></i></span>
+                    <select class="form-control" name="row[dept_id]" style="width: initial; display: inline-block;">
+                        <option value="0">--</option>
+                        {foreach $deductDeptList as $deductDept}
+                        <option value="{$deductDept.dept_id}">{$deductDept.dept_name}</option>
+                        {/foreach}
+                    </select>
+                </a>
+                <a class="y-base-btn" href="javascript:;" style="background-color: transparent;">
+                    <span style="color: #000; font-size: 14px;">
+                        总计：
+                    </span>
+                    <b style="color: #FE0036; font-size: 21px;" id="y-cart-total">
+                        ￥ 0.00
+                    </b>
+                </a>
+                <a class="y-base-btn y-base-btn-2" href="javascript:;" id="y-btn-pre-checkout">
+                    提交订单
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

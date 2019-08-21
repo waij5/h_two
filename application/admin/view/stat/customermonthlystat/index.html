@@ -1,0 +1,192 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post" autocomplete="off">
+                            <fieldset>
+                                <!-- <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label searchPadding">{:__('customer_id')}</label>
+                                    <input type="text" class="form-control" name="customer_id" value="" placeholder="ID" id="customer_id">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="customer_name" class="control-label searchPadding">{:__('customer_name')}</label>
+                                    <input type="text" class="form-control" name="customer_name" value="" placeholder="{:__('customer_name')}" id="customer_name">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="depositamt" class="control-label searchPadding">{:__('depositamt')}</label>
+                                    <input type="text" class="form-control" name="depositamt_start" value=""  id="depositamt_start">~<input type="text" class="form-control" name="depositamt_end" value=""  id="depositamt_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="undeducted_total" class="control-label searchPadding">{:__('undeducted_total')}</label>
+                                    <input type="text" class="form-control" name="undeducted_total_start" value=""  id="undeducted_total_start">~<input type="text" class="form-control" name="undeducted_total_end" value=""  id="undeducted_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="not_out_total" class="control-label searchPadding">{:__('not_out_total')}</label>
+                                    <input type="text" class="form-control" name="not_out_total_start" value=""  id="not_out_total_start">~<input type="text" class="form-control" name="not_out_total_end" value=""  id="not_out_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="deducted_total" class="control-label searchPadding">{:__('deducted_total')}</label>
+                                    <input type="text" class="form-control" name="deducted_total_start" value=""  id="deducted_total_start">~<input type="text" class="form-control" name="deducted_total_end" value=""  id="deducted_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="deducted_benefit_total" class="control-label searchPadding">{:__('deducted_benefit_total')}</label>
+                                    <input type="text" class="form-control" name="deducted_benefit_total_start" value=""  id="deducted_benefit_total_start">~<input type="text" class="form-control" name="deducted_benefit_total_end" value=""  id="deducted_benefit_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="rank_points" class="control-label searchPadding">{:__('rank_points')}</label>
+                                    <input type="text" class="form-control" name="rank_points_start" value=""  id="rank_points_start">~<input type="text" class="form-control" name="rank_points_end" value=""  id="rank_points_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="pay_points" class="control-label searchPadding">{:__('pay_points')}</label>
+                                    <input type="text" class="form-control" name="pay_points_start" value=""  id="pay_points_start">~<input type="text" class="form-control" name="pay_points_end" value=""  id="pay_points_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="affiliate" class="control-label searchPadding">{:__('affiliate')}</label>
+                                    <input type="text" class="form-control" name="affiliate_start" value=""  id="affiliate_start">~<input type="text" class="form-control" name="affiliate_end" value=""  id="affiliate_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="item_original_pay_total" class="control-label searchPadding">{:__('item_original_pay_total')}</label>
+                                    <input type="text" class="form-control" name="item_original_pay_total_start" value=""  id="item_original_pay_total_start">~<input type="text" class="form-control" name="item_original_pay_total_end" value=""  id="item_original_pay_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="item_pay_total" class="control-label searchPadding">{:__('item_pay_total')}</label>
+                                    <input type="text" class="form-control" name="item_pay_total_start" value=""  id="item_pay_total_start">~<input type="text" class="form-control" name="item_pay_total_end" value=""  id="item_pay_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="item_real_pay_total" class="control-label searchPadding">{:__('item_real_pay_total')}</label>
+                                    <input type="text" class="form-control" name="item_real_pay_total_start" value=""  id="item_real_pay_total_start">~<input type="text" class="form-control" name="item_real_pay_total_end" value=""  id="item_real_pay_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="item_switch_total" class="control-label searchPadding">{:__('item_switch_total')}</label>
+                                    <input type="text" class="form-control" name="item_switch_total_start" value=""  id="item_switch_total_start">~<input type="text" class="form-control" name="item_switch_total_end" value=""  id="item_switch_total_end">
+                                </div> 
+                                <div class="form-group dislocationAll">
+                                    <label for="balance_total" class="control-label searchPadding">{:__('balance_total')}</label>
+                                    <input type="text" class="form-control" name="balance_total_start" value=""  id="balance_total_start">~<input type="text" class="form-control" name="balance_total_end" value=""  id="balance_total_end">
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="stat_date" class="control-label searchPadding">{:__('stat_date')}</label>
+                                    <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM" data-use-current="true" name="stat_date_start" id="stat_date_start" type="text" value="{$statDateStart}"> ~ <input  class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM" data-use-current="true" name="stat_date_end" id="stat_date_end" type="text" value="{$statDateEnd}">
+                                </div>
+
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">{:__('Submit')}</button>
+                                        <button type="reset" class="btn btn-default">{:__('Reset')}</button>
+                                        <button type="button" class="btn btn-default" id="btn-export">{:__('Export')}</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- 此数据是在每月1日统计完成,实际统计的是上月1号到31号的数据, -->
+                    <div class="alert alert-info alert-dismissable" style="margin: 10px 0;opacity: .8;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    数据中所有带有变动字样的是当期变动,即是上月1号到31号的变动金额,未标明变动的则是当月1号凌晨的实时数据--基本可以定义为上月31号期末数据。 未出帐金额=定金余额+未划扣金额
+                    </div>
+                    <div class="clearfix"></div>
+                    <table class="table table-striped table-bordered table-hover table-consened" id="y-t-monthly-summary">
+                        <tr>
+                            <th></th>
+                            <th class="text-center">收款</th>
+                            <th class="text-center">未出账</th>
+                            <th class="text-center">未划扣金额</th>
+                            <th class="text-center">定金</th>
+                            <!-- <th class="text-center">佣金</th> -->
+                            <th class="text-center">等级积分</th>
+                            <th class="text-center">消费积分</th>
+                        </tr>
+                        <tr>
+                            <td>期初</td>
+                            <td><span class="text-success">--</span></td>
+                            <td><span class="text-success" id="h-last_not_out_total">0</span></td>
+                            <td><span class="text-success" id="h-last_undeducted_total">0</span></td>
+                            <td><span class="text-success" id="h-last_depositamt">0</span></td>
+                            <!-- <td><span class="text-success" id="h-last_affiliate">0</span></td> -->
+                            <td><span class="text-success" id="h-last_rank_points">0</span></td>
+                            <td><span class="text-success" id="h-last_pay_points">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>本期</td>
+                            <td><span class="text-success" id="h-balance_total">0</span></td>
+                            <td><span class="text-success" id="h-not_out_total">0</span></td>
+                            <td><span class="text-success" id="h-undeducted_total">0</span></td>
+                            <td><span class="text-success" id="h-depositamt">0</span></td>
+                            <!-- <td><span class="text-success" id="h-affiliate">0</span></td> -->
+                            <td><span class="text-success" id="h-rank_points">0</span></td>
+                            <td><span class="text-success" id="h-pay_points">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>阶段[汇总/变动]</td>
+                            <td><span class="text-success" id="h-period_balance_total">0</span></td>
+                            <td><span class="text-success">--</span></td>
+                            <td><span class="text-success">--</span></td>
+                            <td><span class="text-success" id="h-period_deposit_change">0</span></td>
+                            <!-- <td><span class="text-success" id="h-period_affiliate_change">0</span></td> -->
+                            <td><span class="text-success" id="h-period_rank_points_change">0</span></td>
+                            <td><span class="text-success" id="h-period_pay_points_change">0</span></td>
+                        </tr>
+                    </table>
+                    {if false}
+                    <div>
+                        <label class="control-label">{:__('Balance_total')}</label>
+                        <span class="text-success" id="h-balance_total">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('period_balance_total')}</label>
+                        <span class="text-success" id="h-period_balance_total">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('not_out_total')}</label>
+                        <span class="text-success" id="h-not_out_total">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('undeducted_total')}</label>
+                        <span class="text-success" id="h-undeducted_total">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('deducted_total')}</label>
+                        <span class="text-success" id="h-deducted_total">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('depositamt')}</label>
+                        <span class="text-success" id="h-depositamt">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('deposit_change')}</label>
+                        <span class="text-success" id="h-deposit_change">0</span>&nbsp;&nbsp;
+    
+                        <label class="control-label">{:__('affiliate')}</label>
+                        <span class="text-success" id="h-affiliate">0</span>&nbsp;&nbsp;
+                        
+                        <label class="control-label">{:__('affiliate_change')}</label>
+                        <span class="text-success" id="h-affiliate_change">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('rank_points')}</label>
+                        <span class="text-success" id="h-rank_points">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('rank_points_change')}</label>
+                        <span class="text-success" id="h-rank_points_change">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('pay_points')}</label>
+                        <span class="text-success" id="h-pay_points">0</span>&nbsp;&nbsp;
+
+                        <label class="control-label">{:__('pay_points_change')}</label>
+                        <span class="text-success" id="h-pay_points_change">0</span>&nbsp;&nbsp;
+                    </div>
+                    {/if}
+                    <div id="toolbar" class="toolbar">
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover"  width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    #y-t-monthly-summary td {
+        text-align: right;
+        padding: 2px 10px;
+    }
+</style>

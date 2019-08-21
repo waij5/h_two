@@ -1,0 +1,46 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[admin_id]" value="{$admin.id}" />
+    <input type="hidden" name="row[customer_id]" value="0" />
+    <!-- <input type="hidden" name="row[deptment_id]" value="0" /> -->
+    <h2 class="text-center">
+        {$site.name}
+        <br />
+        <small>--{:__('Balance adjustment receipt')}--</small>
+    </h2>
+    <div class="form-group col-sm-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('Total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[balance_type]', $adjustBalanceTypeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {include file="common/pay_methods" /}
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Balance_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea name="row[balance_remark]" row='2' class="form-control summernote" style="resize:none"></textarea>
+        </div>
+    </div>
+    <!--
+    <div class="form-group col-sm-6">
+        <label for="    c-amount" class="control-label col-xs-12 col-sm-4">{:__('Deptment_id')}:</label>    
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[deptment_id]', $deptmentList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('Rec_admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[rec_admin_id]', $adminList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div
+    -->
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

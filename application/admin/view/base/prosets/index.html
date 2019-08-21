@@ -1,0 +1,57 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label for="set_id" class="control-label labelLocation">{:__('Set_id')}</label>
+                                    <input type="text" class="form-control" name="set_id" value="" placeholder="Id" id="set_id">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="set_name" class="control-label labelLocation">{:__('set_name')}</label>
+                                    <input type="text" class="form-control" name="set_name" value="" placeholder="{:__('set_name')}" id="pro_code">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="set_type" class="control-label labelLocation">{:__('set_type')}</label>
+                                    <select name="set_type" class="form-control">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $setTypeList as $key => $setType}
+                                        <option value="{$key}">{$setType}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="set_status" class="control-label labelLocation">{:__('set_status')}</label>
+                                    <select name="set_status" class="form-control">
+                                        <option value="">{:__('All')}</option>
+                                        <option value="1">{:__('Status_1')}</option>
+                                        <option value="0">{:__('Status_0')}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar()}
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('base/prosets/edit')}" 
+                           data-operate-del="{:$auth->check('base/prosets/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-cpdt_name" class="control-label col-xs-12 col-sm-2">{:__('Cpdt_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cpdt_name" data-rule="required" class="form-control" name="row[cpdt_name]" type="text" value="{$row.cpdt_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cpdt_type" class="control-label col-xs-12 col-sm-2">{:__('Cpdt_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cpdt_type" data-rule="required" class="form-control" name="row[cpdt_type]" type="text" value="{$row.cpdt_type}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_id" class="control-label col-xs-12 col-sm-2">{:__('Dept_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[dept_id]', $rows, $row['dept_id'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cpdt_status" class="control-label col-xs-12 col-sm-2">{:__('Cpdt_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <input id="c-cpdt_status" data-rule="required" class="form-control" name="row[cpdt_status]" type="number" value="{$row.cpdt_status}"> -->
+            <input id="c-cpdt_status" data-rule="required" class="form-control" name="row[cpdt_status]" type="hidden" value="{$row.cpdt_status}">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cpdt_remark" class="control-label col-xs-12 col-sm-2">{:__('Cpdt_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cpdt_remark" class="form-control" name="row[cpdt_remark]" type="text" value="{$row.cpdt_remark}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

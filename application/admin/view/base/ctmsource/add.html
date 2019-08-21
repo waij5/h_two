@@ -1,0 +1,47 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-sce_code" class="control-label col-xs-12 col-sm-2">{:__('Sce_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_code" data-rule="required" class="form-control" name="row[sce_code]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sce_name" class="control-label col-xs-12 col-sm-2">{:__('Sce_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_name" data-rule="required" class="form-control" name="row[sce_name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sce_spell" class="control-label col-xs-12 col-sm-2">{:__('Sce_spell')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_spell" data-rule="required" class="form-control" name="row[sce_spell]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sce_status" class="control-label col-xs-12 col-sm-2">{:__('Sce_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_status" data-rule="required" class="form-control" name="row[sce_status]" type="hidden" value="1">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sce_sort" class="control-label col-xs-12 col-sm-2">{:__('Sce_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_sort" data-rule="required" class="form-control" name="row[sce_sort]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sce_remark" class="control-label col-xs-12 col-sm-2">{:__('Sce_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sce_remark" data-rule="required" class="form-control" name="row[sce_remark]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

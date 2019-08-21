@@ -1,0 +1,210 @@
+<form action="" class="form" data-toggle="validator" enctype="multipart/form-data" id="import-form" method="POST" role="form">
+    <div class="alert alert-info alert-dismissable">
+        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+            ×
+        </button>
+        温馨提示：下载示例文件,在文件中进行添加更改需要导入的客户客服记录
+        <br/>
+    </div>
+    <input name="type" type="hidden" value="NEW">
+        <input name="_ajax" type="hidden" value="1">
+            <!-- 受理类型 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        受理类型
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" name="chn_type">
+                        {foreach $typeList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- 客户来源 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_source')}
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" id="ctm_source" name="ctm_source">
+                        {foreach $sourceList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- 营销渠道 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_explore')}
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" id="ctm_explore" name="ctm_explore">
+                        {foreach $channelList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- 受理工具 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Tool_id')}
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" id="tool" name="tool">
+                        {foreach $toolList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- 回访计划 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        回访计划&nbsp;&nbsp;
+                        <!-- <i class="text-danger">
+                            *
+                        </i> -->
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="rvplan">
+                        <option value="0">--</option>
+                    {foreach $definedRvPlans as $key => $definedRvPlan}
+                        <option value="{$key}">{$definedRvPlan}</option>
+                    {/foreach}
+                    </select>
+                </div>
+            </div>
+
+
+
+
+            <div class="clearfix">
+            </div>
+            <div class="form-group col-sm-12">
+                <a class="btn btn-default" id="btn-down-example" href="/assets/download/im_cst_example.csv">
+                    <i class="fa fa-download">
+                    </i>
+                </a>
+                示例文件
+            </div>
+            <div class="form-group col-sm-8">
+                <input accept=".csv" class="hidden" id="f-cstimport" name="cstimport" type="file"/>
+                <div class="input-group">
+                    <input class="form-control" id="t-file-name" readonly="" type="text"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="btn-browser-file" type="button">
+                            <i class="fa fa-upload fa-x">
+                            </i>
+                            选择文件
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <hr/>
+            <div class="col-sm-12 text-center" id="div-sub">
+                <button class="btn btn-success btn-lg" disabled="" id="chksub" type="button">
+                    导入
+                </button>
+            </div>
+            <div class="col-sm-12 hidden" id="div-progress">
+                <div class="panel panel-default panel-intro">
+                    {:build_heading()}
+                    <div class="panel-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="panel-body">
+                                <h2 class="text-center">
+                                    导入进度信息
+                                </h2>
+                                <hr/>
+                                <input id="h-record-id" type="hidden" value=""/>
+                                <div class="form-group col-sm-6 text-center">
+                                    成功
+                                    <span class="text-success" id="t-suc-cnt">
+                                        0
+                                    </span>
+                                    <br/>
+                                    失败
+                                    <span class="text-danger" id="t-fail-cnt">
+                                        0
+                                    </span>
+                                    <br/>
+                                    完成
+                                    <span class="text-success" id="t-comp-cnt">
+                                        0
+                                    </span>
+                                </div>
+                                <div class="text-center">
+                                    <div class="progress progress-striped active" id="effect-processing" style="display: inline-block; background-color: rgba(68,72,72,.5); width: 4em;">
+                                        <div aria-valuemax="100" class="progress-bar progress-bar-success" role="progressbar" style="width: 80%;">
+                                            <span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <i class="fa fa-check-circle-o fa-4x text-success hidden" id="effect-completed">
+                                    </i>
+                                    <br/>
+                                    <span class="text-left text-warning" id="statusText">
+                                        {:__('PROCESSING')}
+                                    </span>
+                                </div>
+                                <hr/>
+                                <div class="text-right">
+                                    <!-- <div class="text-left">每2000/5000行时可能会稍有卡顿，请耐心等待</div> -->
+                                    <a class="btn btn-danger hidden" href="javascript:;" id="btn-del-download" style="margin-right: 5px;" title="{:__('Failed?You can try to delete and regenerate')}">
+                                        <span class="fa fa-trash">
+                                            {:__('Delete')}
+                                        </span>
+                                    </a>
+                                    <a class="btn btn-danger hidden" href="javascript:;" id="btn-regenerate" style="margin-right: 5px;">
+                                        <span class="fa fa-trash">
+                                            继续导入
+                                        </span>
+                                    </a>
+                                    <a class="btn btn-success hidden" data-href="{$downloadLink}" href="" id="btn-download" type="button">
+                                        <span class="fa fa-download">
+                                            下载失败数据
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </input>
+    </input>
+</form>
+<style type="text/css">
+    .input-group .input-group-addon {
+        background-color: #eeeeee;
+        border: 1px solid #ccc;
+    }
+    #ribbon{
+        display: none;
+    }
+</style>

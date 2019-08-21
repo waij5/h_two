@@ -1,0 +1,99 @@
+<form id="edit-form" class="form-horizontal form-ajax" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label for="role_id" class="control-label col-xs-12 col-sm-2">{:__('Group')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {/* 'multiple'=>'' */ }
+            {:build_select('group[]', $groupdata, $groupids, ['class'=>'form-control selectpicker selectSearch-max', 'multiple'=>'', ''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="role_position" class="control-label col-xs-12 col-sm-2">{:__('Position')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control selectpicker" =""="" name="row[position]" tabindex="-98">
+                <option value="0"{if $row.position eq 0} selected{/if}>职工</option>
+                <option value="1"{if $row.position eq 1} selected{/if}>组长</option>
+                <option value="2"{if $row.position eq 2} selected{/if}>主任</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="role_id" class="control-label col-xs-12 col-sm-2">{:__('SecRules')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="checkbox" name="row[sec_rules][direct_sub]" value="1"{if $row.sec_rules.direct_sub} checked{/if}>直接下属</checkbox>
+            <input type="checkbox" name="row[sec_rules][all_sub]" value="1"{if $row.sec_rules.all_sub} checked{/if}>所有下属</checkbox>
+            <input type="checkbox" name="row[sec_rules][same_level]" value="1"{if $row.sec_rules.same_level} checked{/if}>同级</checkbox>
+            <input type="checkbox" name="row[sec_rules][all]" value="1"{if $row.sec_rules.all} checked{/if}>所有</checkbox>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="dept_id" class="control-label col-xs-12 col-sm-2">{:__('Dept_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- {//:build_select('row[dept_id]', $deptList, $row.dept_id, ['class'=>'form-control selectpicker', 'required'=>''])} -->
+             <!-- selectSearch-mid -->
+            <select class="selectpicker show-tick form-control" required="" name="row[dept_id]" id="dept_id" data-live-search="true">
+                <option value="">{:__('All')}</option>
+                {foreach $deptList as $key => $val}
+                <option value="{$val.dept_id}"{if $val.dept_id eq $row.dept_id} selected{/if}>{$val.name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <!-- 划扣科室 -->
+    <div class="form-group">
+        <label for="dept_type" class="control-label col-xs-12 col-sm-2">{:__('dept_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {/* 'multiple'=>'' */ }
+            {:build_select('type[]', $deptType, $depttype, ['class'=>'form-control selectpicker selectSearch-max', 'multiple'=>'', ''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="station" class="control-label col-xs-12 col-sm-2">{:__('station')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="station" name="row[station]" value="{$row.station}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="control-label col-xs-12 col-sm-2">{:__('Username')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="username" name="row[username]" value="{$row.username}" data-rule="required;username" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="control-label col-xs-12 col-sm-2">{:__('Email')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="email" class="form-control" id="email" name="row[email]" value="{$row.email}" data-rule="required;email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nickname" class="control-label col-xs-12 col-sm-2">{:__('Nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="text" class="form-control" id="nickname" name="row[nickname]" value="{$row.nickname}" data-rule="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="control-label col-xs-12 col-sm-2">{:__('Password')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="password" class="form-control" id="password" name="row[password]" value="" data-rule="password" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[status]', ['normal'=>__('Normal'), 'hidden'=>__('Hidden')], $row['status'])}
+        </div>
+    </div>
+    <!-- 是否显示客户手机号 -->
+    <div class="form-group">
+        <label for="content" class="control-label col-xs-12 col-sm-2">{:__('showMobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[showMobile]', ['1'=>__('Normal'), '0'=>__('Hidden')], $row['showMobile'])}
+        </div>
+    </div>
+    <div class="form-group hidden layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

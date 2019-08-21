@@ -1,0 +1,49 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="panel-body">
+            <h2>{:__($downloadTitle)}</h2>
+            <hr />
+            <input type="hidden" id="h-record-id" value="{$cmdRecord->id}" />
+            {if (empty($cmdRecord->filepath))}
+                <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" 
+                        aria-valuemin="0.2" aria-valuemax="100" style="width: 0.2%;">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="text-left text-warning" id="statusText">{:__('PROCESSING')}</div>
+                <hr />
+                <div class="text-right">
+                    <a href="javascript:;" id="btn-regenerate" class="btn btn-danger hidden" style="margin-right: 5px;"><span class="fa fa-trash">&nbsp;{:__('Regenerate')}</span></a>
+
+                    <a href="{$downloadLink}" id="btn-download" class="btn btn-success hidden"><span class="fa fa-download">&nbsp;&nbsp;{:__('Download')}&nbsp;&nbsp;</span></a>
+                </div>
+
+            {else}
+                <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" 
+                        aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                        <span>100%</span>
+                    </div>
+                </div>
+                <div class="text-left text-warning" id="statusText">{:__('COMPLETED')}</div>
+                <hr />
+                <div class="text-right">
+                    <a href="javascript:;" id="btn-regenerate" class="btn btn-danger" style="margin-right: 5px;"><span class="fa fa-trash">&nbsp;{:__('Regenerate')}</span></a>
+
+                    <a href="{$downloadLink}" id="btn-download" class="btn btn-success"><span class="fa fa-download">&nbsp;&nbsp;{:__('Download')}&nbsp;&nbsp;</span></a>
+                </div>
+            {/if}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+#ribbon{
+    display: none;
+}
+</style>

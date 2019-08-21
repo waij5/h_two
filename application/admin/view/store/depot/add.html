@@ -1,0 +1,73 @@
+<script src="__ROOT__assets/js/alphabet.js" type="text/javascript"></script>
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action=""  autocomplete="off">
+
+    <div class="form-group col-sm-6">
+        <label for="c-spell" class="control-label col-xs-12 col-sm-4">{:__('Spell')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-spell" data-rule="" readonly="" class="form-control alphanumeric" name="row[spell]" type="text">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-name" class="control-label col-xs-12 col-sm-4" style="color: red" >{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" oninput="setCode('row[name]','row[spell]')" onporpertychange="setCode('row[name]','row[spell]')" type="text">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-type" class="control-label col-xs-12 col-sm-4">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-type" data-rule="required" class="form-control selectpicker" name="row[type]">
+                {foreach name="typeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-manager" class="control-label col-xs-12 col-sm-4">{:__('Manager')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select  id="c-manager" data-rule="required" class="form-control selectpicker" name="row[manager]" data-live-search="true">
+                {foreach name="adminList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo.nickname}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-tel" class="control-label col-xs-12 col-sm-4">{:__('Tel')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-tel"  class="form-control" name="row[tel]" type="text">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-addr" class="control-label col-xs-12 col-sm-4">{:__('Addr')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-addr"  class="form-control" name="row[addr]" type="text">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-status" class="control-label col-xs-12 col-sm-4">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="normal"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-4">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-remark"  class="form-control" name="row[remark]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

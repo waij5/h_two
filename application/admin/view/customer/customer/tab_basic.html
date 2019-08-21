@@ -1,0 +1,288 @@
+<div class="panel-body">
+    <input name="customer[ctm_id]" type="hidden" value="{$customer.ctm_id}"/>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_name">
+            {:__('Ctm_name')}:366
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" data-rule="required" id="c-ctm_name" name="customer[ctm_name]" type="text" value="{$customer.ctm_name}">
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_sex">
+            {:__('Ctm_sex')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('customer[ctm_sex]', $genderList, $customer.ctm_sex, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_birthdate">
+            {:__('Ctm_birthdate')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="c-ctm_birthdate" name="customer[ctm_birthdate]" type="text" value="{$customer.ctm_birthdate}">
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_birthdate">
+            {:__('Ctm age')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" readonly="" type="text" value="{if $customer.ctm_birthdate}{:calcAge($customer.ctm_birthdate)}{/if}">
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_tel">
+            {:__('Ctm_tel')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+    {if $customer.ctm_id gt 0 && $customer.ctm_tel && $admin.showMobile eq '0'}
+        <label class="control-label text-success">{:getMaskString($customer.ctm_tel)}</label>
+    {else}
+        <input class="form-control" data-rule="tel2" id="c-ctm_tel" name="customer[ctm_tel]" type="text" value="{$customer.ctm_tel}">
+        </input>
+    {/if}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_mobile">
+            {:__('Ctm_mobile')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+    {if $customer.ctm_id gt 0 && $customer.ctm_mobile && $admin.showMobile eq '0'}
+        <label class="control-label text-success">{:getMaskString($customer.ctm_mobile)}</label>
+    {else}
+        <input class="form-control" data-rule="required;mobile2" id="c-ctm_mobile" name="customer[ctm_mobile]" type="text" value="{$customer.ctm_mobile}">
+            </input>
+    {/if}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_source">
+            {:__('Ctm_source')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- {:build_select('customer[ctm_source]', $ctmSrcList, $customer.ctm_source, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])} -->
+            <select class="form-control selectpicker" data-live-search="true" name="customer[ctm_source]">
+                {foreach $ctmSrcList as $key => $value}
+                <option value="{$key}"{if ($key == $customer.ctm_source)} selected{/if}>{$value}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_first_search">
+            {:__('ctm_first_search')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            {if ($customer['ctm_id'])}
+            <input class="form-control" id="c-ctm_first_search" name="customer[ctm_first_search]" type="text" value="{$customer.ctm_first_search}">
+                {else}
+                <input class="form-control" id="c-ctm_first_search" name="customer[ctm_first_search]" type="text" value="">
+                    {/if}
+                </input>
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_explore">
+            {:__('Ctm_explore')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- {:build_select('customer[ctm_explore]', $channelList, $customer.ctm_explore, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])} -->
+            <select class="form-control selectpicker" data-live-search="true" name="customer[ctm_explore]">
+                {foreach $channelList as $key => $value}
+                <option value="{$key}"{if ($key == $customer.ctm_explore)} selected{/if}>{$value}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <!-- 客户分类 -->
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-ctm_type">
+            {:__('ctm_type')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            {if ($customer['ctm_id'])}
+                {:build_select('customer[ctm_type]', $ctmtypeList, $customer.ctm_type, ['class'=>'form-control selectpicker', 'required'=>''])}
+            {else}
+                {:build_select('customer[ctm_type]', $ctmtypeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+            {/if}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label class="control-label col-xs-12 col-sm-4" for="c-rec_customer_id">
+            {:__('rec_customer_id')}
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            {if ($customer['ctm_id'])}
+           
+            <label class="control-label" name="customer[rec_customer_id]">
+                {$recCustomerName}
+            </label>
+            {else}
+            <input class="form-control" id="field_ctm_id" name="customer[rec_customer_id]" type="hidden"/>
+            <a href="javascript:;" id="a-search-customer">
+                <input class="form-control" id="field_ctm_name" type="text" value="{$recCustomerName}"/>
+            </a>
+            <!-- <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                    <i class="fa fa-trash"></i>清除
+                                </a>   -->
+            {/if}
+        </div>
+    </div>
+
+
+
+{if ($customer['ctm_id'])}
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt1')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt1]" required="">
+                {foreach $cpdtList as $key => $value}
+                <option value="{$key}"{if ($key == $customer.potential_cpdt1)} selected{/if}>{$value}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt2')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt2]" required="">
+                {foreach $cpdtList as $ke => $val}
+                <option value="{$ke}"{if ($ke == $customer.potential_cpdt2)} selected{/if}>{$val}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt3')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt3]" required="">
+                 {foreach $cpdtList as $k => $v}
+                <option value="{$k}"{if ($k == $customer.potential_cpdt3)} selected{/if}>{$v}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+{else}
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt1')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt1]" required="">
+                {foreach $cpdtList as $key => $value}
+                <option value="{$key}">{$value}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt2')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt2]" required="">
+                {foreach $cpdtList as $ke => $val}
+                <option value="{$ke}">{$val}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-4 col-sm-4 col-style">{:__('potential_cpdt3')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+            <select class="selectpicker form-control selectSearch-min" data-live-search="true" name="customer[potential_cpdt3]" required="">
+                 {foreach $cpdtList as $k => $v}
+                <option value="{$k}">{$v}</option>
+                {/foreach}
+            </select>
+            </div>
+         </div>
+{/if}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="clearfix">
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" for="c-ctm_addr">
+            {:__('Ctm_addr')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <input id="c-ctm_addr" class="form-control" name="customer[ctm_addr]" type="text" value="{$customer.ctm_addr}"> -->
+            {php}
+                $addrArr = explode('-', $customer['ctm_addr']);
+            {/php}
+            <div class="form-inline" data-json-name="n" data-json-space="" data-json-value="" data-required="true" data-selects="province,city,area" data-toggle="cxselect" data-url="assets/libs/jquery-cxselect/js/cityData.min.json?v=1.01">
+                <select class="province form-control" data-value="{$addrArr[0] | default=''}" name="customer[province]">
+                </select>
+                <select class="city form-control" data-value="{$addrArr[1] | default=''}" name="customer[city]">
+                </select>
+                <select class="area form-control" data-value="{$addrArr[2] | default=''}" name="customer[area]">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" for="c-ctm_remark">
+            {:__('ctm_remark')}:
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control summernote" id="c-ctm_remark" name="customer[ctm_remark]" rows="2">{$customer.ctm_remark|htmlspecialchars}</textarea>
+        </div>
+    </div>
+    {if $customer.ctm_id > 0}
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">
+            参考照
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <ul class="list-group" id="customer-img-list">
+                {foreach $customerImgs as $customerImg}
+                <li class="list-group-item">
+                    <img src="{$customerImg->url}" title="{$customerImg->label}" class="img-responsive" id="customer-img-{$customerImg->id}" />
+                </li>
+                {/foreach}
+            </ul>
+            <div class="clearfix">
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label>
+                        标签
+                    </label>
+                    <input class="form-control" id="plupload_customer_label" maxlength="255" type="text" value=""/>
+                </div>
+                <div class="col-xs-6">
+                    <label>
+                        排序
+                    </label>
+                    <input class="form-control" id="plupload_customer_weigh" type="number" value="0"/>
+                </div>
+            </div>
+            <div class="input-group">
+                <input class="form-control" data-cus-id="{$customer.ctm_id}" id="plupload_customer_img" readonly placeholder="点击选择图片" />
+                <!-- <span class="input-group-addon"></span> -->
+                <span class="input-group-addon" id="plupload_customer_btn" style="background: #18bc9c; color: white; cursor: pointer;" data-bakup-html='<i class="fa fa-upload"></i>{:__('Upload')}'>
+                    <i class="fa fa-upload">
+                    </i>
+                    {:__('Upload')}
+                </span>
+            </div>
+        </div>
+    </div>
+    {/if}
+</div>

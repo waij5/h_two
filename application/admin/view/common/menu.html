@@ -1,0 +1,134 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+	<!-- Sidebar user panel -->
+	<div class="user-panel hidden-xs sideUserInfo">
+		<div class="pull-left">
+			<!--<a href="general/profile" class="addtabsit">-->
+				<!--<img src="__CDN__{$admin.avatar}" class="img-circle" />-->
+				<label class="sideLoginName">{$admin.nickname}</label>
+			<!--</a>-->
+		</div>
+		<div class="pull-right info">
+			
+			<i class="fa fa-circle text-success"></i> {:__('Online')}
+		</div>
+	</div>
+
+	<!-- search form -->
+	<form action="" method="get" class="sidebar-form" onsubmit="return false;">
+		<div class="input-group">
+			<input type="text" name="q" class="form-control" placeholder="{:__('Search menu')}">
+			<span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+            </span>
+			<div class="menuresult list-group sidebar-form hide">
+			</div>
+		</div>
+	</form>
+	<!-- /.search form -->
+
+	<!-- sidebar menu: : style can be found in sidebar.less -->
+	<!--如果想始终显示子菜单,则给ul加上show-submenu类即可-->
+	<ul class="sidebar-menu menuSimple{if (!cookie('use_simple_menu'))} hidden{/if}">
+		<li>
+			{if ($auth->check('customer/customerreception'))}
+			<a href="/customer/customerreception" addtabs="247" url="/customer/customerreception" py="fzjd" pinyin="fenzhenjiedai">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/customerreception.ico" />
+				分配接待
+			</a>
+
+			{/if}
+		</li>
+		<li>
+			{if ($auth->check('customer/customerosconsult/index'))}
+			<a href="/customer/customerosconsult/index" addtabs="240" url="/customer/customerosconsult" py="xczxgl" pinyin="xianchangzixunguanli">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/customerosconsult.ico" />
+				现场客服
+			</a>
+			{/if}
+		</li>
+		<li>
+			{if ($auth->check('customer/customerconsult/index'))}
+			<a href="/customer/customerconsult/index" addtabs="231" url="/customer/customerconsult" py="zxgl" pinyin="zixunguanli">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/customerconsult.ico" />
+				网电客服
+			</a>
+			{/if}
+		</li>
+		<li>
+			{if ($auth->check('cash/balance'))}
+			<a href="/cash/balance" addtabs="184" url="/cash/balance" py="sygl" pinyin="shouyinguanli">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/cash.ico" />
+				收银管理
+			</a>
+			{/if}
+		</li>
+		<!--<li>
+			{if ($auth->check('cash/order/deptconsumption'))}
+			<a href="/cash/order/deptconsumption" addtabs="529" url="/cash/order/deptconsumption" py="ksxf" pinyin="keshixiaofei">
+				<img src="__CDN__/assets/img/menuIco/dept.ico" />
+				科室消费
+			</a>
+			{/if}
+		</li>-->
+		<li>
+			{if ($auth->check('cash/order/operation'))}
+			<a  href="/cash/order/operation" addtabs="211" url="/cash/order/operation" py="sshl" pinyin="shoushuhuli">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/operation.ico" />
+				手术护理
+			</a>
+			{/if}
+		</li>
+		<li>
+			{if ($auth->check('base/operaterota/index'))}
+			<a  href="/base/operaterota/index" addtabs="784" url="/base/operaterota/index" py="sspb" pinyin="shoushupaiban">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/sspb.png" />
+				手术值班
+			</a>
+			{/if}
+		</li>
+		
+		<li>
+			{if ($auth->check('customer/customer/index'))}
+			<a href="/customer/customer/index" addtabs="223" url="/customer/customer/index" py="khzlwh" pinyin="kehuziliaoweihu">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/customer.ico" />
+				客户管理
+			</a>
+			{/if}
+			
+		</li>
+		<li>
+			{if ($auth->check('stat/rvinforeport/index'))}
+			<a href="/stat/rvinforeport/index" addtabs="573" url="/stat/rvinforeport/index" py="khhfqkb" pinyin="kehuhuifangqingkuangbiao">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/rvinfo.ico" />
+				回访记录
+			</a>
+			{/if}
+
+		</li>
+
+		<li>
+			{if ($auth->check('dashboard/wmindex'))}
+			<a  href="/dashboard/wmindex" addtabs="666" url="/dashboard/wmindex" py="ckgqyj" pinyin="cangkuguoqiyujing">
+				<!-- <img class="menuIcon" src="__CDN__/assets/img/menuIco/sspb.png" /> -->
+				产品过期预警
+			</a>
+			{/if}
+		</li>
+
+		<li>
+			<a href="/download/help" addtabs="560" url="/download/help" py="bzwd" pinyin="bangzhuwendang">
+				<img class="menuIcon" src="__CDN__/assets/img/menuIco/doc.ico" />
+				帮助文档
+			</a>
+		</li>
+	</ul>
+	<ul class="sidebar-menu menuDetail{if (cookie('use_simple_menu'))} hidden{/if}">
+		{$menulist}
+	</ul>
+
+</section>
+
+<!-- /.sidebar -->
+

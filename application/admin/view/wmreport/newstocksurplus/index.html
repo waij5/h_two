@@ -1,0 +1,84 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+<style type="text/css">
+#table tr td{border:1px black solid;word-wrap:break-word;text-align: center;vertical-align:middle;width: 80px}
+#table tr th{border:1px black solid;text-align: center;vertical-align:middle}
+</style>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table ">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label for="pro_code" class="control-label labelLocation">产品编号</label>
+                                    <input type="text" name="p.pro_code" class="form-control clear" size="8" value="{$Request.param.pro_code}">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="pro_name" class="control-label labelLocation">产品名称</label>
+                                    <input type="text" name="p.pro_name" class="form-control clear" size="8" value="{$Request.param.pro_name}">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="depot_id" class="control-label labelLocation" >仓库</label>
+                                    <select id="depot_id" data-rule="" class="form-control " name="p.depot_id" style="width: 100px">
+                                        <option value='' >------ALL------</option>
+                                        {foreach name="depotList" item="vo"}
+                                        <option value="{$vo.id}" {in name="vo.id" value="$Request.param.depot_id"}selected{/in}>{$vo.name}</option>
+                                        {/foreach}
+                                        
+                                    </select>
+                                </div>
+                                <!--<br>-->
+                                <div class="form-group dislocationAll">
+                                    <label for="id" class="control-label labelLocation">发生日期</label>
+                                    <input type="text" name="stime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.stime)} value="<?php echo date('Y-m-01');?>"{else} value="{$Request.param.stime}"{/if} size="8">  ~  <input type="text" name="etime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.etime)} value="<?php echo date('Y-m-d',strtotime(date('Y-m-01').' +1 month -1 day'));?>"{else} value="{$Request.param.etime}"{/if} size="8">
+                                </div>
+            
+                                <!-- <div class="form-group marginZero">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <a type="reset" class="btn btn-default" id="btn-customer-clear">重置</a>
+                                        <button type="button" class="btn btn-default" id="btn-export">导出</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div><br><br>
+
+                    <div class="form-group " style="font-family: KaiTi;width: 100%;">
+                            <div style="text-align: center;font-weight:bold;font-size: 20px;"> 产品库存结余表</div>
+                        </div>
+                        <div class="proreportDate" style="font-family: KaiTi;width: 100%;height: 22px;">
+                            {if condition="!empty($total)"}
+                            <div style="font-weight:normal;font-size: 15px;float: left;" >
+                                <b>期初参考成本:</b><span style="color: #18bc9c">{$total.beginCost?$total.beginCost:'0'}</span>&nbsp;&nbsp;
+                                <b>本期入库成本:</b><span style="color: #18bc9c">{$total.enterCost?$total.enterCost:'0'}</span>&nbsp;&nbsp;
+                                <b>本期出库成本:</b><span style="color: #18bc9c">{$total.outCost?$total.outCost:'0'}</span>&nbsp;&nbsp;
+                                <b>期末参考成本:</b><span style="color: #18bc9c">{$total.endCost?$total.endCost:'0'}</span>&nbsp;&nbsp;
+                            </div>
+                            {/if}
+                            <div style="font-weight:normal;font-size: 13px;float: right;">打印日期：<?php echo date('Y-m-d');?></div>
+                        </div>
+                    
+  					<table class="table table-bordered table-hover" id="table" width="100%"> 
+                        
+
+                    </table>
+                  
+<!--endprint-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<span id="h_yjy_where" class="hidden">{if (isset($where))}{$where}{else}[]{/if}</span>

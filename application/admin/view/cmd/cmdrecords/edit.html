@@ -1,0 +1,52 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-feature_value" class="control-label col-xs-12 col-sm-2">{:__('Feature_value')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-feature_value" data-rule="required" class="form-control" name="row[feature_value]" type="text" value="{$row.feature_value}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-command" class="control-label col-xs-12 col-sm-2">{:__('Command')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-command" data-rule="required" class="form-control" name="row[command]" type="text" value="{$row.command}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-params" class="control-label col-xs-12 col-sm-2">{:__('Params')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-params" data-rule="required" class="form-control " rows="5" name="row[params]" cols="50">{$row.params}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">{:__('Admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_id" data-rule="required" data-source="admin/index" data-field="nickname" class="form-control selectpage" name="row[admin_id]" type="text" value="{$row.admin_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-filepath" class="control-label col-xs-12 col-sm-2">{:__('Filepath')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-filepath" data-rule="required" class="form-control" name="row[filepath]" type="text" value="{$row.filepath}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-status" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" data-rule="required" class="form-control" name="row[status]" type="number" value="{$row.status}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-endtime" class="control-label col-xs-12 col-sm-2">{:__('Endtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-endtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[endtime]" type="text" value="{$row.endtime|datetime}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,58 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label for="is_pro" class="control-label labelLocation">{:__('Is_pro')}</label>
+                                    <select  id="is_pro" data-rule="required" class="form-control selectpicker" name="is_pro">
+                                    <option value="">--- 请选择 ---</option>
+                                        {foreach name="isProList" item="vo"}
+                                            <option value="{$key}" >{$vo}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="proname" class="control-label labelLocation">{:__('Proname')}</label>
+                                    <input type="text" name="proname" class="form-control" >
+                                </div>
+
+                                <div class="form-group dislocationAll">
+                                    <label for="contact" class="control-label labelLocation">{:__('Contact')}</label>
+                                    <input type="text" name="contact" class="form-control" >
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="tel" class="control-label labelLocation">{:__('Tel')}</label>
+                                    <input type="text" name="tel" class="form-control" >
+                                </div>
+
+                                <div class="form-group marginZero">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                    
+                        {:build_toolbar()}
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('store/producer/edit')}" 
+                           data-operate-del="{:$auth->check('store/producer/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

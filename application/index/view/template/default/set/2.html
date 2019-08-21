@@ -1,0 +1,301 @@
+{include file="common/toolbar" /}
+
+<div class="clearfix"></div>
+<div id="y-left-tags">
+    <ul style="margin: 0; padding: 0;">
+        {foreach $tabs as $tabsTarget => $tabsName}
+        <li>
+            <a href="#{$tabsTarget}">
+                {$tabsName|htmlspecialchars}
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+<div style="padding-top: 50px; padding-bottom: 50px; padding-left: 85px; padding-right: 85px;">
+    <div class="tab-content">
+        <form action="/web/order/cart" id="form-pre-checkout" method="post">
+            <input type="hidden" name="suits" value="" />
+            <input type="hidden" name="is_suit" value="{$proset.is_suit}" />
+
+            {if $showOriginalPrice}
+
+                {foreach $tabContents as $tabId => $tabContent}
+                <div id="{$tabId}" class="">
+                    {foreach $tabContent as $contentItem}
+                    <a name="{$tabId}" class="y-f-a-tab hidden"></a>
+                    {if (!empty($contentItem.banner))}
+                    <img src="{$contentItem.banner}" class="img img-responsive img-rounded" alt="{$contentItem.title|default=''}" />
+                    {/if}
+                    <div class="y-t-des-1">
+                        <!-- hero-unit -->
+                        <div class="">
+                            {$contentItem.desc|default=''}
+                        </div>
+                    </div>
+                    <ul class="yjy-pro-divs o-hidden" style="margin: 0; padding: 0;">
+                        {if (isset($contentItem.sets))}
+                        {foreach $contentItem.sets as $setId}
+                        {if (isset($setList[$setId]) && $set = $setList[$setId])}
+                        <li class="col-sm-6 col-md-4 yjy-pro-div" style="position: relative;">
+                            <i class="yjy-label-set"></i>
+                            {if $set.video}
+                            <i class="fa fa-4x fa-play-circle yjy-pro-video-play" onclick="yPlay('{$set.video}')"></i>
+                            {/if}
+                            <div class="yjy-pro-div-card" data-set-id="{$setId}">
+                                <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set"><img alt="{$contentItem.title|default=''}" class="yjy-pro-img" src="{$set.pic}" /></a>
+                                <div class="caption yjy-pro-desc">
+                                    <div style="overflow: hidden;">
+                                        <h3 class="yjy-pro-desc-title y-one-line">
+                                            <!-- 名字标签 -->
+                                            <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set">{$set.name|htmlspecialchars}</a>
+                                            <small><small></small></small>
+                                        </h3>
+                                    </div>
+                                    <div class="view row" style="overflow: hidden;">
+                                        <div class="col-sm-9 col-md-9">
+                                            <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set">
+                                                <h3 class="y-pro-m-price">
+                                                    {$set.set_price}
+                                                    <small>
+                                                        <del>
+                                                            {$set.price}
+                                                        </del>
+                                                    </small>
+                                                </h3>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-3 col-md-3 pull-right">
+                                        </div>
+                                        <i class="yjy-pro-choose-icon yjy-pro-choose-icon-set"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        <div class="clearfix"></div>
+                        {/if}
+
+                        {foreach $contentItem.proSets as $proSettings}
+                        {php}
+                        $proId = $proSettings['pro_id'];
+                        if (!isset($proList[$proId])) {
+                            continue;
+                        } else {
+                            $pro = $proList[$proId];
+                        }
+                        {/php}
+                        <li class="col-sm-6 col-md-4 yjy-pro-div" style="position: relative;">
+                            {if $pro.video}
+                            <i class="fa fa-4x fa-play-circle yjy-pro-video-play" onclick="yPlay('{$pro.video}')"></i>
+                            {/if}
+                            <input type="hidden" class="y-pro-sub-pk" name="itemParams[{$pro.pro_id}][pk]" value="{$pro.pro_id}" />
+                            <input type="hidden" class="y-pro-sub-price" name="itemParams[{$pro.pro_id}][price]" value="{$proSettings['price']}" />
+                            <div class="yjy-pro-div-card">
+                                <img alt="{$contentItem.title|default=''}" class="yjy-pro-img" src="{$pro.cover}" />
+                                <div class="caption yjy-pro-desc">
+                                    <div style="overflow: hidden;">
+                                        <h3 class="yjy-pro-desc-title y-one-line">
+                                            <!-- 名字标签 -->
+                                            {if (isset($proSettings['rank']) & $proSettings['rank'] >= 5)}<img src="/assets/img/icon/p80_80/hot.png" style="display: inline-block;max-height: 100%; height: 19px; position: relative; top: -2px; float: left;" />{/if}{$pro.pro_spec}  
+                                            <small><small>{$pro.pro_name}</small></small>
+                                        </h3>
+                                        <!-- <p class="yjy-pro-desc-text">
+                                            {$pro.short_desc}
+                                        </p> -->
+                                    </div>
+                                    <div class="view" style="overflow: hidden;">
+                                        {if $proset.is_suit}
+                                        <input class="form-control text-right yjy-input-qty hidden" name="itemParams[{$pro.pro_id}][qty]" readonly type="number" value="{$proSettings.qty}" data-base-qty='{$proSettings.qty}' />
+                                        {else}
+                                        <input class="form-control text-right yjy-input-qty hidden" name="itemParams[{$pro.pro_id}][qty]" min="0" type="number" value="0" data-base-qty='1' />
+                                        {/if}
+                                        <h3 class="y-pro-m-price">
+                                            {$proSettings.price}
+                                            <small>
+                                                <del>
+                                                    {$pro.pro_amount}
+                                                </del>
+                                            </small>
+                                        </h3>
+                                    </div>
+                                </div>
+                                {if $proset.is_suit}
+                                <i class="yjy-pro-choose-icon yjy-pro-choose-icon-pro active y-disabled hidden"></i>
+                                <span class="yjy-set-pro-cnt-r">{$proSettings.qty}</span>
+                                {else}
+                                <i class="yjy-pro-choose-icon yjy-pro-choose-icon-pro"></i>
+                                {/if}
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+
+                    {/foreach}
+
+                </div>
+                {/foreach}
+
+            {else}
+                {foreach $tabContents as $tabId => $tabContent}
+                <div id="{$tabId}" class="">
+                    {foreach $tabContent as $contentItem}
+                    <a name="{$tabId}" class="y-f-a-tab hidden"></a>
+                    {if (!empty($contentItem.banner))}
+                    <img src="{$contentItem.banner}" class="img img-responsive img-rounded" alt="{$contentItem.title|default=''}" />
+                    {/if}
+                    <div class="y-t-des-1">
+                        <!-- hero-unit -->
+                        <div class="">
+                            {$contentItem.desc|default=''}
+                        </div>
+                    </div>
+                    <ul class="yjy-pro-divs o-hidden" style="margin: 0; padding: 0;">
+                        {if (isset($contentItem.sets))}
+                        {foreach $contentItem.sets as $setId}
+                        {if (isset($setList[$setId]) && $set = $setList[$setId])}
+                        <li class="col-sm-6 col-md-4 yjy-pro-div" style="position: relative;">
+                            <i class="yjy-label-set"></i>
+                            {if $set.video}
+                            <i class="fa fa-4x fa-play-circle yjy-pro-video-play" onclick="yPlay('{$set.video}')"></i>
+                            {/if}
+                            <div class="yjy-pro-div-card" data-set-id="{$setId}">
+                                <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set"><img alt="{$contentItem.title|default=''}" class="yjy-pro-img" src="{$set.pic}" /></a>
+                                <div class="caption yjy-pro-desc">
+                                    <div style="overflow: hidden;">
+                                        <h3 class="yjy-pro-desc-title y-one-line">
+                                            <!-- 名字标签 -->
+                                            <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set">{$set.name|htmlspecialchars}</a>
+                                            <small><small></small></small>
+                                        </h3>
+                                    </div>
+                                    <div class="view row" style="overflow: hidden;">
+                                        <div class="col-sm-9 col-md-9">
+                                            <a href="javascript:;" data-href="/web/set/previewset/ids/{$setId}" class="y-preview-set">
+                                                <h3 class="y-pro-m-price">
+                                                    {$set.set_price}
+                                                </h3>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-3 col-md-3 pull-right">
+                                        </div>
+                                        <i class="yjy-pro-choose-icon yjy-pro-choose-icon-set"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        <div class="clearfix"></div>
+                        {/if}
+
+                        {foreach $contentItem.proSets as $proSettings}
+                        {php}
+                        $proId = $proSettings['pro_id'];
+                        if (!isset($proList[$proId])) {
+                            continue;
+                        } else {
+                            $pro = $proList[$proId];
+                        }
+                        {/php}
+                        <li class="col-sm-6 col-md-4 yjy-pro-div" style="position: relative;">
+                            {if $pro.video}
+                            <i class="fa fa-4x fa-play-circle yjy-pro-video-play" onclick="yPlay('{$pro.video}')"></i>
+                            {/if}
+                            <input type="hidden" class="y-pro-sub-pk"  name="itemParams[{$pro.pro_id}][pk]" value="{$pro.pro_id}" />
+                            <input type="hidden" class="y-pro-sub-price" name="itemParams[{$pro.pro_id}][price]" value="{$proSettings['price']}" />
+                            <div class="yjy-pro-div-card">
+                                <img alt="{$contentItem.title|default=''}" class="yjy-pro-img" src="{$pro.cover}" />
+                                <div class="caption yjy-pro-desc">
+                                    <div style="overflow: hidden;">
+                                        <h3 class="yjy-pro-desc-title y-one-line">
+                                            <!-- 名字标签 -->
+                                            {if (isset($proSettings['rank']) & $proSettings['rank'] >= 5)}<img src="/assets/img/icon/p80_80/hot.png" style="display: inline-block;max-height: 100%; height: 19px; position: relative; top: -2px; float: left;" />{/if}{$pro.pro_spec}  
+                                            <small><small>{$pro.pro_name}</small></small>
+                                        </h3>
+                                        <!-- <p class="yjy-pro-desc-text">
+                                            {$pro.short_desc}
+                                        </p> -->
+                                    </div>
+                                    <div class="view" style="overflow: hidden;">
+                                        {if $proset.is_suit}
+                                        <input class="form-control text-right yjy-input-qty hidden" name="itemParams[{$pro.pro_id}][qty]" readonly type="number" value="{$proSettings.qty}" data-base-qty='{$proSettings.qty}' />
+                                        {else}
+                                        <input class="form-control text-right yjy-input-qty hidden" name="itemParams[{$pro.pro_id}][qty]" min="0" type="number" value="0" data-base-qty='1' />
+                                        {/if}
+                                        <h3 class="y-pro-m-price">
+                                            {$proSettings.price}
+                                        </h3>
+                                    </div>
+                                </div>
+                                {if $proset.is_suit}
+                                <i class="yjy-pro-choose-icon yjy-pro-choose-icon-pro active y-disabled hidden"></i>
+                                <span class="yjy-set-pro-cnt-r">{$proSettings.qty}</span>
+                                {else}
+                                <i class="yjy-pro-choose-icon yjy-pro-choose-icon-pro"></i>
+                                {/if}
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+
+                    {/foreach}
+
+                </div>
+                {/foreach}
+            {/if}
+
+        </form>
+    </div>
+</div>
+
+<div style="position: fixed;
+    top: 116px;
+    right: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 100;
+    /* padding: 15px 30px; */
+    box-sizing: border-box;
+    border: 1px solid rgba(166, 129, 111, 0.15);">
+    <a href="javascript:;" id="a-detail-back" style="
+    display: inline-block;
+    padding: 8px 10px;
+    color: #a6816f;
+    border: 1px solid #caac9e;
+    border-radius: 4px;
+    min-width: 60px;
+    text-align: center;
+    font-size: 16px;
+    ">
+        返回
+    </a>
+</div>
+
+<div id="y-bottom-fix-nav">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0; padding-right: 0">
+        <div class="pull-right">
+<!--             <a class="y-base-btn" href="javascript:;">
+                添加到购物车
+            </a> -->
+            <div class="y-base-btn" style="background-color: transparent; color: #5E5B5A; font-size: 16px; margin-right: 15px">
+                数量： 
+                <i class="fa fa-minus y-set-qty-minus"></i>
+                <span id="y-cart-base-qty">1</span> 
+                <i class="fa fa-plus y-set-qty-plus"></i>
+            </div>
+            <a class="y-base-btn y-base-btn-3" id="y-btn-add-to-cart" href="javascript:;">
+                加入购物车
+            </a>
+            <a class="y-base-btn y-base-btn-2" id="y-btn-pre-checkout" href="javascript:;">
+                立即购买
+            </a>
+        </div>
+    </div>
+</div>

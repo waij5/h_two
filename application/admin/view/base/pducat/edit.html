@@ -1,0 +1,55 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-pdc_code" class="control-label col-xs-12 col-sm-2">{:__('Pdc_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pdc_code" data-rule="required" class="form-control" name="row[pdc_code]" type="text" value="{$row.pdc_code}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_name" class="control-label col-xs-12 col-sm-2">{:__('Pdc_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pdc_name" data-rule="required" class="form-control" name="row[pdc_name]" type="text" value="{$row.pdc_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_zpttype" class="control-label col-xs-12 col-sm-2">{:__('Pdc_zpttype')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <input id="c-pdc_zpttype" data-rule="required" class="form-control" name="row[pdc_zpttype]" type="text" value="{$row.pdc_zpttype}"> -->
+            {:build_select('row[pdc_zpttype]', $pdtList, $row['pdc_zpttype'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_pid" class="control-label col-xs-12 col-sm-2">{:__('Pdc_pid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+          
+            {:build_select('row[pdc_pid]', $pduList, $row['pdc_pid'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_status" class="control-label col-xs-12 col-sm-2">{:__('Pdc_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pdc_status" data-rule="required" class="form-control" name="row[pdc_status]" type="hidden" value="{$row.pdc_status}">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_sort" class="control-label col-xs-12 col-sm-2">{:__('Pdc_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pdc_sort" data-rule="required" class="form-control" name="row[pdc_sort]" type="number" value="{$row.pdc_sort}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pdc_remark" class="control-label col-xs-12 col-sm-2">{:__('Pdc_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pdc_remark" data-rule="required" class="form-control" name="row[pdc_remark]" type="text" value="{$row.pdc_remark}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

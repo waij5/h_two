@@ -1,0 +1,63 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert"
+                aria-hidden="true">
+            &times;
+        </button>
+        {:__('Notice: this percent is total percent for this role, when have multi staffs, the percent for each one will be recalculated!')}
+    </div>
+    
+    <div class="form-group hidden">
+        <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="control-label">{$setType}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="{$row.name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-percent" class="control-label col-xs-12 col-sm-2">{:__('Percent')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-percent" data-rule="required;range[0~100]" class="form-control" step="0.01" name="row[percent]" type="number" value="{$row.percent}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">项目中使用:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-use_when_project" data-rule="required" class="form-control" name="row[use_when_project]" type="hidden" value="{$row.use_when_project}">
+            <input id="switch-use_when_project" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">物资中使用:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-use_when_product" data-rule="required" class="form-control" name="row[use_when_product]" type="hidden"  value="{$row.use_when_product}">
+            <input id="switch-use_when_product" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">药品中使用:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-use_when_medicine" data-rule="required" class="form-control" name="row[use_when_medicine]" type="hidden" value="{$row.use_when_medicine}">
+            <input id="switch-use_when_medicine" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label for="c-is_multi" class="control-label col-xs-12 col-sm-2">{:__('Is_multi')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_multi" data-rule="required" class="form-control" name="row[is_multi]" type="hidden" value="{$row.is_multi}">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

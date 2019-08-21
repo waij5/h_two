@@ -1,0 +1,148 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-customer_id" class="control-label col-xs-12 col-sm-2">{:__('Customer_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_id" data-rule="required" data-source="customer/index" class="form-control selectpage" name="row[customer_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-2">{:__('Customer_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_name" data-rule="required" class="form-control" name="row[customer_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-depositamt" class="control-label col-xs-12 col-sm-2">{:__('Depositamt')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-depositamt" data-rule="required" class="form-control" step="0.01" name="row[depositamt]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deposit_inc" class="control-label col-xs-12 col-sm-2">{:__('Deposit_inc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit_inc" data-rule="required" class="form-control" step="0.01" name="row[deposit_inc]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deposit_dec" class="control-label col-xs-12 col-sm-2">{:__('Deposit_dec')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit_dec" data-rule="required" class="form-control" step="0.01" name="row[deposit_dec]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deposit_change" class="control-label col-xs-12 col-sm-2">{:__('Deposit_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit_change" data-rule="required" class="form-control" step="0.01" name="row[deposit_change]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-undeducted_total" class="control-label col-xs-12 col-sm-2">{:__('Undeducted_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-undeducted_total" data-rule="required" class="form-control" step="0.01" name="row[undeducted_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-not_out_total" class="control-label col-xs-12 col-sm-2">{:__('Not_out_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-not_out_total" data-rule="required" class="form-control" step="0.01" name="row[not_out_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deducted_total" class="control-label col-xs-12 col-sm-2">{:__('Deducted_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deducted_total" data-rule="required" class="form-control" step="0.01" name="row[deducted_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deducted_benefit_total" class="control-label col-xs-12 col-sm-2">{:__('Deducted_benefit_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deducted_benefit_total" data-rule="required" class="form-control" step="0.01" name="row[deducted_benefit_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-rank_points" class="control-label col-xs-12 col-sm-2">{:__('Rank_points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rank_points" data-rule="required" class="form-control" name="row[rank_points]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pay_points" class="control-label col-xs-12 col-sm-2">{:__('Pay_points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_points" data-rule="required" class="form-control" name="row[pay_points]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-rank_points_change" class="control-label col-xs-12 col-sm-2">{:__('Rank_points_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rank_points_change" data-rule="required" class="form-control" name="row[rank_points_change]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pay_points_change" class="control-label col-xs-12 col-sm-2">{:__('Pay_points_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_points_change" data-rule="required" class="form-control" name="row[pay_points_change]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-affiliate" class="control-label col-xs-12 col-sm-2">{:__('Affiliate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-affiliate" data-rule="required" class="form-control" step="0.01" name="row[affiliate]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-affiliate_change" class="control-label col-xs-12 col-sm-2">{:__('Affiliate_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-affiliate_change" data-rule="required" class="form-control" step="0.01" name="row[affiliate_change]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-item_original_pay_total" class="control-label col-xs-12 col-sm-2">{:__('Item_original_pay_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-item_original_pay_total" data-rule="required" class="form-control" step="0.01" name="row[item_original_pay_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-item_pay_total" class="control-label col-xs-12 col-sm-2">{:__('Item_pay_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-item_pay_total" data-rule="required" class="form-control" step="0.01" name="row[item_pay_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-item_real_pay_total" class="control-label col-xs-12 col-sm-2">{:__('Item_real_pay_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-item_real_pay_total" data-rule="required" class="form-control" step="0.01" name="row[item_real_pay_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-item_switch_total" class="control-label col-xs-12 col-sm-2">{:__('Item_switch_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-item_switch_total" data-rule="required" class="form-control" step="0.01" name="row[item_switch_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-balance_total" class="control-label col-xs-12 col-sm-2">{:__('Balance_total')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-balance_total" data-rule="required" class="form-control" step="0.01" name="row[balance_total]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-stat_date" class="control-label col-xs-12 col-sm-2">{:__('Stat_date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-stat_date" data-rule="required" class="form-control" name="row[stat_date]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-status" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" data-rule="required" class="form-control" name="row[status]" type="number" value="1">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

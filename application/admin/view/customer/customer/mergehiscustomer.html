@@ -1,0 +1,208 @@
+<form action="/customer/customer/mergeprocess" class="form-commonsearch form-horizontal n-default n-bootstrap" data-toggle="validator" enctype="multipart/form-data" id="import-form" method="POST" role="form">
+    <input  class="form-control" readonly="readonly" type="hidden" name="main" value="{$maincustomer.ctm_id}">
+    <input  class="form-control" readonly="readonly" type="hidden" name="second" value="{$secondcustomer.ctm_id}">
+
+    <div class="alert alert-info alert-dismissable">
+        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+            ×
+        </button>
+        温馨提示：合并客户请注意填写正确对应的基本信息
+        <br/>
+    </div>
+        
+        <div class="form-group col-sm-6 col-xs-6">
+            <label for="c-ctm_name" class="control-label col-xs-12 col-sm-4">主客户:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$maincustomer.ctm_name}">
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('developStaff')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[admin_id]', $briefAdminList, $maincustomer.admin_id, ['class'=>'form-control selectpicker', 'required'=>'','disabled'=>'disabled'])}
+            </div>
+        </div>
+
+       <!--  <div class="form-group col-sm-6 col-xs-6">
+            <label for="c-ctm_birthdate" class="control-label col-xs-12 col-sm-4">{:__('Ctm_birthdate')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input id="c-ctm_birthdate" readonly="readonly" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[ctm_birthdate]" type="text" value="{$maincustomer.ctm_birthdate}">                       
+            </div>
+        </div> -->
+
+        <div class="form-group col-sm-6 col-xs-6">
+            <label  class="control-label col-xs-12 col-sm-4">{:__('Ctm_tel')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$maincustomer.ctm_tel}">
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-xs-6">
+            <label  class="control-label col-xs-12 col-sm-4">{:__('ctm_mobile')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$maincustomer.ctm_mobile}">
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('Ctm_source')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[ctm_source]', $ctmSrcList, $maincustomer.ctm_source, ['class'=>'form-control selectpicker', 'data-rule'=>'required','disabled'=>'disabled'])}
+            </div>
+        </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('Ctm_explore')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[ctm_explore]', $channelList, $maincustomer.ctm_explore, ['class'=>'form-control selectpicker', 'required'=>'','disabled'=>'disabled'])}
+            </div>
+        </div>
+        
+ <div class="clearfix"></div>
+<hr/>
+        <div class="form-group col-sm-6 col-xs-6">
+            <label for="c-ctm_name" class="control-label col-xs-12 col-sm-4">合并客户:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$secondcustomer.ctm_name}">
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('developStaff')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[admin_id]', $briefAdminList, $secondcustomer.admin_id, ['class'=>'form-control selectpicker', 'required'=>'','disabled'=>'disabled'])}
+            </div>
+        </div>
+
+        <!-- <div class="form-group col-sm-6 col-xs-6">
+            <label for="c-ctm_birthdate" class="control-label col-xs-12 col-sm-4">{:__('Ctm_birthdate')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input id="c-ctm_birthdate" readonly="readonly" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[ctm_birthdate]" type="text" value="{$secondcustomer.ctm_birthdate}">                       
+            </div>
+        </div> -->
+
+        <div class="form-group col-sm-6 col-xs-6">
+            <label  class="control-label col-xs-12 col-sm-4">{:__('Ctm_tel')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$secondcustomer.ctm_tel}">
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-xs-6">
+            <label  class="control-label col-xs-12 col-sm-4">{:__('ctm_mobile')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                <input  class="form-control" readonly="readonly" type="text" value="{$secondcustomer.ctm_mobile}">
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('Ctm_source')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[ctm_source]', $ctmSrcList, $secondcustomer.ctm_source, ['class'=>'form-control selectpicker', 'data-rule'=>'required','disabled'=>'disabled'])}
+            </div>
+        </div>
+         <div class="form-group col-sm-6 col-xs-6">
+            <label class="control-label col-xs-12 col-sm-4">{:__('Ctm_explore')}:</label>
+            <div class="col-xs-8 col-sm-8 col-style">
+                {:build_select('customer[ctm_explore]', $channelList, $secondcustomer.ctm_explore, ['class'=>'form-control selectpicker', 'required'=>'','disabled'=>'disabled'])}
+            </div>
+        </div>
+
+ <div class="clearfix"></div>
+<hr/>
+            <!-- 客户来源 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_source')}
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" id="ctm_source" name="row[ctm_source]">
+                        {foreach $sourceList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+            <!-- 营销渠道 -->
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_explore')}
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                    <select class="selectpicker form-control selectSearch-min" data-live-search="true" data-rule="required" id="ctm_explore" name="row[ctm_explore]">
+                        {foreach $channelList as $key => $val}
+                        <option value="{$key}">
+                            {$val}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_tel')}:
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                     <input id="c-ctm_tel" class="form-control" data-rule="required;tel2" name="row[ctm_tel]" type="text" value="">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('Ctm_mobile')}:
+                        <i class="text-danger">
+                            *
+                        </i>
+                    </span>
+                     <input id="c-ctm_mobile" class="form-control" data-rule="required;mobile2" name="row[ctm_mobile]" type="text" value="">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        {:__('developStaff')}
+                        <i class="text-danger">
+                                *
+                        </i>
+                    </span>
+                    <select class="selectpicker show-tick form-control" data-live-search="true" name="row[admin_id]">
+                        <option value="">{:__('None')}</option>
+                        <option value="0">自然到诊</option>
+                        {foreach $briefAdminList as $key => $value}
+                        <option value="{$key}">
+                            {$value}
+                        </option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+
+     <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+        
+</form>
+<style type="text/css">
+    .input-group .input-group-addon {
+        background-color: #eeeeee;
+        border: 1px solid #ccc;
+    }
+    #ribbon{
+        display: none;
+    }
+</style>

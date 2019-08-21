@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'Order_num'  =>  '领药单号',
+    'Producer_id'  =>  '供应商',
+    'Depot_id'  =>  '所属仓库',
+    'Depart_id'  =>  '领药科室',
+    'Out_id'  =>  '领药人',
+    'Member_id'  =>  '所属客户',
+    'Uid'  =>  '操作人',
+    'Type'  =>  '操作类型',
+    'Type 0'  =>  '领药',
+    'Type 1'  =>  '领料',
+    'Status'  =>  '状态',
+    'Status normal'  =>  '显示',
+    'Status hidden'  =>  '隐藏',
+    'Remark'  =>  '备注',
+    'Createtime'  =>  '领药时间',
+    'Updatetime'  =>  '修改时间',
+    'Add'  =>  '领药',
+    'SelDrugs'  =>  '选择药品',
+    
+    'Med_num'  =>  '药品编号',
+    'Med_name'  =>  '药品名称',
+    'Med_code' =>  '拼音码',
+    'Med_stock'  =>  '可用库存',
+    'Med_unit'  =>  '单位',
+    'Med_price'  =>  '药品售价',
+    'Med_cost'  =>  '药品成本价',
+    'Med_remark'  =>  '备注',
+    'Clear'      =>   '清空',
+];

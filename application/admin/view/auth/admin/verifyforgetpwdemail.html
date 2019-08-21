@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改密码</title>
+        {include file="common/meta" /}
+		 <style type="text/css">
+            body {
+                color:#999;
+            	background: url('/assets/img/loginbg.jpg');
+                background-size:cover;
+            }
+            a {
+                color:#fff;
+            }
+            .verify-panel{margin-top:150px;}
+            .verify-screen {
+                max-width:400px;
+                padding:0;
+                margin:100px auto 0 auto;
+
+            }
+            .verify-screen .well {
+                border-radius: 3px;
+                -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                background: rgba(255,255,255, 0.2);
+            }
+            .verify-screen .copyright {
+                text-align: center;
+            }
+            @media(max-width:767px) {
+                .verify-screen {
+                    padding:0 20px;
+                }
+            }
+            .profile-img-card {
+                width: 100px;
+                height: 100px;
+                margin: 10px auto;
+                display: block;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .profile-name-card {
+                text-align: center;
+            }
+
+            #verify-form {
+                margin-top:20px;
+            }
+            #verify-form .input-group {
+                margin-bottom:15px;
+            }
+
+        </style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="verify-wrapper">
+				<div class="verify-screen">
+					<div class="well">
+						<div class="verify-form">
+							<h2 class="text-center">修改密码</h2>
+							<form action="" method="post" id="verify-form">
+								<div id="errtips" class="hide"></div>
+								<input class="hidden" value="{$validkey}" id="validkey" />
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+									<input type="password" class="form-control" id="pd-form-password" placeholder="请输入密码" name="pwd" autocomplete="off" value="" data-rule="Password: required; length(6~16)" />
+								</div>
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+									<input type="password" class="form-control" id="pd-form-confirmPassword" placeholder="请再次输入密码" name="pwdAgain" autocomplete="off" value="" data-rule="Verify Password: required; match(pwd)" />
+								</div>
+
+								<div class="form-group">
+									<button type="button" class="btn btn-success btn-lg btn-block" id="verify">确认修改</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<p class="copyright">
+						<a href="http://www.hfyjy.com">Powered By YJY</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		{include file="common/script" /}
+		<script>
+			document.getElementById('verify').onclick=function(e){
+				var validKey = document.getElementById('validkey').value;
+				var verifyPassword = document.getElementById('pd-form-password').value;
+				
+				$.ajax({
+					url: '/auth/admin/verifyforgetpwdemail',
+					data: {validkey : validKey , password : verifyPassword},
+					dataType: 'json',
+					success: function(data) {
+						if(data.code == 1) {
+							
+							layer.msg(__('Operation completed'), {
+                                        icon: 1
+                                });
+                                
+                                setTimeout("readCard()",0);  
+                                
+							setTimeout(function() {window.location.href = '/index/login'},2000);
+						} else {
+							layer.msg(data.msg, {
+                                        icon: 2
+                                });
+						}
+					},
+					error: function() {
+					}
+				})
+			};
+		</script>
+	</body>
+</html>

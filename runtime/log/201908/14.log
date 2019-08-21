@@ -1,0 +1,1805 @@
+---------------------------------------------------------------
+[ 2019-08-14T14:28:59+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] h_two.cn/ [运行时间：0.124007s][吞吐率：8.06req/s] [内存消耗：2,851.35kb] [文件加载：61]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'purpose' => 'prefetch',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/common\view\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:00+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] h_two.cn/ [运行时间：0.048003s][吞吐率：20.83req/s] [内存消耗：2,851.11kb] [文件加载：61]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/common\view\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:01+08:00 ] 127.0.0.1 127.0.0.1 GET /index/login?url=/
+[ info ] h_two.cn/index/login?url=/ [运行时间：0.051003s][吞吐率：19.61req/s] [内存消耗：2,927.27kb] [文件加载：63]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ D:\wamp\www\h_two\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\index\login.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'title',
+  6 => 'background',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:02+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=index&v=1565764141
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=index&v=1565764141 [运行时间：0.077005s][吞吐率：12.99req/s] [内存消耗：2,973.32kb] [文件加载：62]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/index/login?url=/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1565764141',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001001s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:02+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/20181123/9f9ac92b726dbeca2b66921c30ef388f.jpg
+[ info ] h_two.cn/uploads/20181123/9f9ac92b726dbeca2b66921c30ef388f.jpg [运行时间：0.046003s][吞吐率：21.74req/s] [内存消耗：2,188.52kb] [文件加载：49]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'uploads',
+    2 => '20181123',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://h_two.cn/index/login?url=/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:02+08:00 ] 127.0.0.1 127.0.0.1 POST /index/login?url=/
+[ info ] h_two.cn/index/login?url=/ [运行时间：0.209012s][吞吐率：4.78req/s] [内存消耗：4,185.52kb] [文件加载：78]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'content-length' => '73',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://h_two.cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://h_two.cn/index/login?url=/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/',
+  '__token__' => 'a1f8ff28026b02bfa8acaab35ff870ae',
+  'username' => 'admin',
+  'password' => '123456',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ D:\wamp\www\h_two\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.030002s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_admin` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] UPDATE `yjy_admin`  SET `logintime`=1565764142,`token`='80b1de5d-2437-4e66-9924-4fc766f9fc11',`updatetime`=1565764142  WHERE  `id` = 1 [ RunTime:0.047003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_admin_log` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] INSERT INTO `yjy_admin_log` (`title` , `content` , `url` , `admin_id` , `username` , `useragent` , `ip` , `createtime`) VALUES ('登录' , '{\"url\":\"\\/\",\"__token__\":\"a1f8ff28026b02bfa8acaab35ff870ae\",\"username\":\"admin\"}' , '/index/login?url=/' , 1 , 'admin' , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36' , '127.0.0.1' , 1565764142) [ RunTime:0.022002s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:03+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] h_two.cn/ [运行时间：0.758043s][吞吐率：1.32req/s] [内存消耗：6,126.90kb] [文件加载：81]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/index/login?url=/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\wamp\www\h_two\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\index\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'menulist',
+  6 => 'title',
+  7 => 'isJustLogin',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.006000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:03+08:00 ] 127.0.0.1 127.0.0.1 GET /uploads/20181123/9f9ac92b726dbeca2b66921c30ef388f.jpg
+[ info ] h_two.cn/uploads/20181123/9f9ac92b726dbeca2b66921c30ef388f.jpg [运行时间：0.063003s][吞吐率：15.87req/s] [内存消耗：2,188.55kb] [文件加载：49]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'uploads',
+    2 => '20181123',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://h_two.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:03+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=index&v=1565764142
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=index&v=1565764142 [运行时间：0.086005s][吞吐率：11.63req/s] [内存消耗：3,846.01kb] [文件加载：70]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1565764142',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:04+08:00 ] 127.0.0.1 127.0.0.1 GET /general/notice/index?dialog=1
+[ info ] h_two.cn/general/notice/index?dialog=1 [运行时间：0.149008s][吞吐率：6.71req/s] [内存消耗：4,574.87kb] [文件加载：77]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'general.notice',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'dialog' => '1',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/general/notice.php
+[ info ] [ RUN ] app\admin\controller\general\Notice->index[ D:\wamp\www\h_two\application\admin\controller\general\Notice.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\general\notice\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `yjy_auth_rule` WHERE  `name` = '/general/notice/index' LIMIT 1 [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:04+08:00 ] 127.0.0.1 127.0.0.1 GET /dashboard?addtabs=1
+[ info ] h_two.cn/dashboard?addtabs=1 [运行时间：0.523030s][吞吐率：1.91req/s] [内存消耗：6,314.58kb] [文件加载：87]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'dashboard',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/dashboard?ref=addtabs',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ RUN ] app\admin\controller\Dashboard->index[ D:\wamp\www\h_two\application\admin\controller\Dashboard.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\dashboard\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'totaluser',
+  6 => 'totalviews',
+  7 => 'totalorder',
+  8 => 'totalorderamount',
+  9 => 'todayuserlogin',
+  10 => 'todayusersignup',
+  11 => 'todayorder',
+  12 => 'todayunsettleorder',
+  13 => 'sevendnu',
+  14 => 'sevendau',
+  15 => 'paylist',
+  16 => 'createlist',
+  17 => 'msgTypeList',
+  18 => 'today_pay_total',
+  19 => 'today_deduct_amount',
+  20 => 'today_order_total',
+  21 => 'today_ctm_depositamt',
+  22 => 'today_total',
+  23 => 'today_deposit_total',
+  24 => 'today_change_total',
+  25 => 'today_coc',
+  26 => 'today_cst',
+  27 => 'today_rvinfoAll',
+  28 => 'today_rvinfo',
+  29 => 'today_rvinfoNo',
+  30 => 'data',
+  31 => 'expiredNum',
+  32 => 'counts',
+  33 => 'pay_total',
+  34 => 'deduct_amount',
+  35 => 'order_total',
+  36 => 'ctm_depositamt',
+  37 => 'total',
+  38 => 'deposit_total',
+  39 => 'change_total',
+  40 => 'coc',
+  41 => 'cst',
+  42 => 'rvinfoAll',
+  43 => 'rvinfo',
+  44 => 'rvinfoNo',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT count(*) as count,COUNT(distinct order_items.customer_id) as uniq_customer_count,sum(case when item_status='-2' then 0 else item_total end) as item_total,sum(item_pay_total) as item_pay_total,sum(case when item_status='-2' then 0 else item_coupon_total end) as item_coupon_total,sum(item_original_total) as item_original_total,sum(item_original_pay_total) as item_original_pay_total,sum(case when item_status='-2' then 0 else item_total_times end) as total_times,sum(case when item_status='-2' then 0 else item_used_times end) as used_total_times,sum(item_undeducted_total) as undeducted_total FROM `yjy_order_items` `order_items` LEFT JOIN `yjy_customer_osconsult` `osc` ON `order_items`.`osconsult_id`=`osc`.`osc_id` LEFT JOIN `yjy_c_project` `c_project` ON `osc`.`cpdt_id`=`c_project`.`id` LEFT JOIN `yjy_customer` `customer` ON `order_items`.`customer_id`=`customer`.`ctm_id` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_project` `project` ON `order_items`.`pro_id`=`project`.`pro_id` WHERE  `order_items`.`item_status` IN (-2,1,2)  AND `order_items`.`item_paytime` BETWEEN 1565712000 AND 1565798399 LIMIT 1 [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deduct_records` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT SUM(deduct_amount ) AS deduct_amount FROM `yjy_deduct_records` WHERE  `createtime` BETWEEN 1565712000 AND 1565798399 [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT count(*) as count,COUNT(distinct order_items.customer_id) as uniq_customer_count,sum(case when item_status='-2' then 0 else item_total end) as item_total,sum(item_pay_total) as item_pay_total,sum(case when item_status='-2' then 0 else item_coupon_total end) as item_coupon_total,sum(item_original_total) as item_original_total,sum(item_original_pay_total) as item_original_pay_total,sum(case when item_status='-2' then 0 else item_total_times end) as total_times,sum(case when item_status='-2' then 0 else item_used_times end) as used_total_times,sum(item_undeducted_total) as undeducted_total FROM `yjy_order_items` `order_items` LEFT JOIN `yjy_customer_osconsult` `osc` ON `order_items`.`osconsult_id`=`osc`.`osc_id` LEFT JOIN `yjy_c_project` `c_project` ON `osc`.`cpdt_id`=`c_project`.`id` LEFT JOIN `yjy_customer` `customer` ON `order_items`.`customer_id`=`customer`.`ctm_id` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_project` `project` ON `order_items`.`pro_id`=`project`.`pro_id` WHERE  `order_items`.`item_status` IN (-2,1,2)  AND `order_items`.`item_paytime` BETWEEN 1565712000 AND 1565798399 LIMIT 1 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_account_log` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1565712000 AND 1565798399 [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1565712000 AND 1565798399  AND `deposit_amt` > 0 [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1565712000 AND 1565798399  AND `deposit_amt` < 0 [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_customer_osconsult` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT count(osc_id) AS osc_id FROM `yjy_customer_osconsult` WHERE  `createtime` BETWEEN 1565712000 AND 1565798399 [ RunTime:0.028002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_customer_consult` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT count(cst_id) AS cst_id FROM `yjy_customer_consult` WHERE  `createtime` BETWEEN 1565712000 AND 1565798399 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_rvinfo` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT count(rvi_id) AS rvi_id FROM `yjy_rvinfo` WHERE  `rv_date` BETWEEN '2019-08-14' AND '2019-08-14' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT count(rvi_id) AS rvi_id FROM `yjy_rvinfo` WHERE  `rv_time` BETWEEN 1565712000 AND 1565798399 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT count(*) as count,COUNT(distinct order_items.customer_id) as uniq_customer_count,sum(case when item_status='-2' then 0 else item_total end) as item_total,sum(item_pay_total) as item_pay_total,sum(case when item_status='-2' then 0 else item_coupon_total end) as item_coupon_total,sum(item_original_total) as item_original_total,sum(item_original_pay_total) as item_original_pay_total,sum(case when item_status='-2' then 0 else item_total_times end) as total_times,sum(case when item_status='-2' then 0 else item_used_times end) as used_total_times,sum(item_undeducted_total) as undeducted_total FROM `yjy_order_items` `order_items` LEFT JOIN `yjy_customer_osconsult` `osc` ON `order_items`.`osconsult_id`=`osc`.`osc_id` LEFT JOIN `yjy_c_project` `c_project` ON `osc`.`cpdt_id`=`c_project`.`id` LEFT JOIN `yjy_customer` `customer` ON `order_items`.`customer_id`=`customer`.`ctm_id` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_project` `project` ON `order_items`.`pro_id`=`project`.`pro_id` WHERE  `order_items`.`item_status` IN (-2,1,2)  AND `order_items`.`item_paytime` BETWEEN 1564588800 AND 1567180800 LIMIT 1 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT SUM(deduct_amount ) AS deduct_amount FROM `yjy_deduct_records` WHERE  `createtime` BETWEEN 1564588800 AND 1567180800 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT count(*) as count,COUNT(distinct order_items.customer_id) as uniq_customer_count,sum(case when item_status='-2' then 0 else item_total end) as item_total,sum(item_pay_total) as item_pay_total,sum(case when item_status='-2' then 0 else item_coupon_total end) as item_coupon_total,sum(item_original_total) as item_original_total,sum(item_original_pay_total) as item_original_pay_total,sum(case when item_status='-2' then 0 else item_total_times end) as total_times,sum(case when item_status='-2' then 0 else item_used_times end) as used_total_times,sum(item_undeducted_total) as undeducted_total FROM `yjy_order_items` `order_items` LEFT JOIN `yjy_customer_osconsult` `osc` ON `order_items`.`osconsult_id`=`osc`.`osc_id` LEFT JOIN `yjy_c_project` `c_project` ON `osc`.`cpdt_id`=`c_project`.`id` LEFT JOIN `yjy_customer` `customer` ON `order_items`.`customer_id`=`customer`.`ctm_id` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_project` `project` ON `order_items`.`pro_id`=`project`.`pro_id` WHERE  `order_items`.`item_status` IN (-2,1,2)  AND `order_items`.`item_paytime` BETWEEN 1564588800 AND 1567180800 LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1564588800 AND 1567180800 [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1564588800 AND 1567180800  AND `deposit_amt` > 0 [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT SUM(deposit_amt ) AS deposit_amt FROM `yjy_account_log` WHERE  `change_time` BETWEEN 1564588800 AND 1567180800  AND `deposit_amt` < 0 [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT count(osc_id) AS osc_id FROM `yjy_customer_osconsult` WHERE  `createtime` BETWEEN 1564588800 AND 1567180800 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT count(cst_id) AS cst_id FROM `yjy_customer_consult` WHERE  `createtime` BETWEEN 1564588800 AND 1567180800 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT count(rvi_id) AS rvi_id FROM `yjy_rvinfo` WHERE  `rv_date` BETWEEN '2019-08-01' AND '2019-08-31' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT count(rvi_id) AS rvi_id FROM `yjy_rvinfo` WHERE  `rv_time` BETWEEN 1564588800 AND 1567180800 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_project` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `p`.`pro_id`,`p`.`pro_name`,`p`.`pro_code`,`p`.`pro_spec`,`p`.`depot_id`,d.name as dname,u.name as uname,`lot`.`lot_id`,`lot`.`lotnum`,`lot`.`lstock`,`lot`.`lstime`,`lot`.`letime`,`lot`.`lproducer`,`sup`.`sup_name` FROM `yjy_project` `p` LEFT JOIN `yjy_depot` `d` ON `p`.`depot_id`=`d`.`id` LEFT JOIN `yjy_unit` `u` ON `p`.`pro_unit`=`u`.`id` LEFT JOIN `yjy_wm_lotnum` `lot` ON `p`.`pro_id`=`lot`.`lpro_id` LEFT JOIN `yjy_wm_manlist` `ml` ON `lot`.`lot_id`=`ml`.`lotid` LEFT JOIN `yjy_wm_manifest` `mf` ON `ml`.`manid`=`mf`.`man_id` LEFT JOIN `yjy_wm_supplier` `sup` ON `mf`.`msupplier_id`=`sup`.`sup_id` WHERE  `mf`.`mprimary_type` IN ('1','2') AND `lot`.`lstock` > '0'  AND `lot`.`letime` < 1581661744  AND `p`.`pro_type` = 1 ORDER BY `lot`.`lot_id`  ASC [ RunTime:0.007000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:04+08:00 ] 127.0.0.1 127.0.0.1 GET /customer/customer/listofbirth
+[ info ] h_two.cn/customer/customer/listofbirth [运行时间：0.702040s][吞吐率：1.42req/s] [内存消耗：7,256.02kb] [文件加载：90]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'customer.customer',
+    2 => 'listofbirth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/general/notice/index?dialog=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001001s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/customer/customer.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\customer\Customer->listofbirth[ D:\wamp\www\h_two\application\admin\controller\customer\Customer.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\customer\customer\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'jobList',
+  6 => 'ctmSrcList',
+  7 => 'fatList',
+  8 => 'channelList',
+  9 => 'pdcList',
+  10 => 'cpdtList',
+  11 => 'oscTypeList',
+  12 => 'adminList',
+  13 => 'genderList',
+  14 => 'briefAdminList',
+  15 => 'ctmtypeList',
+  16 => 'toolList',
+  17 => 'ArriveStatus',
+  18 => 'deptList',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmsource` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `sce_id`,`sce_name` FROM `yjy_ctmsource` WHERE  `sce_status` = 1 ORDER BY `sce_sort`  desc [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_fat` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `fat_id`,`fat_name` FROM `yjy_fat` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmchannels` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `chn_id`,`chn_name` FROM `yjy_ctmchannels` WHERE  `chn_status` = 1 ORDER BY `chn_sort`  desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_pducat` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `pdc_id`,`pdc_name` FROM `yjy_pducat` WHERE  `pdc_status` = 1 ORDER BY `pdc_sort`  DESC,`pdc_id`  ASC [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_c_project` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`cpdt_name` FROM `yjy_c_project` WHERE  `cpdt_status` = 1 ORDER BY `id`  ASC [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_customertype` [ RunTime:0.006001s ]
+[ sql ] [ SQL ] SELECT `type_id`,`type_name` FROM `yjy_customertype` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `sce_id`,`sce_name` FROM `yjy_ctmsource` WHERE  `sce_status` = 1 ORDER BY `sce_sort`  desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `fat_id`,`fat_name` FROM `yjy_fat` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `chn_id`,`chn_name` FROM `yjy_ctmchannels` WHERE  `chn_status` = 1 ORDER BY `chn_sort`  desc [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `pdc_id`,`pdc_name` FROM `yjy_pducat` WHERE  `pdc_status` = 1 ORDER BY `pdc_sort`  DESC,`pdc_id`  ASC [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`cpdt_name` FROM `yjy_c_project` WHERE  `cpdt_status` = 1 ORDER BY `id`  ASC [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `yjy_auth_rule` WHERE  `name` = '/customer/customer/listofbirth' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007001s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:05+08:00 ] 127.0.0.1 127.0.0.1 GET /customer/rvinfo/todayrevisitnotices
+[ info ] h_two.cn/customer/rvinfo/todayrevisitnotices [运行时间：1.010058s][吞吐率：0.99req/s] [内存消耗：6,742.26kb] [文件加载：87]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'customer.rvinfo',
+    2 => 'todayrevisitnotices',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/general/notice/index?dialog=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/customer/rvinfo.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\customer\Rvinfo->todayrevisitnotices[ D:\wamp\www\h_two\application\admin\controller\customer\Rvinfo.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\customer\rvinfo\todayrevisitnotices.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'rvStatusList',
+  6 => 'deptList',
+  7 => 'ArriveStatus',
+  8 => 'typeList',
+  9 => 'cpdtList',
+  10 => 'fatList',
+  11 => 'toolList',
+  12 => 'startDate',
+  13 => 'endDate',
+  14 => 'briefAdminList',
+  15 => 'ctmSrcList',
+  16 => 'channelList',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_rvtype` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `rvt_id`,`rvt_name` FROM `yjy_rvtype` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_c_project` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`cpdt_name` FROM `yjy_c_project` WHERE  `cpdt_status` = 1 ORDER BY `id`  ASC [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_fat` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `fat_id`,`fat_name` FROM `yjy_fat` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmsource` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `sce_id`,`sce_name` FROM `yjy_ctmsource` WHERE  `sce_status` = 1 ORDER BY `sce_sort`  desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmchannels` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `chn_id`,`chn_name` FROM `yjy_ctmchannels` WHERE  `chn_status` = 1 ORDER BY `chn_sort`  desc [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `yjy_auth_rule` WHERE  `name` = '/customer/rvinfo/todayrevisitnotices' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:05+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=general.notice&v=1565764144
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=general.notice&v=1565764144 [运行时间：0.879050s][吞吐率：1.14req/s] [内存消耗：3,841.84kb] [文件加载：70]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/general/notice/index?dialog=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'general.notice',
+  'v' => '1565764144',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/general/notice.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:05+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=dashboard&v=1565764144
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=dashboard&v=1565764144 [运行时间：0.579033s][吞吐率：1.73req/s] [内存消耗：3,847.19kb] [文件加载：71]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/dashboard?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'dashboard',
+  'v' => '1565764144',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/dashboard.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:05+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=customer.customer&v=1565764144
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=customer.customer&v=1565764144 [运行时间：0.301017s][吞吐率：3.32req/s] [内存消耗：3,897.76kb] [文件加载：73]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/customer/customer/listofbirth',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'customer.customer',
+  'v' => '1565764144',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/customer/customer.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:05+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=customer.rvinfo&v=1565764144
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=customer.rvinfo&v=1565764144 [运行时间：0.123007s][吞吐率：8.13req/s] [内存消耗：3,898.77kb] [文件加载：73]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/customer/rvinfo/todayrevisitnotices',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'customer.rvinfo',
+  'v' => '1565764144',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.010001s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/customer/rvinfo.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:06+08:00 ] 127.0.0.1 127.0.0.1 GET /base/msg?sort=msg_id&order=DESC&offset=0&limit=25&_=1565764144713
+[ info ] h_two.cn/base/msg?sort=msg_id&order=DESC&offset=0&limit=25&_=1565764144713 [运行时间：0.151009s][吞吐率：6.62req/s] [内存消耗：5,395.82kb] [文件加载：79]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'base.msg',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'content-type' => 'application/json',
+  'referer' => 'http://h_two.cn/dashboard?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'msg_id',
+  'order' => 'DESC',
+  'offset' => '0',
+  'limit' => '25',
+  '_' => '1565764144713',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.000000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/base/msg.php
+[ info ] [ RUN ] app\admin\controller\base\Msg->index[ D:\wamp\www\h_two\application\admin\controller\base\Msg.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.002000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_msg` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_msg` WHERE  `msg_to` = 1  AND `createtime` <= 1565798399 ORDER BY `msg_id`  DESC LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_msg` WHERE  `msg_to` = 1  AND `createtime` <= 1565798399 ORDER BY `msg_id`  DESC LIMIT 0,25 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:06+08:00 ] 127.0.0.1 127.0.0.1 GET /customer/customer/listofbirth?sort=ctm_id&order=desc&offset=0&limit=25&_=1565764144714
+[ info ] h_two.cn/customer/customer/listofbirth?sort=ctm_id&order=desc&offset=0&limit=25&_=1565764144714 [运行时间：0.299017s][吞吐率：3.34req/s] [内存消耗：6,046.64kb] [文件加载：89]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'customer.customer',
+    2 => 'listofbirth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'content-type' => 'application/json',
+  'referer' => 'http://h_two.cn/dashboard?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'ctm_id',
+  'order' => 'desc',
+  'offset' => '0',
+  'limit' => '25',
+  '_' => '1565764144714',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin/lang/zh-cn/customer/customer.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\customer\Customer->listofbirth[ D:\wamp\www\h_two\application\admin\controller\customer\Customer.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmsource` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `sce_id`,`sce_name` FROM `yjy_ctmsource` WHERE  `sce_status` = 1 ORDER BY `sce_sort`  desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_fat` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `fat_id`,`fat_name` FROM `yjy_fat` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_ctmchannels` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `chn_id`,`chn_name` FROM `yjy_ctmchannels` WHERE  `chn_status` = 1 ORDER BY `chn_sort`  desc [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_pducat` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `pdc_id`,`pdc_name` FROM `yjy_pducat` WHERE  `pdc_status` = 1 ORDER BY `pdc_sort`  DESC,`pdc_id`  ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_c_project` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`cpdt_name` FROM `yjy_c_project` WHERE  `cpdt_status` = 1 ORDER BY `id`  ASC [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_customertype` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `type_id`,`type_name` FROM `yjy_customertype` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_customer` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_customer` `customer` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_admin` `admin` ON `customer`.`admin_id`=`admin`.`id` WHERE  `ctm_status` = 1  AND `ctm_ifbirth` = 1  AND (  `ctm_birthdate` LIKE '%-08-14' ) LIMIT 1 [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `customer`.*,sce.sce_name as ctm_source,channels.chn_name as ctm_explore,admin.dept_id as dept_id FROM `yjy_customer` `customer` LEFT JOIN `yjy_ctmsource` `sce` ON `customer`.`ctm_source`=`sce`.`sce_id` LEFT JOIN `yjy_ctmchannels` `channels` ON `customer`.`ctm_explore`=`channels`.`chn_id` LEFT JOIN `yjy_admin` `admin` ON `customer`.`admin_id`=`admin`.`id` WHERE  `ctm_status` = 1  AND `ctm_ifbirth` = 1  AND (  `ctm_birthdate` LIKE '%-08-14' ) ORDER BY `ctm_id`  desc LIMIT 0,25 [ RunTime:0.024001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`cpdt_name` FROM `yjy_c_project` [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:09+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist?addtabs=1
+[ info ] h_two.cn/wm/drugscflist?addtabs=1 [运行时间：0.134008s][吞吐率：7.46req/s] [内存消耗：5,497.88kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?ref=addtabs',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.000000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->index[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `yjy_auth_rule` WHERE  `name` = '/wm/drugscflist' LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:09+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764149
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764149 [运行时间：0.086005s][吞吐率：11.63req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764149',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:29:10+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/index?sort=&order=&offset=0&limit=25&_=1565764149489
+[ info ] h_two.cn/wm/drugscflist/index?sort=&order=&offset=0&limit=25&_=1565764149489 [运行时间：0.235013s][吞吐率：4.26req/s] [内存消耗：5,604.66kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'content-type' => 'application/json',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'sort' => '',
+  'order' => '',
+  'offset' => '0',
+  'limit' => '25',
+  '_' => '1565764149489',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->index[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,max(dr.createtime) as drtime,max(dr.order_item_id) as dr_oid FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` WHERE  `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' GROUP BY oi.customer_id ORDER BY `drtime`  DESC LIMIT 0,25 [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM ( SELECT count(*) FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` WHERE  `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' GROUP BY oi.customer_id ) `_group_count_` LIMIT 1 [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 162 LIMIT 1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 123832  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 101 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125183  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 151 LIMIT 1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125141  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 155 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 123820  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 156 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 123826  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 157 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125215  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 161 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125256  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 138 LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125185  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 136 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125219  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `d`.`dept_name` FROM `yjy_order_items` `oi` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` WHERE  `item_id` = 110 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` WHERE  `oi`.`customer_id` = 125193  AND `oi`.`item_type` = '1'  AND `dr`.`status` = '1' LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:10+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/edit/ids/123832
+[ info ] h_two.cn/wm/drugscflist/edit/ids/123832 [运行时间：0.133008s][吞吐率：7.52req/s] [内存消耗：5,527.65kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'ids' => '123832',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.000000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->edit[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\edit.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+  7 => 'depotData',
+  8 => 'deptmentData',
+  9 => 'list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`oi`.`item_total_times`,dr.id as drid,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,`d`.`dept_id`,`d`.`dept_name`,depot.id as depotid,depot.name as depot_name FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` LEFT JOIN `yjy_depot` `depot` ON `pro`.`depot_id`=`depot`.`id` WHERE  `oi`.`customer_id` = '123832'  AND `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' ORDER BY `dr`.`id`  DESC [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:29:10+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764150
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764150 [运行时间：0.065004s][吞吐率：15.38req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist/edit/ids/123832',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764150',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:34:01+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/edit/ids/125183
+[ info ] h_two.cn/wm/drugscflist/edit/ids/125183 [运行时间：0.144008s][吞吐率：6.94req/s] [内存消耗：5,523.36kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'ids' => '125183',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->edit[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\edit.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+  7 => 'depotData',
+  8 => 'deptmentData',
+  9 => 'list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`oi`.`item_total_times`,dr.id as drid,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,`d`.`dept_id`,`d`.`dept_name`,depot.id as depotid,depot.name as depot_name FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` LEFT JOIN `yjy_depot` `depot` ON `pro`.`depot_id`=`depot`.`id` WHERE  `oi`.`customer_id` = '125183'  AND `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' ORDER BY `dr`.`id`  DESC [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:34:02+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764441
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764441 [运行时间：0.105006s][吞吐率：9.52req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist/edit/ids/125183',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764441',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:34:02+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/edit/ids/125141
+[ info ] h_two.cn/wm/drugscflist/edit/ids/125141 [运行时间：0.152008s][吞吐率：6.58req/s] [内存消耗：5,521.25kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'ids' => '125141',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->edit[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\edit.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+  7 => 'depotData',
+  8 => 'deptmentData',
+  9 => 'list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`oi`.`item_total_times`,dr.id as drid,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,`d`.`dept_id`,`d`.`dept_name`,depot.id as depotid,depot.name as depot_name FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` LEFT JOIN `yjy_depot` `depot` ON `pro`.`depot_id`=`depot`.`id` WHERE  `oi`.`customer_id` = '125141'  AND `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' ORDER BY `dr`.`id`  DESC [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:34:03+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764442
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764442 [运行时间：0.094006s][吞吐率：10.64req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist/edit/ids/125141',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764442',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002001s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:34:03+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/edit/ids/123820
+[ info ] h_two.cn/wm/drugscflist/edit/ids/123820 [运行时间：0.138008s][吞吐率：7.25req/s] [内存消耗：5,521.25kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'ids' => '123820',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->edit[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\edit.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+  7 => 'depotData',
+  8 => 'deptmentData',
+  9 => 'list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`oi`.`item_total_times`,dr.id as drid,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,`d`.`dept_id`,`d`.`dept_name`,depot.id as depotid,depot.name as depot_name FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` LEFT JOIN `yjy_depot` `depot` ON `pro`.`depot_id`=`depot`.`id` WHERE  `oi`.`customer_id` = '123820'  AND `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' ORDER BY `dr`.`id`  DESC [ RunTime:0.002001s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:34:04+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764443
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764443 [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist/edit/ids/123820',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764443',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-08-14T14:34:05+08:00 ] 127.0.0.1 127.0.0.1 GET /wm/drugscflist/edit/ids/123826
+[ info ] h_two.cn/wm/drugscflist/edit/ids/123826 [运行时间：0.136008s][吞吐率：7.35req/s] [内存消耗：5,521.27kb] [文件加载：76]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wm.drugscflist',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'referer' => 'http://h_two.cn/wm/drugscflist?addtabs=1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'ids' => '123826',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\wm\Drugscflist->edit[ D:\wamp\www\h_two\application\admin\controller\wm\Drugscflist.php ]
+[ info ] [ VIEW ] D:\wamp\www\h_two\public/../application/admin\view\wm\drugscflist\edit.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'depotList',
+  6 => 'deptmentList',
+  7 => 'depotData',
+  8 => 'deptmentData',
+  9 => 'list',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:dbname=his_beta;host=192.168.0.220;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_group_access` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `AuthGroupAccess`.`uid`,`AuthGroupAccess`.`group_id`,`AuthGroup`.`id`,`AuthGroup`.`pid`,`AuthGroup`.`name`,`AuthGroup`.`rules` FROM `yjy_auth_group_access` `AuthGroupAccess` LEFT JOIN `yjy_auth_group` `AuthGroup` ON `AuthGroupAccess`.`group_id`=`AuthGroup`.`id` WHERE  (  AuthGroupAccess.uid='1' and AuthGroup.status='normal' ) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_auth_rule` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `yjy_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_depot` [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_depot` WHERE  `type` = 1  AND `status` = 'normal' [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_deptment` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `yjy_deptment` WHERE  `dept_status` = 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yjy_order_items` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `oi`.`item_id`,`oi`.`customer_id`,`oi`.`pro_name`,`oi`.`item_total_times`,dr.id as drid,`dr`.`order_item_id`,`dr`.`deduct_times`,`dr`.`status`,`c`.`ctm_name`,`dr`.`createtime`,`d`.`dept_id`,`d`.`dept_name`,depot.id as depotid,depot.name as depot_name FROM `yjy_order_items` `oi` LEFT JOIN `yjy_deduct_records` `dr` ON `oi`.`item_id`=`dr`.`order_item_id` LEFT JOIN `yjy_customer` `c` ON `oi`.`customer_id`=`c`.`ctm_id` LEFT JOIN `yjy_admin` `a` ON `oi`.`prescriber`=`a`.`id` LEFT JOIN `yjy_deptment` `d` ON `a`.`dept_id`=`d`.`dept_id` LEFT JOIN `yjy_project` `pro` ON `oi`.`pro_id`=`pro`.`pro_id` LEFT JOIN `yjy_depot` `depot` ON `pro`.`depot_id`=`depot`.`id` WHERE  `oi`.`customer_id` = '123826'  AND `dr`.`status` IN (1,2)  AND `oi`.`item_type` = '1' ORDER BY `dr`.`id`  DESC [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-08-14T14:34:05+08:00 ] 127.0.0.1 127.0.0.1 GET /ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764444
+[ info ] h_two.cn/ajax/lang?callback=define&controllername=wm.drugscflist&v=1565764444 [运行时间：0.084005s][吞吐率：11.90req/s] [内存消耗：3,840.95kb] [文件加载：69]
+[ info ] [ LANG ] D:\wamp\www\h_two\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'admin'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'h_two.cn',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'accept' => '*/*',
+  'referer' => 'http://h_two.cn/wm/drugscflist/edit/ids/123826',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'cookie' => 'use_simple_menu=1; PHPSESSID=1hkbev1r6jrh71int785tmg1i6',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'wm.drugscflist',
+  'v' => '1565764444',
+)
+[ info ] [ LANG ] D:\wamp\www\h_two\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002001s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'expire' => 5400,
+  'use_cookies' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ D:\wamp\www\h_two\application\admin\controller\Ajax.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File

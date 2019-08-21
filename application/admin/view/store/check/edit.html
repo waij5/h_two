@@ -1,0 +1,86 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group col-sm-6">
+        <label for="c-order_num" class="control-label col-xs-12 col-sm-4">{:__('Order_num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_num" data-rule="required" readonly="readonly" class="form-control" name="row[order_num]" type="text" value="{$row.order_num}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-depot_id" class="control-label col-xs-12 col-sm-4">{:__('Depot_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-depot_id" data-rule="required" class="form-control " disabled name="row[depot_id]">
+            <option data-type="" value='' >--- 请选择 ---</option>
+                {foreach name="depotList" item="vo"}
+                <option data-type="{$vo.name}" value="{$vo.id}" {in name="$vo.id" value="$row.depot_id"}selected{/in}>{$vo.name}</option>
+                {/foreach}
+            </select> 
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-uid" class="control-label col-xs-12 col-sm-4">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" data-rule="required" readonly="readonly" class="form-control" name="row[uid]" type="text" value="{$row.uid}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-4">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-remark" data-rule="" class="form-control" name="row[remark]" type="text" value="{$row.remark}">
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">产品列表:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <a href="javascript:;" class="btn btn-danger btn-toggle-all" id="btn-sel">
+				{:__('SelPros')}
+			</a>
+            <button  class="btn btn-default btn-embossed" id="clear">{:__('Clear')}</button> -->
+           </div>
+          </div>
+          <div class="form-group">
+          	 <div class="col-xs-12 col-sm-12">
+            <!--startprint-->
+            <table id="selectedProducts" class="table table-striped table-bordered table-hover">
+				<tr>
+					<td>id</td>
+					<td>拼音码</td>
+					<td>产品名称</td>
+					<td>账面数量</td>
+					<td>盘点数量</td>
+					<td>盈亏数量</td>
+					<td>状态</td>
+					<td>单位</td>
+					<!-- <td class='printRemove'>操作</td> -->
+				</tr>
+				{if condition="!empty($lists)"}
+				{foreach name="lists" item="vo"}
+				<tr>
+					<td><input type="hidden" name="goods_id[]" value="{$vo.goods_id}"/>{$vo.goods_id}</td>
+					<td>{$vo.code}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.stock}</td>
+					<td>{$vo.storage_num}</td>
+					<td>{$vo.differ_num}</td>
+					<td>{switch name="vo.status"}
+							{case value="1"}<font color="green">盘盈</font>{/case}
+							{case value="-1"}<font color="red">盘亏</font>{/case}
+							{default /}正常
+						{/switch}</td>
+					<td>{$vo.unit}</td>
+					<!-- <td class='printRemove'><a href="javascript:;" name="drugRemoveBtn"  class="btn btn-xs btn-danger btn-delone" title=""><i class="fa fa-trash"></i></a></td> -->
+				</tr>
+				{/foreach}
+				{/if}
+            </table>
+            <!--endprint-->
+        </div>
+    </div>
+    <!-- <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div> -->
+</form>

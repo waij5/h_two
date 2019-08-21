@@ -1,0 +1,213 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table">
+                        <form action="" class="form-inline form-commonsearch nice-validator n-default" id="f-commonsearch" method="post" novalidate="novalidate" role="form">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="item_paytime">
+                                        {:__('item_paytime')}
+                                    </label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="item_paytime_start" name="item_paytime_start" type="text" value="{$startDate}">
+                                        ~
+                                        <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="item_paytime_end" name="item_paytime_end" type="text" value="{$endDate}">
+                                        </input>
+                                    </input>
+                                </div>
+
+                                <!-- 所属类别 -->
+                                <div class="form-group">
+                                    <label for="c-pro_cat1">{:__('Pro_cat1')}:</label>
+                                    <select class="form-control" required="" name="pro_cat1" id="pro_cat1"> 
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $catListLv1 as $pdcId => $lv1Cat}
+                                            <option value="{$pdcId}"{if $pdcId eq $pro_cat1} selected="" {/if}>{$lv1Cat}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="c-pro_cat2">{:__('Pro_cat2')}:</label>
+                                    <select class="form-control" name="pro_cat2">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $catListLv2 as $pdcId => $lv2Cat}
+                                            <option value="{$pdcId}"{if $pdcId eq $pro_cat2} selected="" {/if}>{$lv2Cat}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- 类型 -->
+                                <div class="form-group">
+                                    <label for="c-item_type">{:__('item_type')}:</label>
+                                    <select class="form-control" required="" name="item_type" id="item_type">
+                                        <option></option>
+                                        <option value="1"{if $item_type eq 1} selected{/if}>药品</option>
+                                        <option value="2"{if $item_type eq 2} selected{/if}>物资</option>
+                                        <option value="9"{if $item_type eq 9} selected{/if}>项目</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button class="btn btn-success dislocationRight" type="submit">
+                                            提交
+                                        </button>
+                                        <button class="btn btn-default" type="reset">
+                                            重置
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="table table-striped table-bordered table-hover" id="toolbar" width="100%">
+                    </div>
+                    <div class="form-group">
+                         <h2 class="text-center">
+                            {:__('Customer order records')}
+                        </h2>
+                    </div>
+                    <table class="table table-bordered table-hover scrolltable" id="table" width="100%">
+                        <thead>
+                            <tr class="success">
+                                <th class="text-center">
+                                    {:__('Sequence number')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Pro_cat1')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Pro_cat2')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('item_book_count')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('item_used_times')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('item_total_times')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Item_total')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('Item_pay_total')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('percent of total')}
+                                </th>
+                                <th class="text-center">
+                                    {:__('percent of pay total')}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {assign name="seqNo" value="1" /}
+                        {foreach $list as $key => $row}
+                            {assign name="posInCat1" value="0" /}
+                            {foreach $row['subs'] as $subRow}
+                            <tr>
+                                <td>
+                                    {$seqNo++}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    {$subRow.cat_name}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.item_book_count}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.item_used_times}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.item_total_times}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.item_total}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.item_pay_total}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.total_percent}
+                                </td>
+                                <td class="text-right">
+                                    {$subRow.pay_total_percent}
+                                </td>
+                            </tr>
+                            {/foreach}
+                            <tr class="active">
+                                <th class="t-border-b">
+                                    {:__('summary')}
+                                </th>
+                                <th class="t-border-b">
+                                    {$row.cat_name}
+                                </th>
+                                <th class="t-border-b">
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.item_book_count}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.item_used_times}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.item_total_times}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.item_total}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.item_pay_total}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.total_percent}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$row.pay_total_percent}
+                                </th>
+                            </tr>
+                            {/foreach}
+                        </tbody>
+                        <tfoot>
+                            <tr class="success">
+                                <th class="t-border-b" colspan="3">
+                                    {:__('summary')}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$summary.item_book_count}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$summary.item_used_times}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$summary.item_total_times}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$summary.item_total}
+                                </th>
+                                <th class="text-right t-border-b">
+                                    {$summary.item_pay_total}
+                                </th>
+                                <th class="text-right t-border-b">
+                                </th>
+                                <th class="text-right t-border-b">
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <script type="text/javascript">
+                        var jsonStatData = "";
+                    </script>
+                    <div id="stat-chart" style="height: 800px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

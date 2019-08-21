@@ -1,0 +1,15 @@
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Pay_total')}:</label>
+        <div class="col-xs-12 col-sm-10 row">
+            {foreach $payTypeList as $payType}
+            <div class="col-xs-6 payTypeDiv">
+                {$payType.title}
+                <div class="input-group">
+                    <span class="input-group-addon {$payType.class}">
+                    </span>
+                    <input type="number" name="row[{$payType.name}]" value="0.00" class="form-control" data-rule="required;range(0~)"/>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-ort_date" class="control-label col-xs-12 col-sm-2">{:__('Ort_date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ort_date" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[ort_date]" type="text" value="{$row.ort_date}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ort_start_time" class="control-label col-xs-12 col-sm-2">{:__('Ort_start_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ort_start_time" data-rule="required" class="form-control datetimepicker" data-date-format="HH:mm:ss" data-use-current="true" name="row[ort_start_time]" type="text" value="{$row.ort_start_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ort_end_time" class="control-label col-xs-12 col-sm-2">{:__('Ort_end_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ort_end_time" data-rule="required" class="form-control datetimepicker" data-date-format="HH:mm:ss" data-use-current="true" name="row[ort_end_time]" type="text" value="{$row.ort_end_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ort_status" class="control-label col-xs-12 col-sm-2">{:__('Ort_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ort_status" data-rule="required" class="form-control" name="row[ort_status]" type="number" value="{$row.ort_status}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-operator_id" class="control-label col-xs-12 col-sm-2">{:__('Operator_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-operator_id" data-rule="required" data-source="operator/index" class="form-control selectpage" name="row[operator_id]" type="text" value="{$row.operator_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-book_id" class="control-label col-xs-12 col-sm-2">{:__('Book_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-book_id" data-rule="required" data-source="book/index" class="form-control selectpage" name="row[book_id]" type="text" value="{$row.book_id}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

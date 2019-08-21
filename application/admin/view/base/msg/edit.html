@@ -1,0 +1,51 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+  
+
+    <div class="form-group">
+        <label for="c-msg_type" class="control-label col-xs-12 col-sm-2">{:__('Msg_type')}:</label>
+        <div class="col-xs-12 col-sm-6">
+            <!-- <input id="c-msg_type" data-rule="required" class="form-control" name="row[msg_type]" type="number" value="{$row.msg_type}"> -->
+            {:build_select('row[msg_type]', $msgTypeList, $row['msg_type'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+        <!-- 回访计划 -->
+    <div class="form-group col-sm-4 {if $row.msg_type neq $msg_type} hidden{/if}" id="addrvtype">
+        <a href="javascript:;" class="btn btn-success btn-add" style="" id="addRvinfoHistory"value="{$row.msg_to}"><i class="fa fa-plus"></i> 添加回访记录</a>
+    </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label for="c-msg_from" class="control-label col-xs-12 col-sm-2">{:__('Msg_from')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-msg_from" data-rule="required" class="form-control" name="row[msg_from]" type="text" value="{$admin.nickname}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-msg_to" class="control-label col-xs-12 col-sm-2">{:__('Msg_to')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <input id="c-msg_to" data-rule="required" class="form-control" name="row[msg_to]" type="number" value="{$row.msg_to}"> -->
+            {:build_select('row[msg_to]', $info, $row['msg_to'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-msg_title" class="control-label col-xs-12 col-sm-2">{:__('Msg_title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-msg_title" data-rule="required" class="form-control" name="row[msg_title]" type="text" value="{$row.msg_title}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-msg_content" class="control-label col-xs-12 col-sm-2">{:__('Msg_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-msg_content" data-rule="required" class="form-control summernote" rows="5" name="row[msg_content]" cols="50">{$row.msg_content}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+           <!--  <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button> -->
+        </div>
+    </div>
+</form>

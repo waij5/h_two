@@ -1,0 +1,76 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-order_id" class="control-label col-xs-12 col-sm-2">{:__('Order_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_id" data-rule="required" data-source="order/index" class="form-control selectpage" name="row[order_id]" type="text" value="{$row.order_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-type" class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-type" data-rule="required" class="form-control" name="row[type]" type="text" value="{$row.type}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-balance_id" class="control-label col-xs-12 col-sm-2">{:__('Balance_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-balance_id" data-rule="required" data-source="balance/index" class="form-control selectpage" name="row[balance_id]" type="text" value="{$row.balance_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-old_name" class="control-label col-xs-12 col-sm-2">{:__('Old_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-old_name" data-rule="required" class="form-control" name="row[old_name]" type="text" value="{$row.old_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-new_name" class="control-label col-xs-12 col-sm-2">{:__('New_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-new_name" data-rule="required" class="form-control" name="row[new_name]" type="text" value="{$row.new_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deposit_change" class="control-label col-xs-12 col-sm-2">{:__('Deposit_change')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit_change" data-rule="required" class="form-control" step="0.01" name="row[deposit_change]" type="number" value="{$row.deposit_change}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-originia_item_data" class="control-label col-xs-12 col-sm-2">{:__('Originia_item_data')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-originia_item_data" data-rule="required" class="form-control " rows="5" name="row[originia_item_data]" cols="50">{$row.originia_item_data}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-new_item_data" class="control-label col-xs-12 col-sm-2">{:__('New_item_data')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-new_item_data" data-rule="required" class="form-control " rows="5" name="row[new_item_data]" cols="50">{$row.new_item_data}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">{:__('Admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_id" data-rule="required" data-source="admin/index" data-field="nickname" class="form-control selectpage" name="row[admin_id]" type="text" value="{$row.admin_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-stat_date" class="control-label col-xs-12 col-sm-2">{:__('Stat_date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-stat_date" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[stat_date]" type="text" value="{$row.stat_date}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-createtitme" class="control-label col-xs-12 col-sm-2">{:__('Createtitme')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-createtitme" data-rule="required" class="form-control" name="row[createtitme]" type="number" value="{$row.createtitme}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

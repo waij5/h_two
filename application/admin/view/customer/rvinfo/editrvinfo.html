@@ -1,0 +1,49 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-rvi_tel" class="control-label col-xs-4 col-sm-4">{:__('Rvi_tel')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-rvi_tel" data-rule="required" readonly class="form-control" name="row[rvi_tel]" type="text" value="{$row.rvi_tel}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-customer_id" class="control-label col-xs-4 col-sm-4">{:__('Customer_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-customer_id" data-rule="required" readonly class="form-control" name="row[customer_id]" type="text" value="{$ctm_name}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-rvt_type" class="control-label col-xs-4 col-sm-4">{:__('Rvt_type')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <input id="c-rvt_type" data-rule="required" readonly class="form-control" name="row[rvt_type]" type="text" value="{$row.rvt_type}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6 hidden">
+        <label for="c-rv_status" class="control-label col-xs-4 col-sm-4">{:__('Rv_status')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <select class="form-control" id="sel-rv-status" name="row[rv_status]">
+            {foreach $rvStatusList as $key => $rvStatus}
+                <option value="{$key}">{$rvStatus}</option>
+            {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-xs-12">
+        <label for="c-rvi_content" class="control-label col-xs-2 col-sm-2">{:__('Rvi_content')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <textarea id="c-rvi_content" data-rule="required" class="form-control summernote" rows="5" name="row[rvi_content]" cols="50">{$row.rvi_content|htmlspecialchars}</textarea>
+        </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12" id="div-rv-fat">
+        <label for="c-fat_id" class="control-label col-xs-2 col-sm-2">{:__('Rv_fat_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+        {:build_select('row[fat_id]', $fatList, $row.fat_id, ['class'=>'form-control selectpicker'])}
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-4 col-sm-4"></label>
+        <div class="col-xs-8 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed" form="edit-form">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

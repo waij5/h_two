@@ -1,0 +1,67 @@
+<div class="panel panel-default panel-intro">
+    <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+        <input type="hidden" id="consult_id" name="consult_id" value="0">
+        <input type="hidden" id="ctm_id" name="customer_id" value="0">
+        <input type="hidden" id="h-phone" name="phone" value="{$phone}">
+    </form>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar form-group" hidden>
+                        <a class="btn btn-success" id="btn-ctm-add">
+                            <i class="fa fa-plus"></i> {:__('AddCustomer')}
+                        </a>
+                    </div>  
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('customer/customerconsult/edit')}" 
+                           data-operate-del="{:$auth->check('customer/customerconsult/del')}" 
+                           width="100%">
+                        <thead>
+                            <th>{:__('Ctm_id')}</th>
+                            <th>{:__('Ctm_name')}</th>
+                            <th>{:__('Ctm_mobile')}</th>
+                            <th>{:__('Ctm_tel')}</th>
+                            <th>{:__('Ctm_remark')}</th>
+                            <th class="text-center">{:__('Ctm_book')}</th>
+                            <th class="text-center">{:__('Operate')}</th>
+                        </thead>
+                        <tbody>
+                       {foreach name="customers" item="customer"}
+                            <tr>
+                                <td>{$customer.ctm_id}</td>
+                                <td>{$customer.ctm_name}</td>
+                            {if $admin.showMobile eq '1'}
+                                <td>{$customer.ctm_mobile}</td>
+                                <td>{$customer.ctm_tel}</td>
+                            {else}
+                                <td>{:getMaskString($customer.ctm_mobile)}</td>
+                                <td>{:getMaskString($customer.ctm_tel)}</td>
+                            {/if}
+                                <td title="{$customer.ctm_remark|strip_tags}" data-toggle='tooltip'>{$customer.ctm_remark|strip_tags|mb_substr=0, 8, 'utf-8'}</td>
+                                <td>
+                                    {if isset($customer['book_list'])}
+                                        <select id="s-consult-{$customer.ctm_id}">
+                                        {foreach $customer['book_list'] as $book}
+                                            <option value="{$book.consult_id}" title="{$book.cst_content|strip_tags}">
+                                                {$book.book_time}--{$book.cst_content|strip_tags|mb_substr=0,8,'utf8'|}
+                                            </option>
+                                        {/foreach}
+                                        </select>
+                                    {/if}
+                                </td>
+                                
+                                <td class="text-center">
+                                    <a href="javascript:;" class="btn btn-xs btn-success btn-ctm-select" title="选择" data-ctm-id="{$customer.ctm_id}">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

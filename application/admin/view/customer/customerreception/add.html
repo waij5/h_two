@@ -1,0 +1,493 @@
+{if (isset($showReceptNotice) && $showReceptNotice)}
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+    </button>
+    {:__('One osconsult exists for this customer of today')}
+</div>
+<div class="form-group">
+    <a href="javascript:;"  class="btn btn-danger btn-editone" id="addone" data-force-url="{$forceUrl}">
+        <i class="fa fa-plus"></i>&nbsp;{:__('Force add')}
+    </a>
+</div>
+
+<table class="table table-striped table-bordered table-hover" width="100%">
+    <thead>
+        <tr>
+            <th>{:__('osc_status')}</th>
+            <th>{:__('createtime')}</th>
+            <th>{:__('osc_type')}</th>
+
+            <th>{:__('ctm_name')}</th>
+            <th>{:__('ctm_id')}</th>
+
+            <th>{:__('cpdt_name')}</th>
+            <th>{:__('osc_content')}</th>
+
+            <th>{:__('yjy_developer_name')}</th>
+            <th>{:__('coc_Admin_nickname')}</th>
+            <th>{:__('operator')}
+            <th>{:__('Operate')}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {:__('Status_' . str_replace('-', 'm', $lastOsconsult->osc_status))}
+            </td>
+            <td>
+                {$lastOsconsult->createtime|date="Y-m-d H:i:s", ###}
+            </td>
+            <td>
+                {:__('osc_type_' . $lastOsconsult->osc_type)}
+            </td>
+            <td>
+                {$lastOsconsult->ctm_name}
+            </td>
+            <td>
+                {$lastOsconsult->ctm_id}
+            </td>
+            <td>
+                {$lastOsconsult->cpdt_name}
+            </td>
+            <td width="20%" wrap title="{$lastOsconsult->osc_content}">
+                {$lastOsconsult->osc_content}
+            </td>
+            <td>
+                {$lastOsconsult->develop_admin_name}
+            </td>
+            <td>
+                {$lastOsconsult->admin_name}
+            </td>
+            <td>
+                {$lastOsconsult->operator_name}
+            </td>
+            <td>
+                {if ($lastOsconsult->osc_status == 0)}
+                <a href="javascript:;" class="btn btn-xs btn-success btn-editone" id="btn-reassign" data-pk="{$lastOsconsult->osc_id}">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                {/if}
+            </td>
+        </tr>
+    </tbody>
+</table>
+{else}
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+{if ($customer.ctm_id)}
+<div class="alert{if $customer.ctm_status eq '0'} alert-warning{else} alert-info{/if} alert-dismissable" style="padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;">
+    {if $customer.ctm_status eq '0'}<i class="fa fa-trash">已废弃</i>&nbsp;|&nbsp;{/if}
+    老顾客{if isset($ctmtypeList[$customer['ctm_type']])}【<b style="color: #ff4c3c;"> {$ctmtypeList[$customer['ctm_type']]} </b>】{/if}【{$customer.ctm_mobile}】网络客服【{if $customer.admin_id == 0}自然到诊{elseif (isset($briefAdminList[$customer.admin_id]))}{$briefAdminList[$customer.admin_id]}{else}{/if}】 最近现场【{if (isset($briefAdminList[$customer.ctm_last_osc_admin]))}{$briefAdminList[$customer.ctm_last_osc_admin]}{else}{/if}】 总消费【{$customer.ctm_salamt}】
+    <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+        ×
+    </button>
+</div>
+<ul id="myTab" class="nav nav-tabs">
+    <li>
+        <a href="#basic" data-toggle="tab">{:__('Basic info')}</a>
+    </li>
+    <li>
+        <a href="#extra" data-toggle="tab">{:__('Extra info')}</a>
+    </li>
+    <li>
+        <a href="#conHistory" data-toggle="tab">{:__('Consult history')}</a>
+    </li>
+    <li>
+        <a href="#osconHistory" data-toggle="tab">{:__('Osconsult history')}</a>
+    </li>
+    <li>
+        <a href="#orderHistory" data-toggle="tab">{:__('Order history')}</a>
+    </li>
+    <li>
+        <a href="#rvinfoHistory" data-toggle="tab">{:__('Rvinfo history')}</a>
+    </li>
+    <li>
+        <a data-toggle="tab" href="#hmOrderHistory">
+            {:__('Hm order history')}
+        </a>
+    </li>
+    <li class="active">
+        <a href="#assignosconsult" data-toggle="tab">{:__('Assign osconsult')}</a>
+    </li>
+</ul>
+{else}
+<div class="alert alert-success alert-dismissable" style="padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;">
+    新顾客【{$customer.ctm_mobile}】  请注意完整填写 <span class="text-warning">【客户资料】</span> 和 <span class="text-warning">【现场客服指派】</span>
+    <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+        ×
+    </button>
+</div>
+<ul id="myTab" class="nav nav-tabs">
+     <li class="active">
+        <a href="#basic" data-toggle="tab">{:__('Basic info')}</a>
+    </li>
+    <li>
+        <a href="#extra" data-toggle="tab">{:__('Extra info')}</a>
+    </li>
+    <li>
+        <a href="#assignosconsult" data-toggle="tab">{:__('Assign osconsult')}</a>
+    </li>
+</ul>
+{/if}
+<div id="myTabContent" class="tab-content">
+{if ($customer.ctm_id)}      
+    <div class="tab-pane fade in active" id="assignosconsult">
+{else}
+    <div class="tab-pane fade" id="assignosconsult">
+    <a class="btn btn-success btn-add" href="javascript:;" id="last" style="position: fixed; top: 50%; right: 20px; transform: translateY(-50%); writing-mode: tb-rl; padding: 8px"> 客户资料 <i class="fa fa-angle-double-down"></i></a>
+{/if}
+    <div class="panel-body">
+    <!-- 客服相关 -->
+    <!-- <h2>{:__('Assign osconsult')}</h2>
+    <hr /> -->
+    <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+        {if ($consultId)}
+            <input id="c-consult_id" data-rule="required" name="row[consult_id]" type="hidden" value="{$consultId}">
+
+            <input id="c-consult_id" data-rule="required" name="row[consult_id]" type="hidden" value="{$consultId}">
+        {/if}
+        <input id="c-osc_status" data-rule="required" class="form-control" name="row[osc_status]" type="hidden" value="0">
+    
+        <!-- 客服项目 -->
+        <div class="form-group commonsearch-table">
+            <div class="offWrap offWrapLeft hidden" title="点击收起搜索框">
+                <i class="fa fa-angle-double-left text-success">
+                </i>
+            </div>
+            <label class="control-label col-xs-12 col-sm-2" for="c-cpdt_id">
+                {:__('Cpdt_id')}:
+            </label>
+            <div class="col-xs-12 col-sm-9 cls-full-sp">
+                <input class="form-control" id="selector-cpdt_id" data-rule="required" name="row[cpdt_id]" data-init-cpdt="{$consultCpdtId}" placeholder="{$cpdtName}" type="text" value="{$consultCpdtId}">
+                </input>
+            </div>
+        </div>
+        <!-- 客服科室 -->
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-dept_id">
+                {:__('Dept_id')}:
+            </label>
+            <div class="col-xs-12 col-sm-10">
+                <input type="text" id="show_dept_name" value="" readonly class="form-control" />
+                <select class="form-control hidden" name="row[dept_id]">
+                {foreach $deptList as $dept}
+                <option value="{$dept.dept_id}" {if $dept.dept_id eq $consultDeptId} selected{/if}>
+                    {$dept.dept_name}
+                </option>
+                {/foreach}
+                </select>
+            </div>
+        </div>
+
+        <!-- 客服项目 -->
+       <!--  <div class="form-group">
+            <label for="c-cpdt_id" class="control-label col-xs-12 col-sm-2">{:__('Cpdt_id')}:</label>
+            <div class="col-xs-12 col-sm-8 hidden">
+             {:build_select('row[cpdt_id]', $List, $consultCpdtId, ['class'=>'form-control selectpicker', 'required'=>''])}
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <input id="c-cpdt_id"  class="form-control hidden" name="row[cpdt_id]" type="text" value="{$consultCpdtId}" data-rule="required" />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12" onmouseleave="$('#word').addClass('hidden');">
+                        <input type="text" id="project_search" onclick="$('#word').removeClass('hidden')" autocomplete="off" value="{$cpdt_name.cpdt_name}" style="position: relative;" class="form-control" />
+                        <div style="position: relative;" >
+                            <ul id="word" data-index="" style="list-style:none;position: absolute;display: none;cursor: pointer;z-index: 999;height: auto;" class="form-control"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- 客服科室 -->
+       <!--  <div class="form-group">
+            <label for="c-dept_id" class="control-label col-xs-12 col-sm-2">{:__('Dept_id')}:</label>
+            <div class="col-xs-12 col-sm-8">
+               <select name="row[dept_id]" class="form-control" readonly>
+                        <option>--</option>
+                </select>
+            </div>
+        </div> -->
+        <!--客服人员-->
+        <div class="form-group">
+            <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">{:__('Admin_id')}:</label>
+            <div class="col-xs-12 col-sm-8">
+            {:build_select('row[admin_id]', $adminList, $lastOscStaffId, ['class'=>'form-control selectpicker', 'required'=>'','data-live-search'=>'true'])}
+              <!--   <select name="row[admin_id]" class="form-control" readonly>
+                        <option>--</option>
+                </select> -->
+            </div>
+        </div>      
+
+        {if $preConsultContent}
+        <div class="form-group">
+            <label for="c-cst_content" class="control-label col-xs-12 col-sm-2">{:__('Cst_content')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                <textarea class="form-control summernote" readonly rows="5" cols="50">{$preConsultContent|htmlspecialchars}</textarea>
+            </div>
+        </div>
+        {/if}
+        <!-- {if ($NoCome && $ctmDepositamt > 0)}
+        <div class="form-group">
+            <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">提示:</label>
+            <div class="col-xs-12 col-sm-8">
+                <div class="alert alert-success alert-dismissable" style="padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px;">
+                    首次到诊, 已有定金 {$ctmDepositamt}
+                    <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+                        ×
+                    </button>
+                </div>
+            </div>
+        </div>
+        {/if} -->
+        <div class="form-group">
+            <label for="c-osc_type" class="control-label col-xs-12 col-sm-2">{:__('Osc_type')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                {:build_select('row[osc_type]', $oscTypeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+            </div>
+        </div>
+        <hr />
+        <!--客服-->
+        <div class="form-group">
+            <label for="c-service_admin_id" class="control-label col-xs-12 col-sm-2">{:__('service_admin_name')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                <select class="form-control selectpicker" name="row[service_admin_id]" data-live-search='true'>
+                    <option value="">--</option>
+                    {foreach $briefAdminList as $adminId => $briefAdmin}
+                    <option value="{$adminId}">{$briefAdmin}</option>
+                    {/foreach}
+                </select> 
+            </div>
+        </div>
+
+    </div></div>
+
+    
+{if ($customer.ctm_id)}      
+    <div class="tab-pane fade" id="basic">
+{else}
+    <div class="tab-pane fade in active" id="basic">
+     <a class="btn btn-success btn-add" href="javascript:;" id="next" style="position: fixed; top: 50%; right: 20px; transform: translateY(-50%); writing-mode: tb-rl; padding: 8px"> 下一步 <i class="fa fa-angle-double-down"></i></a>
+{/if}
+        {include file="customer/customer/tab_basic" /}
+    </div>
+    <div class="tab-pane fade" id="extra">
+        <div class="panel-body">
+            <div class="form-group col-sm-12" style="margin-left:-20px">
+                <label for="c-ctm_company" class="control-label col-xs-12 col-sm-2">{:__('Ctm_company')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_company" class="form-control" name="customer[ctm_company]" type="text" value="{$customer.ctm_company}">
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="c-ctm_job" class="control-label col-xs-12 col-sm-4">{:__('Ctm_job')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <!-- <input id="c-ctm_job" class="form-control" name="customer[ctm_job]" type="text" value="{$customer.ctm_job}"> -->
+                    <!-- jobList -->
+                    {:build_select('customer[ctm_job]', $jobList, $customer.ctm_job, ['class'=>'form-control selectpicker', 'required'=>''])}
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="c-ctm_zip" class="control-label col-xs-12 col-sm-4">{:__('Ctm_zip')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_zip" class="form-control" name="customer[ctm_zip]" type="text" value="{$customer.ctm_zip}">
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="c-ctm_email" class="control-label col-xs-12 col-sm-4">{:__('Ctm_email')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_email" class="form-control" name="customer[ctm_email]" type="text" value="{$customer.ctm_email}">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 hidden">
+                <label for="c-ctm_qq" class="control-label col-xs-12 col-sm-4">{:__('Ctm_qq')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_qq" class="form-control" readonly name="customer[ctm_qq]" type="text" value="{$customer.ctm_qq}">
+                </div>
+            </div>
+            <div class="form-group col-sm-6 hidden">
+                <label for="c-ctm_wxid" class="control-label col-xs-12 col-sm-4">{:__('Ctm_wxid')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_wxid" class="form-control" readonly name="customer[ctm_wxid]" type="text" value="{$customer.ctm_wxid}">
+                </div>
+            </div>
+            <!-- 定金 -->
+            <div class="clearfix"></div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_depositamt" class="control-label col-xs-3 col-sm-4">{:__('Ctm_depositamt')}:</label>
+                    <label class="control-label">{$customer.ctm_depositamt}</label>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_coupamt" class="control-label col-xs-3 col-sm-4">{:__('ctm_coupamt')}:</label>
+                <label class="control-label">{$customer.ctm_coupamt}</label>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_salamt" class="control-label col-xs-3 col-sm-4">{:__('Ctm_salamt')}:</label>
+                    <label class="control-label">{$customer.ctm_salamt}</label>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_rank_points" class="control-label col-xs-3 col-sm-4">{:__('ctm_rank_points')}:</label>
+                    <label class="control-label">{$customer.ctm_rank_points}</label>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+                <label for="c-ctm_pay_points" class="control-label col-xs-3 col-sm-4">{:__('ctm_pay_points')}:</label>
+                    <label class="control-label">{$customer.ctm_pay_points}</label>
+            </div>
+            <div class="clearfix"></div>
+           <div class="form-group col-sm-6">
+                <label for="c-ctm_ifrevmail" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifrevmail')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_ifrevmail"  class="form-control" name="customer[ctm_ifrevmail]" readonly type="hidden" value="{$customer.ctm_ifrevmail}">
+                    <label class="control-label">
+                        {if ($customer.ctm_ifrevmail)}
+                            {:__('Status_yes')}
+                        {else}
+                            {:__('Status_no')}
+                        {/if}
+                    </label>
+                </div>
+            </div>
+           <div class="form-group col-sm-6">
+                <label for="c-ctm-ifbirth" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifbirth')}:</label>
+                <div class="col-xs-12 col-sm-8">
+                    <input id="c-ctm_ifbirth" class="form-control" name="customer[ctm_ifbirth]" readonly type="hidden" value="{$customer.ctm_ifbirth}">
+                    <label class="control-label">
+                    {if ($customer.ctm_ifbirth)}
+                        {:__('Status_yes')}
+                    {else}
+                        {:__('Status_no')}
+                    {/if}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    {if $customer.ctm_id}
+    <!-- consult history -->
+    <div class="tab-pane fade" id="conHistory">
+        <div class="tab-pane fade active in" id="one">
+            <input type="hidden" id="conHistory-ids" value="{$customer.ctm_id}" />
+            <div class="widget-body no-padding">
+                <table id="conHistory-table" class="table table-striped table-bordered table-hover" 
+                       width="100%">
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="osconHistory">
+        <div class="tab-pane fade active in" id="one">
+            <input type="hidden" id="osconHistory-ids" value="{$customer.ctm_id}" />
+            <div class="widget-body no-padding">
+                <table id="osconHistory-table" class="table table-striped table-bordered table-hover" 
+                       width="100%">
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 订单显示 -->
+    <div class="tab-pane fade" id="orderHistory">
+        <input type="hidden" id="orderHistory-ids" value="{$customer.ctm_id}" />
+            <div class="widget-body no-padding">
+              <a href="javascript:;" class="btn btn-primary btn-refresh btnRefresh" id="btn-refresh-order"><i class="fa fa-refresh"></i></a>
+              <div style="line-height: 24px;font-size: 14px;float: left;padding-left: 5px; width: calc(100% - 140px);">
+                <h4>
+                    <label class="control-label">
+                        {:__('item_pay_total')}&nbsp;
+                    </label>
+                    <span class="his-item_pay_total text-success">
+                        0
+                    </span>
+                    +
+                    <label class="control-label">
+                        {:__('item_coupon_total')}&nbsp;
+                    </label>
+                    <span class="text-warning his-item_coupon_total">
+                        0
+                    </span>
+                    =
+                    <label class="control-label">
+                        {:__('Item_total')}&nbsp;
+                    </label>
+                    <span class="text-warning his-item_total">
+                        0
+                    </span>
+                </h4>
+            </div>
+            <table class="table ordertable table-bordered" id="orderHistory-table" width="100%"></table>
+
+                <h4 title="双击订购项目显示相应划扣记录">划扣记录:  <i class="fa fa-question-circle-o text-success"></i></h4>
+                <div class="bootstrap-table">
+                    <div class="fixed-table-container">
+                        <div class="fixed-table-body">
+                <table class="table table-bordered" id="h-deducted-table" width="100%">
+                </table>
+               </div>
+              </div>
+             </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="rvinfoHistory">
+        {if $customer->ctm_id}
+        <input type="hidden" id="rvinfoHistory-ids" value="{$customer.ctm_id}" />
+        <div class="widget-body no-padding">
+            <a href="javascript:;" class="btn btn-primary btn-refresh btnRefresh" id="btn-refresh-rvinfo"><i class="fa fa-refresh"></i></a>
+            <a href="javascript:;" class="btn btn-success btn-add" style="float: left;margin: 10px 0;" id="addRvinfoHistory" value="{$customer.ctm_id}"><i class="fa fa-plus"></i> 添加</a>
+            <select id="h_rvinfo_by_plan" class="form-control" style="">
+            {foreach $definedRvPlans as $key => $definedRvPlan}
+                <option value="{$key}">{$definedRvPlan}</option>
+            {/foreach}
+            </select>
+            <a class="btn btn-success btn-add" href="javascript:;" id="add_rvinfo_by_plan" style="" data-customer_id="{$customer.ctm_id}">
+                <i class="fa fa-plus">
+                </i>
+                快速回访计划
+            </a>
+            <a class="btn btn-default btn-add" href="javascript:;" id="add_rvtype2" style="margin: 10px;" value="{$customer.ctm_id}">
+                <i class="fa fa-plus">
+                </i>
+                添加回访计划
+            </a>
+            {if $customer.ctm_status == 1  && $auth->check('customer/customer/invalidCustomer')}
+                <a class="btn btn-danger" href="javascript:;" id="ctmStatus" style="margin: 5px;" value="{$customer.ctm_id}">
+                    <i class="fa fa-plus">
+                    </i>
+                    废弃客户
+                </a>
+                {/if}
+            <table id="rvinfoHistory-table" class="table table-striped table-bordered table-hover" width="100%">
+            </table>
+        </div>
+        {else}
+        {/if}
+    </div>
+    <div class="tab-pane fade" id="hmOrderHistory">
+        <div class="clearfix">
+            <h3>
+                {:__('hm_cpy_pay_total')}:&nbsp;
+                <span class="hm_cpy_pay_total text-success">
+                    0
+                </span>
+                &nbsp;&nbsp;
+                <small>
+                    {:__('hm_cpy_account_total')}:&nbsp;
+                    <span class="hm_cpy_account_total">
+                        0
+                    </span>
+                </small>
+            </h3>
+        </div>
+        <div class="widget-body no-padding">
+            <table class="table table-striped table-bordered table-hover" id="hmOrderHistory-table" width="100%">
+            </table>
+        </div>
+    </div>
+    {/if}
+</div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+{/if}

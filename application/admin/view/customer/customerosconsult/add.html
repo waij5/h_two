@@ -1,0 +1,173 @@
+<form action="" class="form-horizontal" data-toggle="validator" id="add-form" method="POST" role="form">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#basic">
+                {:__('Basic info')}
+            </a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#extra">
+                {:__('Extra info')}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="basic">
+            {include file="customer/customer/tab_basic" /}
+        </div>
+        <div class="tab-pane fade" id="extra">
+            <div class="panel-body">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_company">
+                        {:__('Ctm_company')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control" id="c-ctm_company" name="customer[ctm_company]" type="text" value="{$customer.ctm_company}">
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_job">
+                        {:__('Ctm_job')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <!-- <input id="c-ctm_job" class="form-control" name="customer[ctm_job]" type="text" value="{$customer.ctm_job}"> -->
+                        <!-- jobList -->
+                        {:build_select('customer[ctm_job]', $jobList, $customer.ctm_job, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_zip">
+                        {:__('Ctm_zip')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control" id="c-ctm_zip" name="customer[ctm_zip]" type="text" value="{$customer.ctm_zip}">
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_email">
+                        {:__('Ctm_email')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control" id="c-ctm_email" name="customer[ctm_email]" type="text" value="{$customer.ctm_email}">
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_qq">
+                        {:__('Ctm_qq')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control" id="c-ctm_qq" name="customer[ctm_qq]" readonly="" type="text" value="{$customer.ctm_qq}">
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_wxid">
+                        {:__('Ctm_wxid')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control" id="c-ctm_wxid" name="customer[ctm_wxid]" readonly="" type="text" value="{$customer.ctm_wxid}">
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm_ifrevmail">
+                        {:__('Ctm_ifrevmail')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control"  id="c-ctm_ifrevmail" name="customer[ctm_ifrevmail]" readonly="" type="hidden" value="{$customer.ctm_ifrevmail}">
+                            <label class="control-label">
+                                {if ($customer.ctm_ifrevmail)}
+                            {:__('Status_yes')}
+                        {else}
+                            {:__('Status_no')}
+                        {/if}
+                            </label>
+                        </input>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-xs-12 col-sm-4" for="c-ctm-ifbirth">
+                        {:__('Ctm_ifbirth')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input class="form-control"  id="c-ctm_ifbirth" name="customer[ctm_ifbirth]" readonly="" type="hidden" value="{$customer.ctm_ifbirth}">
+                            <label class="control-label">
+                                {if ($customer.ctm_ifbirth)}
+                        {:__('Status_yes')}
+                    {else}
+                        {:__('Status_no')}
+                    {/if}
+                            </label>
+                        </input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 客服相关 -->
+    <h2>
+        {:__('Assign osconsult')}
+    </h2>
+    <hr/>
+    <form action="" class="form-horizontal" data-toggle="validator" id="add-form" method="POST" role="form">
+        {if ($consultId)}
+        <input data-rule="required" id="c-consult_id" name="row[consult_id]" type="hidden" value="{$consultId}">
+            {/if}
+            <input class="form-control" data-rule="required" id="c-osc_status" name="row[osc_status]" type="hidden" value="0">
+                ·
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2" for="c-admin_id">
+                        {:__('Admin_id')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[admin_id]', $adminList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                {if $preConsultContent}
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2" for="c-osc_content">
+                        {:__('Cst_content')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <textarea class="form-control summernote" cols="50" readonly="" rows="5">
+                            {$preConsultContent|htmlspecialchars}
+                        </textarea>
+                    </div>
+                </div>
+                {/if}
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2" for="c-osc_content">
+                        {:__('Osc_content')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <textarea class="form-control summernote" cols="50" data-rule="required" id="c-osc_content" name="row[osc_content]" rows="5">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-12 col-sm-2" for="c-osc_type">
+                        {:__('Osc_type')}:
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[osc_type]', $oscTypeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group layer-footer">
+                    <label class="control-label col-xs-12 col-sm-2">
+                    </label>
+                    <div class="col-xs-12 col-sm-8">
+                        <button class="btn btn-success btn-embossed disabled" type="submit">
+                            {:__('OK')}
+                        </button>
+                        <button class="btn btn-default btn-embossed" type="reset">
+                            {:__('Reset')}
+                        </button>
+                    </div>
+                </div>
+            </input>
+        </input>
+    </form>
+</form>

@@ -1,0 +1,137 @@
+<form action="" data-toggle="validator" id="edit-order-form" method="POST" role="form" enctype="multipart/form-data">
+	<div class="form-group-m">
+		<div class="alert alert-info alert-dismissable ">
+        下拉列表选择后，需点击右侧<span class="text-warning"> '+' </span>号将人员添加至<span class="text-warning"> '参与职员' </span>列方可保存
+        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+            ×
+        </button>
+    </div>
+    <h4 class="text-success" style="padding-left: 15px; padding-right: 15px;">{:__('Basic info:')}</h4>
+			<input type="hidden" name="ids" value="{$ids}" />
+			<input type="hidden" name="itemType" value="{$itemType}" />
+
+			<div class="form-group col-xs-6 col-md-6">
+        <div class="input-group" style="width: 100%;">
+            <span class="input-group-addon" style="width: 26%;">
+               {:__('Customer')}
+            </span>
+            <input class="form-control" type="text" value="{$customer->ctm_name}" readonly="">
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-xs-6 col-md-6">
+        <div class="input-group" style="width: 100%;">
+            <span class="input-group-addon" style="width: 26%;">
+               {:__('TProType')}
+            </span>
+            <input class="form-control" type="text" value="{:__('Pro_type_' . $itemType)}" readonly="">
+            </input>
+        </div>
+    </div>
+    <div class="form-group col-xs-6 col-md-6">
+        <div class="input-group" style="width: 100%;">
+            <span class="input-group-addon" style="width: 26%;">
+                {:__('Deduct times')}(<i class="text-warning fa fa-asterisk"></i>)
+            </span>
+           <input type="number" name="deduct_times" value="1" data-rule="required; integer; range[0 ~ {$maxDeductTimes}]" class="form-control" placeholder="{:__('Deduct times')}" />
+        </div>
+    </div>
+			<div class="form-group col-xs-6 col-md-6">
+        <div class="input-group" style="width: 100%;">
+            <span class="input-group-addon" style="width: 26%;">
+                {:__('Max deduct times')}
+            </span>
+            <input class="form-control"name="row[deduct_times]" placeholder="{$maxDeductTimes}" type="number" value="{$maxDeductTimes}" readonly="">
+            </input>
+        </div>
+    </div>
+
+    <div class="clearfix">
+    </div>
+    <hr class="narrow"/>
+    <h4 class="text-success" style="padding-left: 15px; padding-right: 15px;">
+        清单：
+    </h4>
+    <div class="form-group col-xs-12 col-md-12">
+        <div class="input-group" style="width: 100%;" style="line-height: 29px; text-indent: 12px;">
+           {foreach $itemList as $key => $item} {$item.pro_name|htmlspecialchars}{if (isset($proStocks[$item.pro_id]))}<i class="text-warning">[余: {$proStocks[$item.pro_id]}]</i>{/if}、{/foreach}</div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    <hr class="narrow"/>
+    <h4 class="text-success" style="padding-left: 15px; padding-right: 15px;">
+        票据(<span class="text-danger">*</span>)：
+    </h4>
+    <div class=" col-xs-12 col-sm-12">
+        <div class="form-group col-sm-8">
+            <input accept="image/jpeg, image/png" class="hidden" id="f-imgupload" name="deductimgs[]" type="file" multiple="multiple" data-rule="required" />
+            <div class="input-group">
+                <input class="form-control" id="t-file-name" readonly="" type="text"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id="btn-browser-file" type="button">
+                        <i class="fa fa-upload fa-x">
+                        </i>
+                        选择文件
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+	<hr class="narrow"/>
+	<div class="clearfix"></div>
+	<h4 class="text-success" style="padding-left: 15px; padding-right: 15px;">
+        {:__('Participant staff')}:
+    </h4>
+	<div class="col-xs-12 col-sm-12">
+
+		<table id="table" class="table table-bordered" width="100%">
+			<thead>
+				<th class="text-center"><h5 class="deductLabel">{:__('TProType')}</h5></th>
+				<th class="text-center"><h5 class="deductLabel" title="选择后点击右侧'+'号将人员添加至'参与职员'列">{:__('Participant staff')}<i class="fa fa-question-circle text-warning"></i></h5></th>
+				<th class="text-center"><h5 class="deductLabel">{:__('Operate')}</h5></th>
+			</thead>
+			<tbody>
+				{foreach $deductRoles as $deductRole}
+				<tr data-pk="{$deductRole.id}">
+					<td width="20%" class="text-center" style="vertical-align: middle;">
+						{$deductRole.name|htmlspecialchars}
+					</td>
+					<td width="50%">
+						<table id="t-role-{$deductRole.id}" class="table table-bordered" width="100%" style="margin-bottom: 0;">
+						</table>
+					</td>
+					<td class="text-center" width="30%" style="vertical-align: middle;">
+						<div class="input-group">
+                            <select id="sel-staff-{$deductRole.id}" class="show-tick y-selectpicker form-control selectSearch-max" data-live-search="true">
+								{foreach $briefAdminList as $adminId => $nickname}
+								<option value="{$adminId}">{$nickname|htmlspecialchars}</option>
+								{/foreach}
+							</select>
+
+							<span class="input-group-addon btn-addstaff" title="点击添加至'参与职工'列" data-role-id="{$deductRole.id}"><i class="fa fa-plus"></i></span>
+						</div>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</div>
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-xs-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>
+
+<style type="text/css">
+	#table .bootstrap-select {
+		max-width: 320px;
+	}
+	
+	#table .bootstrap-select button.dropdown-toggle {
+		max-width: 320px;
+	}
+</style>

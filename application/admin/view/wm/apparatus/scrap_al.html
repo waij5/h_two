@@ -1,0 +1,65 @@
+<style type="text/css">
+    .resultList tr th{background-color:#ddddddd6;text-align: center;};
+</style>
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('/wm/drugscf/dispensing')}"  autocomplete="off">
+<br><div>
+    
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"><b style="color: red">器械批号列表:</b></label>
+
+
+        
+
+        <div class="" style="">
+                <div class="col-xs-6 col-sm-7" style="">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12" id="pro_menu"  onmouseleave="$('#words').addClass('hidden');">
+                            <input type="text" readonly {if $data}value="<< 器械名称：{$data[0]['a_name']} >> "{else}value=''{/if} style="position: relative;" class="form-control keyword" onmouseenter="$('#words').removeClass('hidden')"/>
+                            <div style="position: relative;width: 130%">
+                                <table id="words" data-index="" style="list-style:none;position: absolute;cursor: pointer;z-index: 999;height: auto;max-height: 200px;overflow-y: auto;padding: 0;table-layout:fixed;background-color: white" class=" resultList table table-striped table-bordered table-hover alldata">
+                                    <tr class="onloading"><th width="12%">批号id</th><th width="25%">器械名称</th><th width="12%">批号</th><th width="12%">可报废数量</th><th width="13%">有效期</th><th width="10%">价格</th></tr>
+                                    {if $data}
+                                    
+
+                                    {foreach name="data" item="v"}
+                                    <tr class="tdcenter" onmouseover="$(this).css('background-color','#18bc9c')" onmouseout="$(this).css('background-color','')" style="word-wrap:break-word"   data-index="{$v.alot_id}")"><td align="center">{$v.alot_id}</td><td align="center">{$v.a_name}</td><td align="center">{$v.alotnum}</td><td align="center">{$v.alusable_num}</td><td align="center">{if condition="$v.aletime>0"}{$v.aletime|date='Y-m-d',###}{/if}</td><td align="center">{$v.alcost}</td></tr>
+                                    {/foreach}
+
+                                    {/if}
+                                </table>
+                            </div>
+                        </div>
+                        <a href="javascript:;" id="pro_add" class="btn btn-success btn-add hidden"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+            <div class="col-sm-3 col-xs-3" style="">           
+                <a href="javascript:;" class="btn btn-danger" id="clear">清除</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="form-group" style="width: 100%;overflow-x: scroll;">
+        <div class="col-xs-12 col-sm-12">
+        <table id="selectedDrugs" class="table table-striped table-bordered table-hover alldata" style="width: 770px;text-align: center;">
+            <tr>
+            <td style="width: 50px;">批号id</td>
+            <td style="color: red;width: 100px;">名称</td>
+            <td style="color: red;width: 60px;">批号</td>
+            <td style="width: 50px;">报废数量</td>
+            <td style="color: red;width: 50px;">可报废数量</td>
+            <td style="color: red;width: 60px;">有效期</td>
+            <td style="width: 40px;">价格</td>
+            <td style="width: 30px;">操作</td></tr>
+        </table>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="button" class="btn btn-success btn-embossed disabled" id="sureScrap">确定报废</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

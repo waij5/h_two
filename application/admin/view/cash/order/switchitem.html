@@ -1,0 +1,140 @@
+<form id="createorder-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+	<input type="hidden" name="old_item_id" value="{$orderItem.item_id}" />
+	<input type="hidden" id="h-order-type" value="{$orderItem.item_type}" />
+	<div class="alert alert-info alert-dismissable ">
+		{:__('Deposit will be calculate exclude coupon!')}
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	</div>
+
+	<div class="form-group">
+		<label for="c-customer" class="col-xs-6">
+            <strong>{:__('Customer')}:</strong>  {$customer.ctm_name|htmlspecialchars}  (ID: {$customer.ctm_id})
+        </label>
+		<label for="c-customer" class="col-xs-6">
+            <strong>{:__('Customer Deposit')}:</strong>  <span class="text-warning">{$customer.ctm_depositamt}</span>
+        </label>
+	</div>
+	<div class="form-group">
+		<label for="c-project_list" class="col-xs-2 col-sm-2 text-left">
+            <strong>{:__('PreSwitch item')}:</strong>
+        </label>
+		<div class="clearfix"></div>
+		<div class="col-sm-12">
+			<!--<div class="col-sm-12">-->
+			<table class="table table-striped table-bordered table-condensed table-hover">
+				<thead>
+					<th nowrap>{:__('TProType')}</th>
+					<!-- <th>{:__('Pro_code')}</th> -->
+					<th nowrap>{:__('TProName')}</th>
+					<th nowrap>{:__('TProAmoutPerTime')}</th>
+					<th nowrap>{:__('Item_total_times')}</th>
+					<th nowrap>{:__('Row_Total')}</th>
+					<th nowrap>{:__('Item_total')}</th>
+					<th nowrap>{:__('Deduct info')}</th>
+					<th nowrap>{:__('Chargeback total')}</th>
+				</thead>
+				<tbody>
+					<td>{:__('Pro_type_' . $orderItem.item_type)}</td>
+					<td>
+						<span title="{$orderItem.pro_name}" data-toggle="tooltip">{$orderItem.pro_name|mb_substr=0,20,'utf-8'|htmlspecialchars}</span></td>
+					<td>{$orderItem.item_amount_per_time}</td>
+					<td>{$orderItem.item_total_times}</td>
+					<td>{$orderItem.item_ori_total}</td>
+					<td>{$orderItem.item_total}</td>
+					<td>{$orderItem.item_used_times} / {$orderItem.item_total_times}</td>
+					<td><span class="text-warning">{$calcItemData.returnTotal}<span></td>
+					</tbody>
+				</table>
+			<!--</div>-->
+			<label>
+            	<strong>{:__('max amount can be use')}:</strong>  <span class="text-warning">{$maxAmount}</span>
+						</label>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<label>
+	            <strong>{:__('Coupon rule with new item')}:</strong>  <span class="text-warning">{:round($calcItemData.cancelCouponTotal, 2)}({:__('max')}) / {:round($calcItemData.oriReturnTotal, 2)}</span>
+	        </label>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="form-group col-xs-12 col-sm-12">
+			<label for="c-project_list" class="col-xs-2 col-sm-2 text-left dislocationTop" style="">
+            	<strong>{:__('New item')}:</strong>
+        	</label>
+			<!--开项目检索-->
+
+			<div class="col-xs-10 col-sm-10">
+				<div class="col-xs-11 col-sm-11">
+					<div class="form-group full-sp-result-container col-xs-12 col-sm-12" style="position: static;padding-left: 0;padding-right: 0;">
+						<input id="selector-pro" class="form-control" type="text" placeholder="项目" />
+					</div>
+				</div>
+				<!--套餐选择-->
+				<div class="col-sm-1 col-xs-1">
+					<a id="btn-clear-project" href="javascript:;" class="btn btn-danger">{:__('Clear')}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="clearfix"></div>-->
+	<div class="form-group">
+		<div class="col-sm-12">
+			<table id="t-project-select" class="table table-striped table-bordered table-condensed table-hover">
+				<thead>
+					<th nowrap>{:__('TProType')}</th>
+					<!-- <th>{:__('Pro_code')}</th> -->
+					<th nowrap>{:__('TProName')}</th>
+					<th nowrap>{:__('Pro_spec')}</th>
+					<th nowrap>{:__('TProAmount')}</th>
+					<th nowrap>{:__('Item_qty')}</th>
+					<th nowrap>{:__('Row_Total')}</th>
+					<th nowrap>{:__('Item_total')}</th>
+					<th nowrap>{:__('Discount_percent')}</th>
+					<th nowrap>{:__('Operate')}</th>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<th colspan="4">{:__('Summary')}</th>
+					<th></th>
+					<th id="sum-ori-total"></th>
+					<th id="sum-total"></th>
+					<th id="sum-discount-percent"></th>
+					<th><span class="text-warning"></span></th>
+				</tfoot>
+			</table>
+
+			<!--套餐选择-->
+			<div class="form-group col-sm-12 col-md-12">
+				<div class="hidden">
+					{foreach name="fieldsHtml" item="fieldHtml"} {$fieldHtml} {/foreach}
+				</div>
+				{foreach name="addBtns" item="addBtn"} {$addBtn} {/foreach}
+			</div>
+
+			<div class="">
+				<textarea name="row[dbalance_remark]" row='2' class="form-control summernote border-round" placeholder="{:__('remark')}" style="resize:none">{:__('Cancel/Switch Items')}</textarea>
+			</div>
+		</div>
+	</div>
+	{// 职员时才有调价申请} {if $admin.position eq 0}
+	<div class="form-group">
+		<div class="checkbox col-sm-12">
+			<label>
+                <input type="checkbox" name="permissionRequest" value="1">{:__('Auto post adjustment request to leader if the discount is out of permission.')}
+            </label>
+		</div>
+	</div>
+	<div class="form-group hidden" id="h-applyInfo">
+		<div class="col-sm-12">
+			<textarea name="applyInfo" class="form-control" rows="3" cols="50" placeholder="{:__('Plz type some reason for adjustment.')}"></textarea>
+		</div>
+	</div>
+	{/if}
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-success">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>

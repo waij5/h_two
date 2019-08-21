@@ -1,0 +1,59 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-zwt_code" class="control-label col-xs-12 col-sm-2">{:__('Zwt_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_code" data-rule="required" class="form-control" name="row[zwt_code]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_name" class="control-label col-xs-12 col-sm-2">{:__('Zwt_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_name" data-rule="required" class="form-control" name="row[zwt_name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_percentage" class="control-label col-xs-12 col-sm-2">{:__('Zwt_percentage')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_percentage" data-rule="required" class="form-control" step="0.01" name="row[zwt_percentage]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_otheramt" class="control-label col-xs-12 col-sm-2">{:__('Zwt_otheramt')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_otheramt" data-rule="required" class="form-control" step="0.0001" name="row[zwt_otheramt]" type="number" value="0.0000">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_pamt" class="control-label col-xs-12 col-sm-2">{:__('Zwt_pamt')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_pamt" data-rule="required" class="form-control" step="0.0001" name="row[zwt_pamt]" type="number" value="0.0000">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_status" class="control-label col-xs-12 col-sm-2">{:__('Zwt_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_status" data-rule="required" class="form-control" name="row[zwt_status]" type="hidden" value="1">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_sort" class="control-label col-xs-12 col-sm-2">{:__('Zwt_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_sort" data-rule="required" class="form-control" name="row[zwt_sort]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-zwt_remark" class="control-label col-xs-12 col-sm-2">{:__('Zwt_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-zwt_remark" data-rule="required" class="form-control" name="row[zwt_remark]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

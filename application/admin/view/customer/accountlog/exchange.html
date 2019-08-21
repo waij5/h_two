@@ -1,0 +1,51 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    
+    <h2 class="text-center">
+        {$site.name}
+        <br />
+        <small>--{:__('Account exchange')}--</small>
+    </h2>
+    <div class="clearfix"></div>
+    <div class="form-group col-sm-6">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-4">{:__('Ctm_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="control-label">
+                {$customer.ctm_name|htmlspecialchars}  (ID: {$customer.ctm_id})
+            </label>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('ctm_pay_points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="control-label">
+                {$customer.ctm_pay_points}
+            </label>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+ <!--    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('ctm_pay_points')}:</label>
+        <input type='radio' name="symbol" checked="checked" value='add'>增加
+        <input type='radio' name="symbol" value='reduce'>减少
+    </div> -->
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('ctm_pay_points_exchange')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input type="number" name="row[ctm_pay_points]" value="0" class="form-control" data-rule="required;range(0~)"/>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Change_desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea name="row[change_desc]" row='2' class="form-control summernote" style="resize:none"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,85 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group hidden">
+        <label for="c-rvi_tel" class="control-label col-xs-4 col-sm-4 ">{:__('Rvi_tel')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-rvi_tel" class="form-control" name="row[rvi_tel]" type="text" value="{$ctm_mobile}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-customer_id" class="control-label col-xs-4 col-sm-4 ">{:__('Customer_id')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-customer_id" data-rule="required" class="form-control" name="row[customer_id]" type="text" readonly value="{$ctm_name}">
+            <!-- <label for="c-customer_id" class="control-label">{$ctm_name}</label> -->
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-rvt_name" class="control-label col-xs-4 col-sm-4 ">{:__('Rvt_name')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <!-- <input id="c-rvt_type" data-rule="required" class="form-control" name="row[rvt_type]" type="text"> -->
+            {:build_select('row[rvt_name]', $typeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <!-- 手机号/电话 -->
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-ctm_mobile" class="control-label col-xs-4 col-sm-4 ">{:__('ctm_mobile')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-ctm_mobile" class="form-control" readonly  type="text" value="{$info.ctm_mobile}">
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-ctm_tel" class="control-label col-xs-4 col-sm-4 ">{:__('ctm_tel')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-ctm_tel" class="form-control" readonly  type="text" value="{$info.ctm_tel}">
+        </div>
+    </div>
+    <!-- 回访人员 -->
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="row[admin_id]" class="control-label col-xs-4 col-sm-4 ">{:__('Rv_admin_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <select class="form-control selectpicker" name="row[admin_id]" data-live-search="true">
+                <option value="">{$admin.nickname}</option>
+                {foreach $briefAdminList as $key => $value}
+                <option value="{$key}">{$value}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group col-sm-6 col-xs-6 hidden">
+        <label for="c-rv_status" class="control-label col-xs-4 col-sm-4 ">{:__('Rv_status')}:</label>
+        <div class="col-xs-8 col-sm-8">
+            <select class="form-control" id="sel-rv-status" name="row[rv_status]">
+            {foreach $rvStatusList as $key => $rvStatus}
+                <option value="{$key}">{$rvStatus}</option>
+            {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-xs-12">
+        <label for="c-rvi_content" class="control-label col-xs-2 col-sm-2 ">{:__('Rvi_content')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <!-- <input id="c-rvi_content" data-rule="required" class="form-control" name="row[rvi_content]" type="text"> -->
+             <textarea style="height: 68px;" id="c-rvi_content" data-rule="required" class="form-control summernote" rows="5" name="row[rvi_content]" cols="50"></textarea>
+        </div>
+    </div>
+<!--     <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-4 col-sm-4 ">{:__('Rv_admin_id')}:</label>
+        <div class="col-xs-8 col-sm-8 ">
+            <input id="c-admin_id" data-rule="required" class="form-control" name="row[admin_id]" type="text" value="{$admin.nickname}">
+        </div>
+    </div> -->
+    <div class="form-group col-xs-12 col-sm-12" id="div-rv-fat">
+        <label for="c-fat_id" class="control-label col-xs-2 col-sm-2">{:__('Rv_fat_id')}:</label>
+        <div class="col-xs-8 col-sm-8">
+        {:build_select('row[fat_id]', $fatList, null, ['class'=>'form-control selectpicker'])}
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-4 col-sm-4 "></label>
+        <div class="col-xs-8 col-sm-8 ">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

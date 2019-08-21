@@ -1,0 +1,60 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-dept_pid" class="control-label col-xs-12 col-sm-2">{:__('Dept_pid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[dept_pid]', $data, $row['dept_pid'], ['class'=>'form-control selectpicker', 'required'=>'', 'data-id'=>$row['dept_id'], 'data-pid'=>$row['dept_pid']])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_code" class="control-label col-xs-12 col-sm-2">{:__('Dept_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_code" data-rule="required" class="form-control" name="row[dept_code]" type="text" value="{$row.dept_code}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_name" class="control-label col-xs-12 col-sm-2">{:__('Dept_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_name" class="form-control" name="row[dept_name]" type="text" value="{$row.dept_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_type" class="control-label col-xs-12 col-sm-2">{:__('dept_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[dept_type]', $dept_type, $row['dept_type'], ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_status" class="control-label col-xs-12 col-sm-2">{:__('Dept_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_status" data-rule="required" class="form-control" name="row[dept_status]" type="hidden" value="{$row.dept_status}">
+            <input id="status-switch" type="checkbox"{if $row.dept_status} checked{/if} />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_f_status" class="control-label col-xs-12 col-sm-2">{:__('dept_f_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_f_status" data-rule="required" class="form-control" name="row[dept_f_status]" type="hidden" value="{$row.dept_f_status}">
+            <input id="f-status-switch" type="checkbox" {if $row.dept_f_status} checked{/if} />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_sort" class="control-label col-xs-12 col-sm-2">{:__('Dept_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_sort" data-rule="required" class="form-control" name="row[dept_sort]" type="number" value="{$row.dept_sort}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-dept_remark" class="control-label col-xs-12 col-sm-2">{:__('Dept_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-dept_remark" class="form-control" name="row[dept_remark]" type="text" value="{$row.dept_remark}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

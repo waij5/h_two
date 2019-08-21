@@ -1,0 +1,108 @@
+<form id="createorder-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+	<input type="hidden" name="row[customer_id]" value="{$customer.ctm_id}" />
+	<input type="hidden" name="row[order_type]" value="{$orderType}" />
+
+	<input type="hidden" name="osconsult_id" value="{$osconsultId}" /> {if $site.discount_limit_flag}
+	<div class="alert alert-info alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button> {:__('Notice: you can give a discount up to %s', $discountLimit)}
+	</div>
+	{/if}
+	<div class="form-group">
+		<label for="c-customer" class="col-xs-2 control-label">
+            <strong>{:__('Customer')}:</strong>
+        </label>
+        <label class="col-xs-10 control-label" style="text-align: left;"><span class="text-success">{$customer.ctm_name|htmlspecialchars}</span>【卡号：{$customer.ctm_id}】</label>
+	</div>
+	<div class="form-group">
+		<label for="c-customer" class="col-xs-2 col-sm-2 control-label">
+            <strong>划扣科室:</strong>
+        </label>
+        <div class="col-xs-6 col-sm-6">
+        	<select name="row[dept_id]" class="form-control">
+        		<option value="0">无</option>
+        		{foreach deptListCache as $deptId => $dept}
+        		{if ($dept.dept_status && $dept.dept_type == 'deduct')}
+        		<option value="{$dept.dept_id}">{$dept.dept_name}</option>
+        		{/if}
+        		{/foreach}
+        	</select>
+        	<div><i class="fa fa-question-circle-o text-success" aria-hidden="false"></i>此科室仅在原项目/产品 <span class="text-success">没有科室时生效</span> 【项目单一般不需选择】</div>
+        </div>
+	</div>
+	<div class="form-group">
+		<label for="c-project_list" class="col-xs-2 col-sm-2 control-label">
+            <strong>{:__('Project list')}:</strong>
+        </label>
+		<!--<div class="clearfix"></div>-->
+		<!--开项目检索-->
+		<div class="col-xs-7 col-sm-7">
+			<div class="form-group full-sp-result-container col-xs-12 col-sm-12">
+				<input id="selector-pro" class="form-control" type="text" placeholder="项目名">
+			</div>
+			<a href="javascript:;" id="project_add" class="btn btn-success btn-add hidden"><i class="fa fa-plus"></i></a>
+		</div>
+		<!--套餐选择-->
+		<div class="col-sm-3 col-xs-3" style="margin-top: -5px;">
+			<div class="hidden">
+				{foreach name="fieldsHtml" item="fieldHtml"} {$fieldHtml} {/foreach}
+			</div>
+			{foreach name="addBtns" item="addBtn"} {$addBtn} {/foreach}
+
+			<a id="btn-clear-project" href="javascript:;" class="btn btn-danger">{:__('Clear')}</a>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<table id="t-project-select" class="table table-striped table-bordered table-condensed table-hover">
+				<thead>
+					<th nowrap class="text-center">{:__('TProType')}</th>
+					<!-- <th>{:__('Pro_code')}</th> -->
+					<th nowrap class="text-center">{:__('TProName')}</th>
+					<th nowrap class="text-center">{:__('Pro_spec')}</th>
+                    <th nowrap class="text-center">{:__('Pro_stock')}</th>
+					<th nowrap class="text-center">{:__('TProAmount')}</th>
+					<th nowrap class="text-center">{:__('Item_qty')}</th>
+					<th nowrap class="text-center">{:__('Row_Total')}</th>
+					<th nowrap class="text-center">{:__('Item_total')}</th>
+					<th nowrap class="text-center">{:__('Discount_percent')}</th>
+					<th nowrap class="text-center">{:__('Operate')}</th>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<th colspan="4" style="text-align: right;">{:__('Summary')}</th>
+					<th></th>
+					<th></th>
+					<th id="sum-ori-total" class="text-center"></th>
+					<th id="sum-total" class="text-center"></th>
+					<th id="sum-discount-percent" class="text-center"></th>
+					<th></th>
+				</tfoot>
+			</table>
+
+		</div>
+	</div>
+	{// 职员时才有调价申请} {if $admin.position eq 0}
+	<div class="form-group">
+		<div class="checkbox col-sm-12">
+			<label>
+                <input type="checkbox" name="permissionRequest" value="1">{:__('Auto post adjustment request to leader if the discount is out of permission.')}
+            </label>
+		</div>
+	</div>
+	<div class="form-group hidden" id="h-applyInfo">
+		<div class="col-sm-12">
+			<textarea name="applyInfo" class="form-control" rows="3" cols="50" placeholder="{:__('Plz type some reason for adjustment.')}"></textarea>
+		</div>
+	</div>
+	{/if}
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>

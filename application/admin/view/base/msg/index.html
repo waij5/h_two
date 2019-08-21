@@ -1,0 +1,58 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label for="msg_id" class="control-label labelLocation">{:__('Msg_id')}</label>
+                                    <input type="text" class="form-control" name="msg_id" value="" placeholder="{:__('Msg_id')}" id="msg_id">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="msg_type" class="control-label labelLocation">{:__('msg_type')}</label>
+                                    <select name="msg_type" class="form-control">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach $msgTypeList as $key => $mstType}
+                                        <option value="{$key}">{$mstType}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="msg_title" class="control-label labelLocation">{:__('msg_title')}</label>
+                                    <input type="text" class="form-control" name="msg_title" value="" placeholder="{:__('msg_title')}" id="msg_title">
+                                </div>
+                                <!-- <div class="clearfix"></div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="createtime" class="control-label labelLocation">{:__('Createtime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_start" type="text" value="" id="createtime_start"> ~ <input  class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_end" type="text" value="" id="createtime_end">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        <!-- {:build_toolbar()} -->
+                        <a href="javascript:;" class="btn btn-primary btn-refresh"><i class="fa fa-refresh"></i></a>
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('base/msg/edit')}" 
+                           data-operate-del="{:$auth->check('base/msg/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

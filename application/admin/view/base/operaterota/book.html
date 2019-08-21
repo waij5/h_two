@@ -1,0 +1,98 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="/base/operaterota/book">
+    <input type="hidden" name="periods" value="{:urlencode(json_encode($periods, JSON_UNESCAPED_UNICODE))}" />
+    <input type="hidden" name="customer_id" />
+    <!-- <input type="hidden" name="pro_id" /> -->
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button> 预约后如需取消，请在开始时间 <span class="text-warning">{$operateConfig.cancelLimit}</span> 分钟前操作
+    </div>
+    <div class="form-group">
+        <label for="c-ort_date" class="control-label col-xs-12 col-sm-2">{:__('Ort_date')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ort_date" data-rule="required" class="form-control hidden" name="targetDate" type="text" value="{$targetDate}" readonly>
+            <label class="control-label">{$targetDate}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ort_start_time" class="control-label col-xs-12 col-sm-2">顾客</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="selector-customer" class="form-control" data-rule="required" type="text" placeholder="顾客">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ort_start_time" class="control-label col-xs-12 col-sm-2">预约项目</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="selector-pro" class="form-control" data-rule="required" type="text" placeholder="项目名">
+        </div>
+    </div>
+    <div class="form-group" style="margin-left: 30px; margin-right: 30px;">
+        <table class="table table-bordered" id="t-book-pro">
+            <thead>
+                <tr>
+                    <th>
+                        项目名
+                    </th>
+                    <th>
+                        规格
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    {foreach $periods as $operatorId => $operaterPeriods}
+    {if (isset($staffs[$operatorId]))}
+    <div class="form-group">
+        <label for="c-ort_start_time" class="control-label col-xs-12 col-sm-2">
+            {$staffs[$operatorId]['name']}<br />
+            [{$staffs[$operatorId]['good_at']}]
+        </label>
+        <div class="col-xs-12 col-sm-8">
+            <ul class="staff_ul">
+                {foreach $operaterPeriods as $period => $status}
+                    <li class="rota_period active">{$period}</li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+    {/if}
+    {/foreach}
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+
+<style type="text/css">
+.staff_ul {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.rota_period {
+    display: inline-block;
+    padding: 4px;
+    margin: 3px 3px;
+    border: 1px solid rgb(128,128,128);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.rota_period.active {
+    background-color: #f39c127d;
+}
+.rota_period.selected {
+    background-color: #40e0c1;
+}
+.rota_period.disabled {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+</style>

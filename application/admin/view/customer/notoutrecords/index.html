@@ -1,0 +1,81 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                               <!--  <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label labelLocation">{:__('Customer_id')}</label>
+                                    <input type="hidden" name="customer_id" class="form-control" value="" id="field_ctm_id" />
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>    
+                                </div> -->
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_id" class="control-label searchPadding">{:__('ctm_id')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_id" value="" placeholder="{:__('ctm_id')}" id="customer.ctm_id">
+                                </div>
+                                 <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_name" class="control-label searchPadding">{:__('Ctm_name')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_name" value="" placeholder="{:__('Ctm_name')}" id="customer.ctm_name">
+                                </div>
+                                
+                                <div class="form-group" style="margin:5px">
+                                    <label for="customer.ctm_mobile" class="control-label searchPadding">{:__('ctm_mobile')}</label>
+                                    <input type="text" class="form-control" name="customer.ctm_mobile" value="" placeholder="{:__('ctm_mobile')}" id="customer.ctm_mobile">
+                                </div>
+
+                                <div class="form-group" style="margin:5px">
+                                    <label for="deposit_amt" class="control-label searchPadding">{:__('deposit_amt')}</label>
+                                    <input type="text" class="form-control" name="deposit_amt_start" value=""  id="deposit_amt_start">~<input type="text" class="form-control" name="deposit_amt_end" value=""  id="deposit_amt_end">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="undeducted_total" class="control-label searchPadding">{:__('undeducted_total')}</label>
+                                    <input type="text" class="form-control" name="undeducted_total_start" value=""  id="undeducted_total_start">~<input type="text" class="form-control" name="undeducted_total_end" value=""  id="undeducted_total_end">
+                                </div>
+                                
+                                <div class="form-group" style="margin:5px">
+                                    <label for="not_out_total" class="control-label searchPadding">{:__('not_out_total')}</label>
+                                    <input type="text" class="form-control" name="not_out_total_start" value=""  id="not_out_total_start">~<input type="text" class="form-control" name="not_out_total_end" value=""  id="not_out_total_end">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="stat_date" class="control-label searchPadding">{:__('stat_date')}</label>
+                                    <input class="form-control datetimepicker forbid-timestamp" data-date-format="YYYY-MM-DD" data-use-current="true" name="rec.stat_date" type="text" value="{$yesterday}">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success" style="margin-right: 5px;">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="toolbar" class="toolbar">
+                        <!-- {:build_toolbar()}
+                        <div class="dropdown btn-group {:$auth->check('customer/notoutrecords/multi')?'':'hide'}">
+                            <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> {:__('More')}</a>
+                            <ul class="dropdown-menu text-left" role="menu">
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=normal"><i class="fa fa-eye"></i> {:__('Set to normal')}</a></li>
+                                <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=hidden"><i class="fa fa-eye-slash"></i> {:__('Set to hidden')}</a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('customer/notoutrecords/edit')}" 
+                           data-operate-del="{:$auth->check('customer/notoutrecords/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label for="pro_id" class="control-label labelLocation">{:__('Pro_id')}</label>
+                                    <input type="text" class="form-control" name="pro_id" value="" placeholder="Id" id="pro_id">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="pro_code" class="control-label labelLocation">{:__('Pro_code')}</label>
+                                    <input type="text" class="form-control" name="ctm_name" value="" placeholder="{:__('Pro_code')}" id="pro_code">
+                                </div>
+                                 <div class="form-group dislocationAll" >
+                                    <label for="pro_spec" class="control-label searchPadding">{:__('pro_spec')}</label>
+                                    <input type="text" class="form-control" name="pro_spec" value="" placeholder="{:__('pro_spec')}" id="pro_spec">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="pro_name" class="control-label labelLocation">{:__('Pro_name')}</label>
+                                    <input type="text" class="form-control" name="pro_name" value="" placeholder="{:__('Pro_name')}" id="pro_name">
+                                </div>
+                                <!-- <div class="clearfix"></div> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="createtime" class="control-label labelLocation">{:__('Createtime')}</label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_start" type="text" value="" id="createtime_start"> ~ <input  class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="createtime_end" type="text" value="" id="createtime_end">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div id="toolbar" class="toolbar">
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('base/project/edit')}" 
+                           data-operate-del="{:$auth->check('base/project/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var yjyComSelectParams = {$yjyComSelectParams};
+</script>

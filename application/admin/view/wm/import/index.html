@@ -1,0 +1,49 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+<style type="text/css">
+.red{color: red}
+</style>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" onclick="window.location.reload()"><i class="fa fa-refresh"></i> </a> &nbsp;
+                        <!-- <a href="javascript:;" class="btn btn-primary" id="isPrint">打印</a> -->
+                        
+                    </div>
+                    
+<!--startprint-->
+                    <hr><hr>
+                    <div class="proreportDate" style="font-family: KaiTi;font-weight:bold;width: 100%;font-size: 18px;height: 50px;" >
+
+                        <form class="form-inline  nice-validator nice-validator n-default" style="text-align: center;" action="{:url('wm/import/getFiles')}" id="f-commonsearch" role="form" method="post" enctype="multipart/form-data">
+                            <fieldset style="text-align: left;">
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="wmfile" class="control-label labelLocation">仓库产品导入</label>
+                                    <input type="file" name="wmfile" class="form-control clear">
+                                </div>
+                                <!--<br>-->
+                                <div class="form-group" style="margin: 0 0 0 10%">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <!-- <a type="reset" class="btn btn-default" id="btn-customer-clear">重置</a> -->
+                                        <!-- <button type="button" class="btn btn-default" id="btn-export">导出</button> -->
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                    
+                     
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<?php
+
+return [
+    'Stat_id'                    => 'ID',
+    'pay_total'                  => '营收总额',
+    'balance_count'              => '收银次数',
+    'in_pay_total'               => '收款总额',
+    'out_pay_total'              => '退款总额',
+
+    'in_cash_pay_total'          => '现金收款',
+    'in_card_pay_total'          => '卡收款',
+    'in_wechatpay_pay_total'     => '微信收款',
+    'in_alipay_pay_total'        => '支付宝收款',
+    'in_other_pay_total'         => '其它收款',
+
+    'Stat_total'                 => '营收总额',
+    'Stat_amount'                => '业务单数',
+    'stat_business_total'        => '业务总额',
+    'Stat_cash_total'            => '现金收款',
+    'Stat_card_total'            => '刷卡收款',
+    'stat_extra_pay_total'       => '其它方式收款',
+    'stat_coupon_cost_total'     => '消费券收款',
+    'Stat_coupon_total'          => '消费券抵用额',
+    'Stat_other_total'           => '其它收入',
+    'Stat_deposit_total'         => '定金使用',
+    'Stat_refund_total'          => '退款总额',
+    'stat_adjust_income_total'   => '冲减收入',
+    'stat_adjust_outpay_total'   => '冲减支出',
+    'Stat_date'                  => '营业日期',
+    'Admin_id'                   => '最后操作人',
+    'Createtime'                 => '创建时间',
+    'Updatetime'                 => '更新时间',
+
+    'Calculated Records'         => '已日结记录',
+    'Total Amount'               => '总发生金额',
+    'Classified balance detail'  => '收款分类明细',
+    'stat_business_type'         => '业务类型',
+    'stat_customer_number'       => '人次',
+    'stat_arrears_total'         => '欠款金额',
+    'cash_total'                 => '现金总额',
+    'card_total'                 => '刷卡总额',
+
+    'Sequence number'            => '序号',
+    'Pro_cat1'                   => '分类1',
+    'Pro_cat2'                   => '分类2',
+    'Pstat_order_count'          => '总订单数',
+    'Pstat_qty'                  => '总数',
+    'pstat_ori_total'            => '原价总额',
+    'pstat_total'                => '总额',
+    'percent in pro cat1'        => '类目中百分比(%)',
+    'percent in total'           => '总百分比(%)',
+
+    'Daily stat'                 => '营收日结',
+    'summary'                    => '总计',
+
+    'project stat info'          => '治疗项目统计概览：',
+    'product_1 stat info'        => '药品消费概览',
+    'product_2 stat info'        => '物资消费概览',
+    'product/medicine stat info' => '药品/物资消费概览',
+    'product type'               => '类型',
+
+    'item_book_count'            => '出现次数',
+    'item_used_times'            => '已划扣(次)',
+    'item_total_times'           => '总订购(次)',
+
+    'Item_total'                 => '折后总价',
+    'Item_pay_total'             => '实付额',
+    'percent of total'           => '占比(折后)',
+    'percent of pay total'       => '占比(实付)',
+    'item_type' => '类型',
+    'Customer order records'     => '订单项目统计',
+
+];

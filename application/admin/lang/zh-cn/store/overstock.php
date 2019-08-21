@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'Id'  =>  'ID',
+    'Num'  =>  '编号',
+    'Name'  =>  '名称',
+    'Code'  =>  '拼音码',
+    'Shortname'  =>  '简称',
+    'Price'  =>  '药品售价',
+    'Thisprice'  =>  '本院售价',
+    'Lowprice'  =>  '最低售价',
+    'Cost'  =>  '药品成本',
+    'Pdutype_id'  =>  '所属科目',
+    'Pdutype2_id'  =>  '所属类别',
+    'Sizes'  =>  '规格',
+    'Unit'  =>  '单位',
+    'Lowunit'  =>  '最小单位',
+    'Hex'  =>  '单位进制',
+    'Stock_top'  =>  '库存上限',
+    'Stock_low'  =>  '库存下限',
+    'Stock'  =>  '当前库存',
+    'Dosageforms'  =>  '剂型',
+    'Status'  =>  '状态',
+    'Status normal'  =>  '显示',
+    'Status hidden'  =>  '隐藏',
+    'Remark'  =>  '备注',
+    'Createtime'  =>  '创建时间',
+    'Updatetime'  =>  '修改时间',
+    'Overnum'  =>  '溢出数量'
+];

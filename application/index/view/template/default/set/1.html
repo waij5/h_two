@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            {$breadCrumb}
+            <ul class="nav nav-tabs">
+                {php}$tabsindex = 0;{/php}
+                {foreach $tabs as $tabsTarget => $tabsName}
+                <li{if (++$tabsindex == 1)} class="active"{/if}>
+                    <a href="#{$tabsTarget}" data-toggle="tab">
+                        {$tabsName|htmlspecialchars}
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content">
+    {php}$tabContentIndex = 0;{/php}
+    {foreach $tabContents as $tabId => $tabContent}
+    <div class="tab-pane{if (++$tabContentIndex == 1)} active{/if}" id="{$tabId}">
+        <div class="demo-box-view">
+            <div class="hero-unit">
+                <h3>
+                    {$tabContent.title|default=''}
+                </h3>
+                <p>
+                    {$tabContent.short_desc|default=''}
+                </p>
+            </div>
+        </div>
+        <ul class="thumbnails">
+            {foreach $tabContent.proList as $pro}
+            <li class="col-sm-6 col-md-4 yjy-pro-div" style="position: relative;">
+                {if $pro.video}
+                <i class="fa fa-4x fa-play-circle yjy-pro-video-play" style="position: absolute; top: 13px; right: 30px;" data-source="{$pro.video}"></i>
+                {/if}
+                <div class="thumbnail">
+                    <img alt="300x200" class="yjy-pro-img" src="{$pro.cover}"/>
+                    <div class="caption yjy-pro-desc">
+                        <div style="overflow: hidden;">
+                            <h3 class="yjy-pro-desc-title">
+                                <!-- 名字标签 -->
+                                {$pro.pro_name}  
+                                <small><small>{$pro.pro_spec}</small></small>
+                            </h3>
+                            <p class="yjy-pro-desc-text">
+                                {$pro.short_desc}
+                            </p>
+                        </div>
+                        <div class="view" style="overflow: hidden;">
+                            <div class="col-sm-8 col-md-8 row">
+                                <h3 class="text-success">
+                                    {$pro.pro_amount}
+                                    <small>
+                                        <del>
+                                            {if (true || $pro.pro_amount < $pro.pro_local_amount)}{$pro.pro_local_amount}{/if}
+                                        </del>
+                                    </small>
+                                </h3>
+                            </div>
+                            <div class="col-sm-4 col-md-4 row pull-right">
+                                <h3>
+                                    <input class="form-control text-right yjy-input-qty" min="0" type="number" value="0">
+                                    </input>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    {/foreach}
+</div>

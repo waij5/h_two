@@ -1,0 +1,54 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pay_amount" class="control-label col-xs-12 col-sm-2">{:__('Pay_amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_amount" data-rule="required:range[0+]" class="form-control" step="0.01" name="row[pay_amount]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-amount" data-rule="required" class="form-control" step="0.01" name="row[amount]" type="number" value="0.00">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-usage_limit" class="control-label col-xs-12 col-sm-2">{:__('Usage_limit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- 暂只支持 设置折后总额限制 -->
+            <input id="c-usage_limit" data-rule="required;range[0,99999999]" class="form-control" name="row[usage_limit]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-usage_per_customer" class="control-label col-xs-12 col-sm-2">{:__('Usage_per_customer')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-usage_per_customer" data-rule="required" class="form-control" name="row[usage_per_customer]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-expiration" class="control-label col-xs-12 col-sm-2">{:__('Expiration')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" type="text" value="" id="s-row-expiration" />
+            <input type="hidden" name="row[expiration]" value="0" id="h-row-expiration" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" rows="3" cols="50" name="row[remark]"></textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

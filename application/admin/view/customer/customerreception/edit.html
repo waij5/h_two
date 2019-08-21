@@ -1,0 +1,46 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-customer_id" class="control-label col-xs-12 col-sm-2">{:__('Customer_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_id" data-rule="required" data-source="customer/index" class="form-control selectpage" name="row[customer_id]" type="text" value="{$row.customer_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">{:__('Admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-admin_id" data-rule="required" data-source="admin/index" data-field="nickname" class="form-control selectpage" name="row[admin_id]" type="text" value="{$row.admin_id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cst_projects" class="control-label col-xs-12 col-sm-2">{:__('Cst_projects')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cst_projects" class="form-control" name="row[cst_projects]" type="text" value="{$row.cst_projects}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cst_content" class="control-label col-xs-12 col-sm-2">{:__('Cst_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-cst_content" class="form-control summernote" rows="5" name="row[cst_content]" cols="50">{$row.cst_content}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-cst_status" class="control-label col-xs-12 col-sm-2">{:__('Cst_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cst_status" data-rule="required" class="form-control" name="row[cst_status]" type="number" value="{$row.cst_status}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-fat_id" class="control-label col-xs-12 col-sm-2">{:__('Fat_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-fat_id" data-rule="required" data-source="fat/index" class="form-control selectpage" name="row[fat_id]" type="text" value="{$row.fat_id}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

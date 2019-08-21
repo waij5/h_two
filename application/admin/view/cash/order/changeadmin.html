@@ -1,0 +1,48 @@
+<form id="edit-form" class="form-horizontal n-default n-bootstrap" role="form" data-toggle="validator" method="POST" action="">
+<input type="hidden" name="id" value="{$ids}" />
+<h2 class="text-success text-center">修改开单网络客服</h2>
+<hr />
+<div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">订单ID</label>
+    <div class="col-xs-12 col-sm-8">
+        <label class="control-label text-success">{$ids}</label>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">客户</label>
+    <div class="col-xs-12 col-sm-8" style="max-height: 100px; overflow-y: overlay;">
+       {foreach $customers as $customerId => $customerName}
+        <label class="control-label">{$customerName} </label>
+       {/foreach}
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-xs-12 col-sm-2">订单对应网络客服</label>
+    <div class="col-xs-12 col-sm-8" style="max-height: 100px; overflow-y: overlay;">
+       {foreach $consultAdmin as $Id => $Name}
+        <label class="control-label">{$Id} => {$Name} </label>
+       {/foreach}
+    </div>
+</div>
+
+    <div class="form-group">
+        <label for="c-admin_id" class="control-label col-xs-12 col-sm-2">网络客服修改为</label>
+         <div class="col-xs-12 col-sm-8">
+         <select class="form-control selectpicker show-tick" name="adminid" data-live-search="true">
+            <option value="0">{:__('None')}</option>
+            {foreach $briefAdminList as $key => $value}
+            <option value="{$key}">{$value}</option>
+            {/foreach}
+        </select>
+        </div>
+    </div>
+
+<div class="form-group layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+        <button type="button" id="btn-submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+        <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+    </div>
+</div>
+</form>

@@ -1,0 +1,325 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+    <input id="receipt_a_id" type="hidden" value="{$admin.id}"/>
+    <div class="panel-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div class="commonsearch-table hidden">
+                        <form action="" class="form-inline form-commonsearch nice-validator n-default" id="f-commonsearch" method="post" novalidate="novalidate" role="form">
+                            <fieldset>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="createtime">
+                                        {:__('createtime')}
+                                    </label>
+                                    <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="createtime_start" name="balance.createtime_start" type="text" value="{$startDate}">
+                                        ~
+                                        <input class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" id="createtime_end" name="balance.createtime_end" type="text" value="{$endDate}">
+                                        </input>
+                                    </input>
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label class="control-label searchPadding" for="customer.ctm_id">
+                                        {:__('Ctm_id')}
+                                    </label>
+                                    <input class="form-control" id="customer.ctm_id" name="customer.ctm_id" placeholder="{:__('Ctm_id')}" type="text" value="">
+                                    </input>
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label class="control-label searchPadding" for="customer.ctm_name">
+                                        {:__('Ctm_name')}
+                                    </label>
+                                    <input class="form-control" id="customer.ctm_name" name="customer.ctm_name" placeholder="{:__('Ctm_name')}" type="text" value="">
+                                    </input>
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label class="control-label searchPadding" for="customer.ctm_mobile">
+                                        {:__('Ctm_mobile')}
+                                    </label>
+                                    <input class="form-control" id="customer.ctm_mobile" name="customer.ctm_mobile" placeholder="{:__('Ctm_mobile')}" type="text" value="">
+                                    </input>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="balance_type">
+                                        {:__('Balance_type')}
+                                    </label>
+                                    <select class="form-control" name="balance.balance_type">
+                                        <option value="">
+                                            {:__('All')}
+                                        </option>
+                                        {foreach name="balanceTypeList" key="key" id="value"}
+                                        <option value="{$key}">
+                                            {$value}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- 退款类型 -->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="refund_type">{:__('refund_type')}</label>
+                                    <select class="form-control" name="balance.refund_type">
+                                        <option value="">{:__('All')}</option>
+                                        {foreach name="refundTypeList" key="k" id="val"}
+                                        <option value="{$k}">{$val}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <!-- 营销人员科室 -->
+                                <div class="form-group dislocationAll hidden">
+                                    <label class="control-label searchPadding" for="admin.dept_id">
+                                        {:__('admin_dept_id')}
+                                    </label>
+                                    <select class="selectpicker show-tick form-control selectSearch-mid" data-live-search="true" id="admin.dept_id" name="admin.dept_id" required="">
+                                        <option value="">
+                                            {:__('All')}
+                                        </option>
+                                        {foreach $deptList as $k => $v}
+                                        <option value="{$v.dept_id}">
+                                            {$v.name}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="admin.id">
+                                        {:__('nickname')}
+                                    </label>
+                                    <select class="form-control selectpicker show-tick" data-live-search="true" name="admin.id">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">
+                                            {$value}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="admin_id">
+                                        收银
+                                    </label>
+                                    <select class="form-control selectpicker show-tick" data-live-search="true" name="balance.admin_id">
+                                        <option value="">
+                                            {:__('None')}
+                                        </option>
+                                        {foreach $briefAdminList as $key => $value}
+                                        <option value="{$key}">
+                                            {$value}
+                                        </option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                <!-- 客户来源 -->
+                                    <div class="form-group dislocationAll hidden">
+                                        <label for="customer.ctm_source">{:__('ctm_source')}</label>
+                                        <select  class="selectpicker show-tick form-control" data-live-search="true" name="customer.ctm_source">
+                                            {foreach $ctmSrcList as $key => $value}
+                                            <option value="{$key}">{$value}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                    <!-- 营销渠道 -->
+                                    <div class="form-group dislocationAll hidden">
+                                        <label for="customer.ctm_explore">{:__('ctm_explore')}</label>
+                                        <select  class="selectpicker show-tick form-control" data-live-search="true" name="customer.ctm_explore">
+                                            {foreach $channelList as $key => $cha}
+                                            <option value="{$key}">{$cha}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                    <!-- 首次受理工具 -->
+                                    <div class="form-group dislocationAll hidden">
+                                        <label for="cst_chntype" class="control-label searchPadding">{:__('customer_ctm_first_tool_id')}</label>
+                                        <select class="selectpicker show-tick form-control selectSearch-min" required="" name="customer.ctm_first_tool_id" data-live-search="true">
+                                            {foreach $toolList as $key => $value}
+                                            <option value="{$key}">{$value}</option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                <!--  <div class="form-group dislocationAll">
+                                    <label for="customer_id" class="control-label labelLocation">{:__('Customer_id')}</label>
+                                    <input type="hidden" name="customer_id" class="form-control" id="field_ctm_id" />
+                                    <a href="javascript:;" id="a-search-customer">
+                                        <input type="text" readonly id="field_ctm_name" class="form-control" />
+                                    </a>
+                                    <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                                        <i class="fa fa-trash"></i>清除
+                                    </a>    
+                                </div> -->
+                                <div class="form-group dislocationAll">
+                                    <label class="control-label labelLocation" for="amount">
+                                        流水号
+                                    </label>
+                                    <input class="form-control" name="balance.balance_id" type="number" placeholder="流水号" />
+                                </div>
+                                <!--
+                                <div class="form-group dislocationAll">
+                                    <label for="amount" class="control-label labelLocation">{:__('Amount')}</label>
+                                    <input type="number" name="amount_start" class="form-control" /> ~ <input type="number" name="amount_end" class="form-control" />
+                                </div>
+                                -->
+                                <div class="form-group dislocationAll">
+                                    <div class="col-sm-12 text-center">
+                                        <button class="btn btn-success dislocationRight" type="submit">
+                                            {:__('Submit')}
+                                        </button>
+                                        <button class="btn btn-default" type="reset">
+                                            {:__('Reset')}
+                                        </button>
+                                        <button class="btn btn-default" id="btn-export" type="button">
+                                            {:__('Export')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="toolbar" id="toolbar">
+                        {// :build_toolbar()}
+                        <a class="btn btn-primary btn-refresh" href="javascript:;">
+                            <i class="fa fa-refresh">
+                            </i>
+                        </a>
+                        <div class="btn-group" style="margin-left: 15px;">
+                            <!-- <a class="btn btn-success" id="btn-new-order"><i class="fa fa-plus"></i> {:__('New order')}</a> -->
+                            <a class="btn btn-default" id="btn-buy-coupon">
+                                <i class="fa fa-ticket">
+                                </i>
+                                {:__('Buy coupon')}
+                            </a>
+                            <a class="btn btn-default" id="btn-prestore">
+                                <i class="fa fa-dollar">
+                                </i>
+                                {:__('Prestore')}
+                            </a>
+                            
+                            {// 隐藏 收支冲减 }
+                            {if false}
+                            <a class="btn btn-danger" id="btn-adjust">
+                                <i class="fa fa-dollar">
+                                </i>
+                                {:__('Balance adjust')}
+                            </a>
+                            {/if}
+                        </div>
+
+                        <div class="btn-group" style="margin-left: 15px;">
+                            <!-- <button type="button" class="btn btn-default">按钮 1</button>
+                            <button type="button" class="btn btn-default">按钮 2</button>
+                            <button type="button" class="btn btn-default">按钮 3</button> -->
+                            {if $auth->check('customer/accountlog/index')}
+                            <a class="btn btn-default" id="btn-view-change"><i class="fa fa-list-ul"></i> 变动记录</a>
+                            {/if}
+                            {if $auth->check('customer/accountlog/exchange')}
+                            <a class="btn btn-default" id="btn-exchange"><i class="fa fa-exchange"></i> 积分兑换</a>
+                            {/if}
+                            {if $auth->check('customer/Accountlog/adjust')}
+                            <a class="btn btn-warning" id="btn-account-adjust"><i class="fa fa-adjust"></i> 帐户调整</a>
+                            {/if}
+                        </div>
+
+                        <a class="btn btn-danger" id="btn-refund" style="margin-left: 10px;">
+                            <i class="fa fa-trash">
+                            </i>
+                            {:__('Refund')}
+                        </a>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div>
+                        <h3>
+                            <!--营收总额、收款总额、券使用额、定金使用额、变动/退款-->
+                            <!--营收总额-->
+                            <span>
+                                {:__('Balance summary')}:&nbsp;&nbsp;<a class="btn btn-default" id="btn-preview-todaysummary"><i class="fa fa-print" title="点击查看今日项目报表"></i></a>
+                            </span>
+                            <!-- 日报 -->
+                            {if $auth->check('cash/balance/dailyreport')}
+                            <span>
+                                日报:&nbsp;&nbsp;<a class="btn btn-default" id="btn-view-dailyreport"><i class="fa fa-line-chart" title="点击查看今日报表"></i></a>
+                            </span>
+                            {/if}
+                            <span class="text-success" id="h-balance_pay_total">
+                            </span>
+                            <div class="clearfix">
+                            </div>
+                            <small>
+                                <!--收款总额-->
+                                <span>
+                                    {:__('b_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_order_count')}:
+                                </span>
+                                <span class="text-success" id="b_order_count">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_cash_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_cash_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_card_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_card_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_wechatpay_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_wechatpay_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_alipay_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_alipay_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('b_in_other_pay_total')}:
+                                </span>
+                                <span class="text-success" id="b_in_other_pay_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('stat_coupon_cost_total')}:
+                                </span>
+                                <span class="text-success" id="b_coupon_cost">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('stat_deposit_total')}:
+                                </span>
+                                <span class="text-success" id="b_deposit_total">
+                                    0
+                                </span>
+                                <span>
+                                    {:__('stat_refund_total')}:
+                                </span>
+                                <span class="text-success" id="b_out_pay_total">
+                                    0
+                                </span>
+                            </small>
+                        </h3>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover" data-operate-del="{:$auth->check('cash/balance/del')}" data-operate-edit="{:$auth->check('cash/balance/edit')}" id="table" width="100%">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-ear_code" class="control-label col-xs-12 col-sm-2">{:__('Ear_code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_code" data-rule="required" class="form-control" name="row[ear_code]" type="text" value="{$row.ear_code}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_name" class="control-label col-xs-12 col-sm-2">{:__('Ear_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_name" data-rule="required" class="form-control" name="row[ear_name]" type="text" value="{$row.ear_name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_area" class="control-label col-xs-12 col-sm-2">{:__('Ear_area')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <!-- <input id="c-ear_area" data-rule="required" class="form-control" name="row[ear_area]" type="text" value="{$row.ear_area}"> -->
+            <!--由于在初始化中修改了默认值,所以这里需要修改-jsonSpace/jsonValue/jsonName的值-->
+            <div class="form-inline" data-toggle="cxselect" data-url="assets/libs/jquery-cxselect/js/cityData.min.json?v=1.01" data-selects="province,city,area" data-json-space="" data-json-name="n" data-json-value="">
+                <select class="province form-control" data-first-title="选择省" name="province">
+                    <option value="">请选择</option>
+                    <option value="{$res['0']}" selected="">{$res["0"]}</option>
+                </select>
+                <select class="city form-control" data-first-title="选择市" name="city">
+                    <option value="">请选择</option>
+                    <option value="{$res['1']}" selected="">{$res['1']}</option>
+                </select>
+                
+                <select class="area form-control" data-first-title="选择地区" name="area">
+                    <option value="">请选择</option>
+                    {notempty name="$res['2']"}
+                    <option value="{$res['2']}" selected="">{$res['2']}</option>
+                    {/notempty}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_spell" class="control-label col-xs-12 col-sm-2">{:__('Ear_spell')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_spell" data-rule="required" class="form-control" name="row[ear_spell]" type="text" value="{$row.ear_spell}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_status" class="control-label col-xs-12 col-sm-2">{:__('Ear_status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_status" data-rule="required" class="form-control" name="row[ear_status]" type="hidden" value="{$row.ear_status}">
+            <input id="status-switch" type="checkbox" checked />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_sort" class="control-label col-xs-12 col-sm-2">{:__('Ear_sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_sort" data-rule="required" class="form-control" name="row[ear_sort]" type="number" value="{$row.ear_sort}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ear_remark" class="control-label col-xs-12 col-sm-2">{:__('Ear_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ear_remark" data-rule="required" class="form-control" name="row[ear_remark]" type="text" value="{$row.ear_remark}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

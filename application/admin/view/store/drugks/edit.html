@@ -1,0 +1,151 @@
+{if isset($orderInfo)}
+
+<div class="panel panel-info form-group-m0">
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Order basic info')}:</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Order_id')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.order_id}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Order_status')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8" id="s-orderStatus">{:__('order_status_' . ($orderInfo.order_status >= 0 ? $orderInfo.order_status : 'm_' . abs($orderInfo.order_status)))}</span>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Customer')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.ctm_name|htmlspecialchars}</span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Local_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.local_total}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Ori_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.ori_total}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Min_total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.min_total}</span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Discount_amount')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.discount_amount}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Discount_percent')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.discount_percent}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Total')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8"><b>{$orderInfo.total}</b></span>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Admin_id')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.admin_id}</span>
+        </div>
+        <div class="form-group col-sm-4">
+            <label class="control-label col-xs-6 col-sm-6 col-md-4">{:__('Updatetime')}</label>
+            <span class="col-xs-6 col-sm-6 col-md-8">{$orderInfo.updatetime|date="Y-m-d H:i:s",###}</span>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{:__('Project list')}:</h3>
+    </div>
+    <div class="panel-body">
+        <!-- <div class="col-sm-12"> -->
+            <table id="t-project-select" class="table table-striped table-bordered table-condensed table-hover">
+            <a href="javascript:;" class="btn btn-primary btn-refresh" onclick="window.location.reload()"><i class="fa fa-refresh"></i> </a>
+                <thead>
+                    <th nowrap>类型</th>
+                    <!-- <th>{:__('Pro_code')}</th> -->
+                    <th nowrap>{:__('TProName')}</th>
+                    <th nowrap>批次</th>
+                    <th nowrap>剩余库存</th>
+                    <th nowrap>{:__('TProAmount')}</th>
+                    <th nowrap>{:__('Item_qty')}</th>
+                    <th nowrap>单位</th>
+                    <th nowrap>{:__('Row_Total')}</th>
+                    <th nowrap>{:__('Item_total')}</th>
+                    <th nowrap>{:__('Discount_percent')}</th>
+                    <th nowrap class="text-center">{:__('Deduct info')}</th>
+                    <!-- <th nowrap class="text-center">状态</th> -->
+                </thead>
+                <tbody>
+                    {foreach $orderItems as $orderItem}
+                        <tr>
+                            <td>{:__('Type_' . $orderItem.item_type)}</td>
+                            <td><span title="{$orderItem.pro_name}" data-toggle="tooltip">{$orderItem.pro_name|mb_substr=0,20,'utf-8'|htmlspecialchars}</span></td>
+                            <td>{$orderItem.lotnum}</td>
+                            <td style="text-align: center;">{$orderItem.stock}</td>
+                            <td>{$orderItem.pro_amount}</td>
+                            <td>{$orderItem.item_qty}</td>
+                            <td>{$orderItem.pro_unit}</td>
+                            <td>{$orderItem.item_ori_total}</td>
+                            <td>{$orderItem.item_total}</td>
+                            <td>{$orderItem.item_discount_percent}</td>
+                            <td class="text-center">
+                                <span id="s-itemDeductTimes-{$orderItem.item_id}">{$orderItem.item_used_times} / {$orderItem.item_total_times}</span>
+                                <a href="javascript:;" class="btn btn-xs btn-primary btn-deduct-history" title="{:__('Deduct history')}" data-pk="{$orderItem.item_id}"><i class="fa fa-info-circle"></i></a>
+                                <!-- {if ($showDeductBtn && ($orderItem.item_total_times > $orderItem.item_used_times))}
+                                <a href="javascript:;" class="btn btn-xs btn-success btn-deduct" title="{:__('Deduct')}" data-pk="{$orderItem.item_id}" id="btn-itemDeduct-{$orderItem.item_id}"><i class="fa fa-check"></i></a>
+                                {/if} -->
+                            </td>
+                            
+                        </tr>
+                    {/foreach}
+                </tbody>
+                <tfoot>
+                    <tr >
+                        <th colspan="3">{:__('Summary')}</th>
+                        <th></th>
+                        <th id="sum-ori-total">{$orderInfo.ori_total}</th>
+                        <th id="sum-total">{$orderInfo.total}</th>
+                        <th id="sum-discount-percent">{$orderInfo.discount_percent}</th>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="0" class="text-right">有{$deliverdListCount}项已出库</th>
+                        <th class="text-left">
+                            <a href="javascript:;" class="btn btn-xs btn-info" title="已出库列表" data-pk="{$orderInfo.order_id}" id="btn-outgo">
+                                <i class="fa fa-list"></i>
+                                已出库列表
+                            </a>
+                        </th>
+                        <th colspan="5" class="text-right">{:__('There is %s undeliveried items.', $undeliverdListCount)}</th>
+                        <th class="text-left">
+                            <a href="javascript:;" class="btn btn-xs btn-info" title="{:__('Undeliveried list')}" data-pk="{$orderInfo.order_id}" id="btn-delivery">
+                                <i class="fa fa-list"></i>
+                                {:__('Undeliveried list')}
+                            </a>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        <!-- </div> -->
+    </div>
+</div>
+<div class="form-group layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+       <!--  {foreach $extraButtons as $button}
+            <button type="button" class="{$button.class}" id="{$button.id}"><i class="{$button.icon}"></i> {$button.title}</button>
+        {/foreach}
+        <button type="button" class="btn btn-default btn-embossed">{:__('Close')}</button>
+        -->
+    </div>
+</div>
+
+{/if}
+

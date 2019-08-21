@@ -1,0 +1,100 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <input type="hidden" name="row[customer_id]" value="{$customer.ctm_id}" />
+    <input type="hidden" name="row[admin_id]" value="{$admin.id}" />
+    <input type="hidden" name="row[balance_type]" value="{$balanceType}" />
+    <h2 class="text-center">
+        {$site.name}
+        <br />
+        <small>--{:__('Prestore receipt')}--</small>
+    </h2>
+    <div class="clearfix"></div>
+    <div class="form-group col-xs-6">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-4">{:__('Ctm_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <label class="control-label">
+                {$customer.ctm_name|htmlspecialchars}  (ID: {$customer.ctm_id})
+            </label>
+        </div>
+    </div>
+    <div class="form-group col-sm-6 col-xs-6">
+        <label for="c-amount" class="control-label">{:__('Prestored amount')}:</label>
+        <label class="control-label text-success">
+            {$customer.ctm_depositamt}
+        </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="c-ctm_coupamt" class="control-label">{:__('ctm_coupamt')}:</label>
+        <label class="control-label text-success">
+            {$customer.ctm_coupamt}
+        </label>
+    </div>
+    <div class="clearfix"></div>
+    {include file="common/pay_methods" /}
+    <div class="clearfix"></div>
+    <hr />
+
+    <div class="form-group">
+        <label for="c-coupon" class="control-label col-xs-12 col-sm-2">送券</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="col-xs-12 col-sm-6 row" style="margin-bottom: 5px;">
+                <input type="number" name="row[coupon_amt]" id="input-coupon-amt" value="0" class="form-control" style="color: #f6a216;" />
+            </div>
+            <div class="clearfix"></div>
+            <div class="input-group">
+                <span class="input-group-addon">总</span>
+                <input type="number" value="0" readonly="" class="form-control" id="coupon-cal-base" />
+                <div class="input-group-btn">
+                    <select class="form-control" style="width: 80px;" id="coupon-cal-mode">
+                        <option value="1">每满</option>
+                        <option value="2">满</option>
+                    </select>
+                </div>
+                <input type="number" value="10000" class="form-control" id="coupon-cal-step" />
+                <span class="input-group-addon">送</span>
+                <input type="number" value="0" class="form-control" id="coupon-cal-bonus" />
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" id="btn-coupon-cal">计算</button>
+                </span>
+            </div>
+            
+        </div>
+    </div>
+
+     <hr />
+    <div class="form-group col-xs-6">
+        <label for="c-customer_name" class="control-label col-xs-12 col-sm-4">{:__('yjy_developer_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[develop_admin_id]', $adminList, $customer.admin_id, ['class'=>'form-control selectpicker', 'required'=>'', 'data-live-search'=>'true'])}
+        </div>
+    </div>
+    <div class="form-group col-xs-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('coc_Admin_nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[osc_admin_id]', $adminList, $customer.ctm_last_osc_admin, ['class'=>'form-control selectpicker', 'required'=>'', 'data-live-search'=>'true'])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-2">{:__('Balance_remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea name="row[balance_remark]" row='2' class="form-control summernote" style="resize:none"></textarea>
+        </div>
+    </div>
+<!--     <div class="form-group col-sm-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('Deptment_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[deptment_id]', $deptmentList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="c-amount" class="control-label col-xs-12 col-sm-4">{:__('Rec_admin_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[rec_admin_id]', $adminList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+        </div>
+    </div> -->
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

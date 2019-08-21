@@ -1,0 +1,235 @@
+<div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+    </button>
+    分组建议不要超过7个，图片请统一尺寸，默认数量 指 选购时选择后的默认数量(普通品项可在提交前修改, 套餐不可更改)
+</div>
+<div class="panel-body col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <form action="" class="form-horizontal" data-toggle="validator" id="add-form" method="POST" role="form">
+        <input type="hidden" name="row[price]" value="0" />
+        <input type="hidden" name="row[set_price]" value="0" />
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-dept_id">
+                {:__('Dept_id')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                {:build_select('row[dept_id]', $deductDeptList, null, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-name">
+                {:__('Name')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" data-rule="required" id="c-name" name="row[name]" type="text">
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-is_recommend">
+                {:__('Is_recommend')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <!-- data-on-text="" data-off-text="" -->
+                <input class="form-control" data-rule="required" id="c-is_recommend" name="row[is_recommend]" type="hidden" value="0">
+                    <input class="yjy-switch" data-off-text="否" data-on-text="是" id="is_recommend-switch" type="checkbox"/>
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-is_suit">
+                {:__('Is_suit')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" data-rule="required" id="c-is_suit" name="row[is_suit]" type="hidden" value="0">
+                    <input class="yjy-switch" data-off-text="否" data-on-text="是" id="is_suit-switch" type="checkbox"/>
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-is_new">
+                {:__('Is_new')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" data-rule="required" id="c-is_new" name="row[is_new]" type="hidden" value="0">
+                    <input class="yjy-switch" data-off-text="否" data-on-text="是" id="is_new-switch" type="checkbox"/>
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-pic">
+                {:__('Pic')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <div class="form-inline">
+                    <input class="form-control" data-rule="required" id="c-pic" name="row[pic]" size="50" type="text" value="">
+                        <span>
+                            <button class="btn btn-danger plupload" data-input-id="c-pic" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-pic" id="plupload-pic" type="button">
+                                <i class="fa fa-upload">
+                                </i>
+                                {:__('Upload')}
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn btn-primary fachoose" data-input-id="c-pic" data-mimetype="image/*" data-multiple="false" id="fachoose-pic" type="button">
+                                <i class="fa fa-list">
+                                </i>
+                                {:__('Choose')}
+                            </button>
+                        </span>
+                        <ul class="row list-inline plupload-preview" id="p-pic">
+                        </ul>
+                    </input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-video">
+                {:__('Video')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" id="c-video" name="row[video]" type="text" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-desc">
+                {:__('Desc')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <!-- data-rule="required" -->
+                <textarea class="form-control " cols="50" id="c-desc" name="row[desc]" rows="5">
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-sort">
+                {:__('Sort')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" data-rule="required" id="c-sort" name="row[sort]" type="number" value="100">
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-template_id">
+                {:__('Template_id')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <select class="form-control selectpicker" data-live-search="true" data-rule="required" name="row[template_id]">
+                    {foreach $templateList as $templateId => $template}
+                    <option value="{$templateId}">
+                        {$template.name|htmlspecialchars}
+                    </option>
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2" for="c-status">
+                {:__('Status')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <input class="form-control" data-rule="required" id="c-status" name="row[status]" type="hidden" value="1">
+                    <input checked="" class="yjy-switch" data-off-text="否" data-on-text="是" id="status-switch" type="checkbox"/>
+                </input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2 text-warning" for="c-status">
+                整体调价
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <select class="form-control" style="width: initial; float: left;" id="set-discout-mode">
+                    <option value="percent">&nbsp;&nbsp;折扣|%&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    <option value="amout">&nbsp;&nbsp;总价|圆&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                </select>
+                <input class="form-control" type="number" min="0" style="width: 90px; float: left; text-align: right;" value="100" min="0" id="set-discout-value" />
+                <button type="button" class="btn btn-default" id="btn-set-discount" style="width: initial; float: left;" title="点击设置总价，因为小数计算等问题，实际结果可能与设置数值略有差别，可再行调节单项目价格">
+                    应用折扣<i class="fa fa-info-circle"></i>
+                </button>
+                <button type="button" class="btn btn-success" id="btn-view-set-discount" style="margin-left: 5px;width: initial; float: left;" title="点击设置总价，因为小数计算等问题，实际结果可能与设置数值略有差别，可再行调节单项目价格">
+                    查看总价
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group hidden">
+            <label class="control-label col-xs-12 col-sm-2" for="c-settings">
+                {:__('Settings')}:
+            </label>
+            <div class="col-xs-12 col-sm-8">
+                <!-- data-rule="required" -->
+                <textarea class="form-control " cols="50" id="c-settings" name="row[settings]" rows="5">
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group layer-footer">
+            <label class="control-label col-xs-12 col-sm-2">
+            </label>
+            <div class="col-xs-12 col-sm-8 text-center">
+                <button type="button" class="btn btn-primary" id="btn-preview" style="margin-right: 15px;">预览</button>
+                <button class="btn btn-success btn-embossed" id="s-btn-submit" type="button">
+                    {:__('OK')}
+                </button>
+                <button class="btn btn-default btn-embossed" type="reset">
+                    {:__('Reset')}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="panel-body col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" for="c-settings">
+            TAB页:
+        </label>
+        <div class="col-xs-12 col-sm-10">
+            <div class="form-group">
+                <div class="input-group col-sm-6">
+                    <input class="form-control" id="name-new-tab" placeholder="新TAB名" type="text" value=""/>
+                    <span class="btn btn-default input-group-addon" id="btn-add-tab">
+                        <i class="fa fa-plus">
+                            添加TAB
+                        </i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <select class="form-control" id="list-tabs" style="min-width: 100px;">
+                    </select>
+                    <span class="input-group-addon" id="btn-add-tab">
+                        <i class="fa fa-arrow-right">
+                        </i>
+                    </span>
+                    <input class="form-control" id="name-edit-tab" placeholder="TAB新名称" type="text" value=""/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" id="btn-edit-tab" type="button">
+                            <i class="fa fa-check">
+                                保存
+                            </i>
+                        </button>
+                    </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" id="btn-del-tab" type="button">
+                            <i class="fa fa-trash">
+                                删除
+                            </i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    <hr/>
+    <div class="form-group">
+        <!-- tab switcher -->
+        <ul class="nav nav-tabs" id="y-p-tab-div">
+        </ul>
+        <!-- tab contents -->
+        <div class="tab-content" id="y-p-tab-content-div">
+        </div>
+    </div>
+</div>

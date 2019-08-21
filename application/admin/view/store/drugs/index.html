@@ -1,0 +1,103 @@
+<style type="text/css">
+    .red{color: red}
+</style>
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table hidden">
+                        <form class="form-inline form-commonsearch nice-validator n-default" action="" novalidate="novalidate" id="f-commonsearch" role="form" method="post">
+                            <fieldset>
+                            
+
+                                <div class="form-group dislocationAll">
+                                    <label for="num" class="control-label labelLocation">{:__('Num')}</label>
+                                    <input type="text" name="num" class="form-control" size="8" />
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="name" class="control-label labelLocation">{:__('Name')}</label>
+                                    <input type="text" name="name" class="form-control" size="8">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="lotnum" class="control-label" style="padding:0 10px">批号</label>
+                                    <input type="text" name="lotnum" class="form-control"  size="8">
+                                </div>
+                                <div class="form-group" style="margin:5px">
+                                    <label for="code" class="control-label" style="padding:0 10px">拼音码</label>
+                                    <input type="text" name="code" class="form-control"  size="8">
+                                </div>
+                                <!-- <br> -->
+                                <div class="form-group dislocationAll">
+                                    <label for="depot_id" class="control-label labelLocation">所属仓库</label>
+                                    <select id="depot_id" class="form-control " name="depot_id">
+                                        <option data-type="" value='' >--- 请选择 ---</option>
+                                        {foreach name="depotList" item="vo"}
+                                        <option data-type="{$vo.name}" value="{$vo.id}">{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            
+                                <div class="form-group dislocationAll">
+                                    <label for="c-pdutype_id" class="control-label labelLocation">{:__('Pdutype_id')}</label>
+                                    <select id="c-pdutype_id" class="form-control " name="pdutype_id">
+                                        <option data-type="" value='' >--- 请选择 ---</option>
+                                        {foreach name="subject" item='v'}
+                                        <option data-type="{$v.id}" value="{$v.id}">{$v.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="c-pdutype2_id" class="control-label labelLocation">{:__('Pdutype2_id')}</label>
+                                    <select id="c-pdutype2_id" data-rule="required" class="form-control " name="pdutype2_id">
+                                        <option data-type="" value='' >--- 请选择 ---</option>
+                                        
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="c-status" class="control-label" style="padding:0 10px">{:__('Status')}:</label>
+                                    <select id="c-pdutype2_id" data-rule="required" name="status" class="form-control " >
+                                        {foreach name="statusList" item="vo"}
+                                        <option value="{$key}">{$vo}</option>
+                                        {/foreach}
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group dislocationAll">
+                                    <label for="time" class="control-label labelLocation">创建时间</label>
+                                    <input type="text" name="stime"  value="{$Request.param.stime}" class="form-control datetimepicker clear" data-use-current="true" data-date-format="YYYY-MM-DD" size="8">  ~  
+                                    <input type="text" name="etime"   value="{$Request.param.etime}"  class="form-control datetimepicker clear" data-use-current="true" data-date-format="YYYY-MM-DD"  size="8">    
+                                </div>
+
+                                <br>
+                                <div class="form-group marginZero" style="margin: 0;">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar('refresh,add,edit')}
+                        
+                    </div>
+                    <table id="table" class="table table-striped table-bordered table-hover" 
+                           data-operate-edit="{:$auth->check('store/drugs/edit')}" 
+                           data-operate-del="{:$auth->check('store/drugs/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

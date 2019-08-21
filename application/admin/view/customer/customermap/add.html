@@ -1,0 +1,96 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-user_id" class="control-label col-xs-12 col-sm-2">{:__('user_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-rule="required" class="form-control" name="row[user_id]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-customer_id" class="control-label col-xs-12 col-sm-2">{:__('customer_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-customer_id" data-rule="required" class="form-control" name="row[customer_id]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-mobile" class="control-label col-xs-12 col-sm-2">{:__('mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" data-rule="required" class="form-control" name="row[mobile]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-phone" class="control-label col-xs-12 col-sm-2">{:__('phone')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-phone" data-rule="required" class="form-control" name="row[phone]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-ctm_name" class="control-label col-xs-12 col-sm-2">{:__('ctm_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ctm_name" class="form-control" name="row[ctm_name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-user_name" class="control-label col-xs-12 col-sm-2">{:__('user_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_name" class="form-control" name="row[user_name]" type="text" value="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-real_name" class="control-label col-xs-12 col-sm-2">{:__('real_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-real_name" class="form-control" name="row[real_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-nick_name" class="control-label col-xs-12 col-sm-2">{:__('nick_name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-nick_name" class="form-control" name="row[nick_name]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-rank_points" class="control-label col-xs-12 col-sm-2">{:__('rank_points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-rank_points" data-rule="required" class="form-control" name="row[rank_points]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pay_points" class="control-label col-xs-12 col-sm-2">{:__('pay_points')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_points" data-rule="required" class="form-control" name="row[pay_points]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-deposit_amt" class="control-label col-xs-12 col-sm-2">{:__('deposit_amt')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-deposit_amt" data-rule="required" class="form-control" name="row[deposit_amt]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-status" class="control-label col-xs-12 col-sm-2">{:__('status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" data-rule="required" class="form-control" name="row[status]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-createtime" class="control-label col-xs-12 col-sm-2">{:__('createtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-createtime" data-rule="required" class="form-control" name="row[createtime]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sync_time" class="control-label col-xs-12 col-sm-2">{:__('sync_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sync_time" data-rule="required" class="form-control" name="row[sync_time]" type="number" value="0">
+        </div>
+    </div>
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

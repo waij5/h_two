@@ -1,0 +1,234 @@
+<div class="panel-body col-xs-12 col-sm-12 col-md-6 col-lg-6">
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-dept_id" class="control-label col-xs-12 col-sm-2">{:__('Dept_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_select('row[dept_id]', $deductDeptList, $row.dept_id, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-name" class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text" value="{$row.name}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-is_recommend" class="control-label col-xs-12 col-sm-2">{:__('Is_recommend')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_recommend" data-rule="required" class="form-control" name="row[is_recommend]" type="hidden" value="{$row.is_recommend}">
+            <input id="is_recommend-switch" class="yjy-switch" type="checkbox"{if $row.is_recommend} checked{/if} data-on-text="是" data-off-text="否" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-is_suit" class="control-label col-xs-12 col-sm-2">{:__('Is_suit')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_suit" data-rule="required" class="form-control" name="row[is_suit]" type="hidden" value="{$row.is_suit}">
+            <input id="is_suit-switch" class="yjy-switch" type="checkbox"{if $row.is_suit} checked{/if} data-on-text="是" data-off-text="否" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-is_new" class="control-label col-xs-12 col-sm-2">{:__('Is_new')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_new" data-rule="required" class="form-control" name="row[is_new]" type="hidden" value="{$row.is_new}">
+            <input id="is_new-switch" class="yjy-switch" type="checkbox"{if $row.is_new} checked{/if} data-on-text="是" data-off-text="否" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-pic" class="control-label col-xs-12 col-sm-2">{:__('Pic')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="form-inline">
+                <input id="c-pic" data-rule="required" class="form-control" size="50" name="row[pic]" type="text" value="{$row.pic}">
+                <span><button type="button" id="plupload-pic" class="btn btn-danger plupload" data-input-id="c-pic" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-pic"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                <span><button type="button" id="fachoose-pic" class="btn btn-primary fachoose" data-input-id="c-pic" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                <ul class="row list-inline plupload-preview" id="p-pic"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-video" class="control-label col-xs-12 col-sm-2">{:__('Video')}:</label>
+        <div class="col-xs-12 col-sm-8">
+             <!-- data-rule="required" -->
+            <input id="c-video" class="form-control" name="row[video]" type="text" value="{$row.video}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-desc" class="control-label col-xs-12 col-sm-2">{:__('Desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+             <!-- data-rule="required" -->
+            <textarea id="c-desc" class="form-control " rows="5" name="row[desc]" cols="50">{$row.desc}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-sort" class="control-label col-xs-12 col-sm-2">{:__('Sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sort" data-rule="required" class="form-control" name="row[sort]" type="number" value="{$row.sort}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-template_id" class="control-label col-xs-12 col-sm-2">{:__('Template_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control selectpicker" data-live-search="true" name="row[template_id]" data-rule="required">
+                {foreach $templateList as $templateId => $template}
+                <option value="{$templateId}"{if $row.template_id eq $templateId} selected{/if}>{$template.name|htmlspecialchars}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-status" class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-status" data-rule="required" class="form-control" name="row[status]" type="hidden" value="{$row.status}">
+            <input id="status-switch" class="yjy-switch" type="checkbox"{if $row.status} checked{/if} data-on-text="是" data-off-text="否" />
+        </div>
+    </div>
+    <div class="form-group hidden">
+        <label for="c-settings" class="control-label col-xs-12 col-sm-2">{:__('Settings')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-settings" data-rule="required" class="form-control " rows="5" name="row[settings]" cols="50">{$row.settings}</textarea>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button class="btn btn-success btn-embossed" id="s-btn-submit" type="button">
+                    {:__('OK')}
+                </button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+</div>
+<div class="panel-body col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" for="c-settings">
+            TAB页:
+        </label>
+        <div class="col-xs-12 col-sm-10">
+            <div class="form-group">
+                <div class="input-group col-sm-6">
+                    <input class="form-control" id="name-new-tab" placeholder="新TAB名" type="text" value=""/>
+                    <span class="btn btn-default input-group-addon" id="btn-add-tab">
+                        <i class="fa fa-plus">
+                            添加TAB
+                        </i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <select class="form-control" id="list-tabs" style="min-width: 100px;">
+                    </select>
+                    <span class="input-group-addon" id="btn-add-tab">
+                        <i class="fa fa-arrow-right">
+                        </i>
+                    </span>
+                    <input class="form-control" id="name-edit-tab" placeholder="TAB新名称" type="text" value=""/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" id="btn-edit-tab" type="button">
+                            <i class="fa fa-check">
+                                保存
+                            </i>
+                        </button>
+                    </span>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" id="btn-del-tab" type="button">
+                            <i class="fa fa-trash">
+                                删除
+                            </i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+    <hr/>
+    {// 页面部分直接用PHP 渲染【 由于没有直接使用JS渲染内容， 可能与JS 渲染不一致， 请注意 相应内容模板JS,PHP同步更新 】， 事件由JS初始绑定}
+    <div class="form-group">
+        <!-- tab switcher -->
+        <ul class="nav nav-tabs" id="y-p-tab-div">
+            {foreach $settings['tabs'] as $tabId => $tabName}
+            <li data-id="{$tabId}">
+                <a data-toggle="tab" href="#{$tabId}">
+                    {$tabName}
+                </a>
+            </li>
+            {/foreach}
+        </ul>
+        <!-- tab contents -->
+        <div class="tab-content" id="y-p-tab-content-div">
+            {php}
+            //<!-- $curTabNoId = preg_replace('/[\D]*/', '', $tabId); -->
+            $curItemId = 0;
+            {/php}
+            {foreach settings['tabContents'] as $tabId => $tabContent}
+            <div class="y-drag-container y-p-tab-content tab-pane fade" id="{$tabId}" style="padding: 6px 0;">
+                <div class="y-c-item-toolbar"><a class="btn btn-success" id="y-btn-add-item-${yjyTabCurId}" data-tab-id="${yjyTabCurId}"><i class="fa fa-plus">添加组</i></a></div>
+
+                {foreach $tabContent as $tabContentItem}
+                {php}
+                $curItemId ++
+                {/php}
+                <div class="tab-content-item y-drag" id="tab-content-item-{$curItemId}">
+                    <div class="form-group" style="overflow: hidden;">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            组： <span class="text-success" style="width: 30px;display: inline-block;"><i class="fa fa-star"></i>{$curItemId}</span>
+                            <a class="btn btn-danger" id="btn-del-item-{$curItemId}"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="form-group" style="overflow: hidden;">
+                        <label for="c-desc" class="control-label col-xs-12 col-sm-4 col-md-2">标题:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-10">
+                            <input type="text" class="form-control tab-content-item-title" value="{$tabContentItem['title']|htmlspecialchars}" max-length="20" placeholder="请输入标题" />
+                        </div>
+                    </div>
+                    <div class="form-group" style="overflow: hidden;">
+                        <label for="c-desc" class="control-label col-xs-12 col-sm-4 col-md-2">描述:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-10">
+                            <textarea id="c-desc" class="form-control tab-content-item-desc" rows="3" cols="50" placeholder="请输入描述">{$tabContentItem['desc']|htmlspecialchars}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group" style="overflow: hidden;">
+                        <label for="c-pic" class="control-label col-xs-12 col-sm-4 col-md-2">项目:</label>
+                        <div class="col-xs-12 col-sm-8 col-md-10">
+                            <div class="form-group">
+                                <a class="btn btn-success" id="btn-add-pro-{$curItemId}" data-target="#ul-pro-list-{$curItemId}"><i class="fa fa-plus"></i></a>
+                            </div>
+                            <ul class="list-group ul-pro-list" id="ul-pro-list-{$curItemId}">
+                                {// 项目列表}
+                                {foreach $tabContentItem['proSets'] as $proId => $proSet}
+                                {if isset($proList[$proId])}
+                                <li class="list-group-item col-sm-6 col-md-4" data-pro-id="{$proId}">
+                                    <a class="btn btn-sm btn-danger btn-del-pro" id="btn-del-pro-{$proId}" data-pro-id="{$proId}">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                    <img src="{$proList[$proId]['cover']}" class="img img-responsive center-block" />
+                                    <div class="y-one-line">名称： {$proList[$proId]['pro_name']}</div>
+                                    <div class="y-one-line">规格： {$proList[$proId]['pro_spec']}</div>
+                                    <div>原价格： {$proList[$proId]['pro_amount']}</div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">折扣价：</span>
+                                        <input type="number" class="form-control pro-price-amount" data-pro-id="{$proId}" value="{$proSet['price']}" placeholder="使用价格" />
+                                    </div>
+                                </li>
+                                {/if}
+                                {/foreach}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var yProSetInitParams = {
+        settings: {$row->settings},
+        proList: {:json_encode($proList)},
+        curItemId: {$curItemId},
+    }
+</script>

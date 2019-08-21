@@ -1,0 +1,208 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#basic" data-toggle="tab">
+                 {:__('Basic info')}
+            </a>
+        </li>
+        <li>
+            <a href="#extra" data-toggle="tab">{:__('Extra info')}</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="basic">
+            <div class="panel-body">
+                <input type="hidden" name="row[ctm_id]" value="" />
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_name" class="control-label col-xs-12 col-sm-4">{:__('Ctm_name')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+
+                        <input id="c-ctm_name" data-rule="required" class="form-control" name="row[ctm_name]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_sex" class="control-label col-xs-12 col-sm-4">{:__('Ctm_sex')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[ctm_sex]', $genderList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_birthdate" class="control-label col-xs-12 col-sm-4">{:__('Ctm_birthdate')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_birthdate" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[ctm_birthdate]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_tel" class="control-label col-xs-12 col-sm-4">{:__('Ctm_tel')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_tel" class="form-control" data-rule="required;tel2" name="row[ctm_tel]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_mobile" class="control-label col-xs-12 col-sm-4">{:__('Ctm_mobile')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_mobile" class="form-control" name="row[ctm_mobile]" type="text" value="" data-rule="required;mobile2">
+                    </div>
+                </div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm_source" class="control-label col-xs-12 col-sm-4">{:__('Ctm_source')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                    <select class="selectpicker show-tick form-control selectSearch-max" name="row[ctm_source]" data-live-search="true">
+                        {foreach $ctmSrcList as $key => $value}
+                        <option value="{$key}">{$value}</option>
+                        {/foreach}
+                    </select>
+                    </div>
+                    <!-- <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[ctm_source]', $ctmSrcList, null, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])}
+                    </div> -->
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_first_search" class="control-label col-xs-12 col-sm-4">{:__('ctm_first_search')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_first_search" class="form-control" name="row[ctm_first_search]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_explore" class="control-label col-xs-12 col-sm-4">{:__('Ctm_explore')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <!-- {:build_select('row[ctm_explore]', $channelList, null, ['class'=>'form-control selectpicker', 'data-rule'=>'required'])} -->
+                    <select class="selectpicker show-tick form-control selectSearch-max" name="row[ctm_explore]" data-live-search="true">
+                        {foreach $channelList as $key => $value}
+                        <option value="{$key}">{$value}</option>
+                        {/foreach}
+                    </select>
+                    </div>
+                </div>
+                 <div class="form-group col-sm-6">
+                    <label for="c-rec_customer_id" class="control-label col-xs-12 col-sm-4" >{:__('rec_customer_id')}</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input type="hidden" name="row[rec_customer_id]" class="form-control" id="field_ctm_id" />
+                        <a href="javascript:;" id="a-search-customer">
+                            <input type="text" readonly id="field_ctm_name" class="form-control" />
+                        </a>
+                        <!-- <a href="javascript:;" class="btn btn-danger btn-del" id="btn-customer-clear">
+                            <i class="fa fa-trash"></i>清除
+                        </a>   -->
+                    </div>
+                </div>
+                <!-- 客户分类 -->
+                 <div class="form-group col-sm-6">
+                    <label for="c-ctm_type" class="control-label col-xs-12 col-sm-4">{:__('ctm_type')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[ctm_type]', $ctmtypeList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!-- PASS暂时未用 -->
+                <!-- <div class="form-group col-sm-6 hidden">
+                    <label for="c-ctm_pass" class="control-label col-xs-12 col-sm-4">{:__('Ctm_pass')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_pass" class="form-control" name="row[ctm_pass]" type="text" value="123456">
+                    </div>
+                </div> -->
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <label for="c-ctm_addr" class="control-label col-xs-12 col-sm-2">{:__('Ctm_addr')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {php}
+                        $provinceDefault = '';
+                        $cityDefault = '';
+                        $areaDefault = '';
+
+                        $addr = \think\Config::get('site.default_addr');
+                        if (!empty($addr)) {
+                            $addrArr = explode('-', $addr);
+                            if (isset($addrArr[0])) {
+                                $provinceDefault = $addrArr[0];
+                            }
+                            if (isset($addrArr[1])) {
+                                $cityDefault = $addrArr[1];
+                            }
+                            if (isset($addrArr[2])) {
+                                $areaDefault = $addrArr[2];
+                            }
+                        }
+                        {/php}
+                        <div class="form-inline" data-toggle="cxselect" data-url="assets/libs/jquery-cxselect/js/cityData.min.json?v=1.01" data-selects="province,city,area" data-json-space="" data-json-name="n" data-json-value="" data-required="true">
+                            <select class="province form-control" name="row[province]" data-value="{$provinceDefault}"></select>
+                            <select class="city form-control" name="row[city]" data-value="{$cityDefault}"></select>
+                            <select class="area form-control" name="row[area]" data-value="{$areaDefault}"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="c-ctm_remark" class="control-label col-xs-12 col-sm-2">{:__('ctm_remark')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                    <textarea id="c-ctm_remark" class="form-control summernote" rows="3" name="row[ctm_remark]"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="extra">
+            <div class="panel-body">
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_company" class="control-label col-xs-12 col-sm-4">{:__('Ctm_company')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_company" class="form-control" name="row[ctm_company]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_job" class="control-label col-xs-12 col-sm-4">{:__('Ctm_job')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        {:build_select('row[ctm_job]', $jobList, null, ['class'=>'form-control selectpicker', 'required'=>''])}
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_zip" class="control-label col-xs-12 col-sm-4">{:__('Ctm_zip')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_zip" class="form-control" name="row[ctm_zip]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="c-ctm_email" class="control-label col-xs-12 col-sm-4">{:__('Ctm_email')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_email" class="form-control" name="row[ctm_email]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label for="c-ctm_qq" class="control-label col-xs-12 col-sm-4">{:__('Ctm_qq')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_qq" class="form-control" readonly name="row[ctm_qq]" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 hidden">
+                    <label for="c-ctm_wxid" class="control-label col-xs-12 col-sm-4">{:__('Ctm_wxid')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <input id="c-ctm_wxid" class="form-control" readonly name="row[ctm_wxid]" type="text" value="">
+                    </div>
+                </div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm_ifrevmail" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifrevmail')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <label class="control-label">
+                            {:build_select('row[ctm_ifrevmail]', [1 => __('Status_yes'), 0 => __('Status_no')], 1, ['class'=>'form-control selectpicker'])}
+                        </label>
+                    </div>
+                </div>
+               <div class="form-group col-sm-6">
+                    <label for="c-ctm-ifbirth" class="control-label col-xs-12 col-sm-4">{:__('Ctm_ifbirth')}:</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <label class="control-label">
+                        {:build_select('row[ctm_ifbirth]', [1 => __('Status_yes'), 0 => __('Status_no')], 1, ['class'=>'form-control selectpicker'])}
+
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

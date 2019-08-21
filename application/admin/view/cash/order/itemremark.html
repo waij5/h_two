@@ -1,0 +1,76 @@
+<form id="createorder-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+	<input type="hidden" name="old_item_id" value="{$orderItem.item_id}" />
+	<input type="hidden" id="h-order-type" value="{$orderItem.item_type}" />
+	<hr/>
+	<div class="form-group">
+		<label for="c-customer" class="col-xs-6">
+            <strong>{:__('Customer')}:</strong>  {$customer.ctm_name|htmlspecialchars}  (ID: {$customer.ctm_id})
+        </label>
+		<label for="c-customer" class="col-xs-6">
+            <strong>{:__('item_id')}:</strong>  <span class="text-warning">{$orderItem.item_id}</span>
+        </label>
+	</div>
+	<hr/>
+	<div class="form-group">
+		<label for="c-project_list" class="col-xs-2 col-sm-2 text-left">
+            <strong>{:__('PreSwitch item')}:</strong>
+        </label>
+		<div class="clearfix"></div>
+		<div class="col-sm-12">
+			<table class="table table-striped table-bordered table-condensed table-hover">
+				<thead>
+					<th nowrap>{:__('TProType')}</th>
+					<th nowrap>{:__('TProName')}</th>
+					<th nowrap>{:__('pro_spec')}</th>
+					<!-- <th nowrap>{:__('TProAmoutPerTime')}</th> -->
+					<th nowrap>{:__('Item_total_times')}</th>
+					<th nowrap>{:__('Row_Total')}</th>
+					<th nowrap>{:__('Item_total')}</th>
+
+					<th nowrap>{:__('item_pay_total')}</th>
+					<th nowrap>{:__('item_coupon_total')}</th>
+					<th nowrap>{:__('item_original_pay_total')}</th>
+					
+					<th nowrap>{:__('Deduct info')}</th>
+					<!-- <th nowrap>{:__('Order_status')}</th> -->
+				</thead>
+				<tbody>
+					<td>{:__('Pro_type_' . $orderItem.item_type)}</td>
+					<td>
+						<span title="{$orderItem.pro_name}" data-toggle="tooltip">{$orderItem.pro_name|mb_substr=0,20,'utf-8'|htmlspecialchars}</span></td>
+					<td>
+					<span title="{$orderItem.pro_spec}" data-toggle="tooltip">{$orderItem.pro_spec|mb_substr=0,20,'utf-8'|htmlspecialchars}</span></td>
+					<!-- <td>{$orderItem.item_amount_per_time}</td> -->
+					<td>{$orderItem.item_total_times}</td>
+					<td>{$orderItem.item_ori_total}</td>
+					<td>{$orderItem.item_total}</td>
+
+					<td>{$orderItem.item_pay_total}</td>
+					<td>{$orderItem.item_coupon_total}</td>
+					<td>{$orderItem.item_original_pay_total}</td>
+
+					<td>{$orderItem.item_used_times} / {$orderItem.item_total_times}</td>
+					
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<hr/>
+	<div class="form-group">
+        <label for="c-item_remark" class="col-xs-2 col-sm-2 text-left">
+            <strong>{:__('item_remark')}:</strong>
+        </label>
+        <div class="clearfix"></div>
+        <div class="col-sm-12">
+				<textarea name="row[item_remark]" row='2' class="form-control summernote border-round" style="resize:none">{$orderItem.item_remark}</textarea>
+			</div>
+    </div>
+
+	<div class="form-group layer-footer">
+		<label class="control-label col-xs-12 col-sm-2"></label>
+		<div class="col-xs-12 col-sm-8">
+			<button type="submit" class="btn btn-success">{:__('OK')}</button>
+			<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+		</div>
+	</div>
+</form>

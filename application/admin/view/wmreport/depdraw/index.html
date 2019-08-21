@@ -1,0 +1,181 @@
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+<style type="text/css">
+.red{color: red}
+#table tr td{border:1px black solid;word-wrap:break-word;text-align: center;vertical-align:middle}
+#table tr th{border:1px black solid;text-align: center;vertical-align:middle}
+#two_table tr th{border:2px black solid;text-align: center;word-wrap:break-word;color: red;vertical-align:middle}
+</style>
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div class="commonsearch-table">
+                        <form class="form-inline  nice-validator nice-validator n-default" action="{:url('wmreport/depdraw/index')}" id="f-commonsearch" role="form" method="post">
+                            <fieldset style="text-align: left;">
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="p_name" class="control-label labelLocation">产品名称</label>
+                                    <input type="text" name="p_name" class="form-control clear" size="8" value="{$Request.param.p_name}">
+                                </div>
+
+                                <div class="form-group dislocationAll">
+                                    <label for="lotnum" class="control-label labelLocation">批号</label>
+                                    <input type="text" name="lotnum" class="form-control clear" size="8" value="{$Request.param.lotnum}">
+                                </div>
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="dept" class="control-label labelLocation">所属仓库</label>
+                                    
+                                    <select id="depot_id"  class="form-control clear" name="depot_id">
+                                        <option value='' >--- 请选择 ---</option>
+                                        {foreach name="depotList" item="vo"}
+                                        <option  value="{$vo.id}" {in name="$vo.id" value="$Request.param.depot_id"}selected{/in}>{$vo.name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+
+                                
+                                <div class="form-group dislocationAll">
+                                    <label for="order_num" class="control-label labelLocation">领取单号</label>
+                                    <input type="text" name="order_num" class="form-control clear" size="8" value="{$Request.param.order_num}">
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="dept" class="control-label labelLocation">领取科室</label>
+                                    <select id="dept" class="form-control clear selectpicker show-tick" name="dept"  data-live-search="true">
+                                        <option value='' >--- 请选择 ---</option>
+                                        {foreach name="deptList" item="vo"}
+                                        <option  value="{$vo.dept_id}" {in name="$vo.dept_id" value="$Request.param.dept"}selected{/in}>{$vo.dept_name}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="out_id" class="control-label labelLocation">领取人</label>
+                                    <select id="out_id" class="form-control clear selectpicker show-tick" name="out_id" data-live-search="true" >
+                                        <option  value='' >--- 请选择 ---</option>
+                                        {foreach name="userList" item="vo"}
+                                        <option  value="{$vo.id}" {in name="$vo.id" value="$Request.param.out_id"}selected{/in}>{$vo.nickname}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="type" class="control-label labelLocation red">状态</label>
+                                    <select id="type" class="form-control " name="type" >
+                                    <option value="99" >------ ALL ------</option>
+                                        <option value="4" {in name="4" value="$Request.param.type"}selected{/in}>科室领药</option>
+                                        <option value="5" {in name="5" value="$Request.param.type"}selected{/in}>科室领料</option>
+                                    </select>
+                                </div>
+                                <div class="form-group dislocationAll">
+                                    <label for="id" class="control-label labelLocation">领取日期</label>
+                                    <input type="text" name="stime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.stime)} value="<?php echo date('Y-m-01');?>"{else} value="{$Request.param.stime}"{/if} size="8">  ~  <input type="text" name="etime" class="form-control datetimepicker " data-use-current="true" data-date-format="YYYY-MM-DD" {if is_null($Request.param.etime)} value="<?php echo date('Y-m-d',strtotime(date('Y-m-01').' +1 month -1 day'));?>"{else} value="{$Request.param.etime}"{/if} size="8">
+                                </div>
+
+                                
+                                <div class="form-group" style="">
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-success dislocationRight">提交</button>
+                                        <a type="reset" class="btn btn-default" id="btn-customer-clear">重置</a>
+                                        <button type="button" class="btn btn-default" id="btn-export">导出</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" onclick="window.location.reload()"><i class="fa fa-refresh"></i> </a> &nbsp;
+                        <!-- <a href="javascript:;" class="btn btn-primary" id="isPrint">打印</a> -->
+                        
+                    </div>
+                    
+<!--startprint-->
+                   
+                    <div class="form-group " style="font-family: KaiTi;width: 100%;">
+                        <div style="text-align: center;font-weight:bold;font-size: 20px;"> 科室领取产品统计表</div>
+					</div>
+					<div class="proreportDate" style="font-family: KaiTi;width: 100%;height: 22px;">
+                            {if condition="!empty($alls)"}
+                        <div style="font-weight:normal;font-size: 15px;float: left;" >
+                            <b>总数量:</b><span style="color: #18bc9c">{$alls.mallmpro_num?$alls.mallmpro_num:''}</span>&nbsp;&nbsp;
+                            <b>总成本:</b><span style="color: #18bc9c">{$alls.mallcost?$alls.mallcost:''}</span>
+                        </div>
+                        {/if}
+                            <div style="font-weight:normal;font-size: 13px;float: right;">打印日期：<?php echo date('Y-m-d');?></div>
+                    </div>
+                    <div id="consumTable" style="position: relative;overflow-y: auto;">
+                    <table id="table" class=" table table-striped table-bordered table-hover scrolltable" width="100%"  style="table-layout: fixed;" >             
+                         <thead>
+                         	<tr>
+	                            <th class="proreport-th red">领取科室</th>
+	                            <th class="proreport-th">领取日期</th>
+	                            <th class="proreport-th">领取单号</th>
+                                <th class="proreport-th">所属仓库</th>
+                                <th class="proreport-th">类别</th>
+	                            <th class="proreport-th red">领取产品</th>
+                                <th class="proreport-th red">批号</th>
+	                            <th class="proreport-th">规格</th>
+	                            <th class="proreport-th">单位</th>
+	                            <th class="proreport-th">数量</th>
+	                            <th class="proreport-th">总成本</th>
+	                            <th class="proreport-th">领取人</th>
+	                            <th class="proreport-th">客户</th>
+	                            <th class="proreport-th">备注</th>
+                        	</tr>
+                        </thead>
+
+                        {if condition="!empty($data)"}
+                         <tbody style="max-height: 200px; overflow-y: overlay;">
+                        {foreach name= 'data' item='v' key='k'}                         
+                        {foreach name= 'v' item='vo' key='kk'}
+                            <tr style="">
+                                <td style="color: red">{if $counts[$k]-$kk <$counts[$k] } {else} {$vo.dept_name} {/if}</td>
+                                <td>{$vo.mcreatetime|datetime="Y-m-d"}</td>
+                                <td>{$vo.man_num}</td>
+                                <td>{$vo.dtname}</td>
+                                <td>{$vo.pro_cat1}*{$vo.pro_cat2}</td>
+                                <td>{$vo.pro_name}</td>
+                                <td>{$vo.lotnum}</td>
+                                <td>{$vo.pro_spec}</td>
+                                <td>{$vo.uname}</td>
+                                <td>{$vo.mpro_num}</td>
+                                <td>{$vo.mallcost}</td>
+                                <td>{$vo.nickname}</td>
+                                <td>{$vo.ctm_name}</td>
+                                <td>{$vo.mremark}</td>
+                            </tr>
+                        {/foreach}
+                            {foreach name= 'datas' item='vv' key="kk"}
+                            {if condition="$kk == $k"} 
+                            <tr style="border-bottom: 2px solid" class="one_table">                                
+                                <th colspan="9" style="text-align: right;color: red;padding-right: 20px;">小计:</th>
+                                <th colspan="1" style="color: red;">{$vv.all_num}</th>
+                                <th colspan="1" style="color: red;">{$vv.all_money}</th>
+                                <th colspan="3"></th>
+                            </tr>
+                            {/if}
+                        	{/foreach}                        
+                   		{/foreach}
+                    </tbody>
+                     <!-- <tfoot class="proreport-tfoot"  style="">
+                        <tr  style="" class="two_table">
+                            <th colspan="8" style="">总合计:</th>
+                            <th style="color: red;">{$alls.mallmpro_num?$alls.mallmpro_num:''}</th>
+                            <th style="color: red;">{$alls.mallcost?$alls.mallcost:''}</th>
+                            <th colspan="3"></th>
+                        </tr>
+                       </tfoot> -->
+                    {/if}    
+                </table>
+                </div>
+                  
+<!--endprint-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<span id="h_yjy_where" class="hidden">{if (isset($where))}{$where}{else}[]{/if}</span>
